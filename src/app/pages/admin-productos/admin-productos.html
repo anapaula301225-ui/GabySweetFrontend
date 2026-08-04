@@ -1,0 +1,930 @@
+<div class="container">
+
+
+
+    <!-- ==========================
+         HEADER
+    =========================== -->
+
+
+    <div class="productos-header">
+
+
+        <div>
+
+
+            <span>
+                PANEL ADMINISTRATIVO
+            </span>
+
+
+            <h2>
+
+                Gestión de Productos 🍰
+
+            </h2>
+
+
+            <p>
+
+                Administra el catálogo de productos de GabySweet.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <button
+
+        class="btn-gabysweet"
+
+        (click)="abrirFormulario()">
+
+
+
+            <i class="bi bi-plus-circle"></i>
+
+
+            Nuevo producto
+
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- ==========================
+         FORMULARIO
+    =========================== -->
+
+
+    @if(mostrarFormulario){
+
+
+
+    <div class="card formulario-card">
+
+
+        <div class="card-body">
+
+
+
+            <div class="form-header">
+
+
+                <h3>
+
+
+                    @if(modoEdicion){
+
+                        Editar producto ✏️
+
+                    }
+
+                    @else{
+
+                        Nuevo producto 🍰
+
+                    }
+
+
+                </h3>
+
+
+
+                <p>
+
+                    Completa la información del producto.
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <form
+
+            [formGroup]="productoForm"
+
+            (ngSubmit)="guardarProducto()">
+
+
+
+
+
+                <div class="row">
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+
+                        <label>
+
+                            Nombre del producto
+
+                        </label>
+
+
+
+
+                        <input
+
+                        class="form-control"
+
+                        type="text"
+
+                        placeholder="Ej: Torta de chocolate"
+
+                        formControlName="nombre">
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+
+                        <label>
+
+                            Precio
+
+                        </label>
+
+
+
+
+                        <input
+
+                        class="form-control"
+
+                        type="number"
+
+                        placeholder="0.00"
+
+                        formControlName="precio">
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="mb-3">
+
+
+                    <label>
+
+                        Descripción
+
+                    </label>
+
+
+
+                    <textarea
+
+                    class="form-control"
+
+                    rows="4"
+
+                    placeholder="Describe el producto..."
+
+                    formControlName="descripcion">
+
+                    </textarea>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="row">
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+
+                        <label>
+
+                            Stock disponible
+
+                        </label>
+
+
+
+
+                        <input
+
+                        class="form-control"
+
+                        type="number"
+
+                        formControlName="stock">
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+
+                        <label>
+
+                            Estado
+
+                        </label>
+
+
+
+
+                        <select
+
+                        class="form-select"
+
+                        formControlName="disponible">
+
+
+
+                            <option
+
+                            [ngValue]="true">
+
+                                Disponible
+
+                            </option>
+
+
+
+
+                            <option
+
+                            [ngValue]="false">
+
+                                No disponible
+
+                            </option>
+
+
+
+                        </select>
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- IMAGEN -->
+
+
+                <div class="imagen-box">
+
+
+                    <label>
+
+                        Imagen del producto
+
+                    </label>
+
+
+
+
+                    <input
+
+                    type="file"
+
+                    class="form-control"
+
+                    accept="image/*"
+
+                    (change)="seleccionarImagen($event)">
+
+
+
+
+
+                    @if(nombreImagen){
+
+
+                    <div class="imagen-seleccionada">
+
+
+                        <i class="bi bi-image"></i>
+
+
+                        {{nombreImagen}}
+
+
+                    </div>
+
+
+
+                    }
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="acciones-form">
+
+
+
+                    <button
+
+                    type="button"
+
+                    class="btn-cancelar"
+
+                    (click)="cancelar()">
+
+
+
+                        Cancelar
+
+
+
+                    </button>
+
+
+
+
+
+
+
+                    <button
+
+                    type="submit"
+
+                    class="btn-gabysweet">
+
+
+
+                        @if(modoEdicion){
+
+                            Actualizar producto
+
+                        }
+
+                        @else{
+
+                            Guardar producto
+
+                        }
+
+
+
+                    </button>
+
+
+
+
+                </div>
+
+
+
+
+
+            </form>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+    }
+
+
+
+
+
+
+
+
+
+    <!-- ==========================
+         LISTADO
+    =========================== -->
+
+
+
+
+    <div class="card listado-card">
+
+
+
+        <div class="card-body">
+
+
+
+            <div class="listado-header">
+
+
+
+                <div>
+
+
+                    <h3>
+
+                        Productos registrados
+
+                    </h3>
+
+
+                    <p>
+
+                        Catálogo actual de productos.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="buscador">
+
+
+
+                    <i class="bi bi-search"></i>
+
+
+
+                    <input
+
+
+                    type="text"
+
+
+                    placeholder="Buscar producto..."
+
+
+                    [(ngModel)]="textoBusqueda"
+
+
+                    (input)="buscarProductos()">
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            @if(cargando){
+
+
+
+                <div class="loading">
+
+
+                    Cargando productos...
+
+
+                </div>
+
+
+
+            }
+
+            @else {
+
+
+
+            <div class="table-responsive">
+
+
+
+                <table class="table">
+
+
+
+                    <thead>
+
+
+                        <tr>
+
+
+                            <th>
+                                Imagen
+                            </th>
+
+
+
+                            <th>
+                                Producto
+                            </th>
+
+
+
+
+                            <th>
+                                Descripción
+                            </th>
+
+
+
+
+                            <th>
+                                Precio
+                            </th>
+
+
+
+
+                            <th>
+                                Stock
+                            </th>
+
+
+
+
+                            <th>
+                                Estado
+                            </th>
+
+
+
+
+                            <th>
+                                Acciones
+                            </th>
+
+
+
+                        </tr>
+
+
+                    </thead>
+
+
+
+
+
+
+
+
+                    <tbody>
+
+
+
+
+                    @for(producto of productos; track producto.id_producto){
+
+
+
+                        <tr>
+
+
+
+
+                            <td>
+
+
+
+                                @if(producto.imagen){
+
+
+
+                                <img
+
+
+                                [src]="'http://localhost:3000/uploads/' + producto.imagen"
+
+
+                                [alt]="producto.nombre">
+
+
+
+                                }
+
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <strong>
+
+                                    {{producto.nombre}}
+
+                                </strong>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                {{producto.descripcion}}
+
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <span class="precio">
+
+
+                                    S/. {{producto.precio}}
+
+
+                                </span>
+
+
+
+                            </td>
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <span class="stock">
+
+
+                                    {{producto.stock}}
+
+                                </span>
+
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+
+                                @if(producto.disponible){
+
+
+                                    <span class="estado activo">
+
+                                        Disponible
+
+                                    </span>
+
+
+                                }
+
+                                @else{
+
+
+                                    <span class="estado inactivo">
+
+                                        Agotado
+
+                                    </span>
+
+
+                                }
+
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+
+                                <div class="acciones-tabla">
+
+
+
+                                    <button
+
+
+                                    class="btn-editar"
+
+
+                                    (click)="editarProducto(producto)">
+
+
+
+                                        ✏️ Editar
+
+
+
+                                    </button>
+
+
+
+
+
+
+
+
+                                    <button
+
+
+                                    class="btn-eliminar"
+
+
+                                    (click)="eliminarProducto(producto.id_producto)">
+
+
+
+                                        🗑 Eliminar
+
+
+
+                                    </button>
+
+
+
+                                </div>
+
+
+
+                            </td>
+
+
+
+
+
+                        </tr>
+
+
+
+                    }
+
+
+
+
+
+                    </tbody>
+
+
+
+                </table>
+
+
+
+
+            </div>
+
+
+
+            }
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,957 @@
+:host {
+
+  --rosa: #ef5f86;
+  --rosa-claro: #fff0f4;
+  --rosa-borde: #ffabc0;
+  --vino: #8e1741;
+  --marron: #693116;
+  --verde: #14933b;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+
+/* =========================
+   MODAL
+========================= */
+
+
+.modal-fondo {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:20px;
+
+  background:rgba(54,20,32,.55);
+
+  overflow:auto;
+
+}
+
+
+
+/* =========================
+   COMPROBANTE
+========================= */
+
+
+.comprobante {
+
+
+  width:100%;
+
+
+  max-width:620px;
+
+
+  max-height:88vh;
+
+
+  overflow-y:auto;
+
+
+  border:2px solid var(--rosa-borde);
+
+
+  border-radius:22px;
+
+
+  background:white;
+
+
+  box-shadow:
+  0 15px 45px rgba(53,14,30,.35);
+
+
+}
+
+
+
+/* =========================
+ CABECERA
+========================= */
+
+
+.cabecera {
+
+
+  position:relative;
+
+
+  padding:20px 20px 8px;
+
+
+  text-align:center;
+
+
+  color:var(--rosa);
+
+
+}
+
+
+
+.esquina {
+
+
+ position:absolute;
+
+
+ top:10px;
+
+
+ font-size:20px;
+
+
+ color:var(--rosa);
+
+
+}
+
+
+.esquina-izq{
+
+left:20px;
+
+}
+
+
+.esquina-der{
+
+right:20px;
+
+}
+
+
+
+
+
+.logo-circulo {
+
+
+ display:grid;
+
+
+ width:70px;
+
+
+ height:70px;
+
+
+ margin:auto;
+
+
+ place-items:center;
+
+
+ border:3px double #f5a5b9;
+
+
+ border-radius:50%;
+
+
+ background:#fff8f9;
+
+
+ font-size:36px;
+
+
+ box-shadow:0 3px 10px #f7b6c6;
+
+
+}
+
+
+
+.cabecera h1 {
+
+
+ margin:8px 0 0;
+
+
+ font-family:Georgia,serif;
+
+
+ font-style:italic;
+
+
+ font-size:44px;
+
+
+ line-height:1;
+
+
+ color:var(--rosa);
+
+
+}
+
+
+
+.subtitulo {
+
+
+ margin:7px 0;
+
+
+ color:var(--marron);
+
+
+ font-size:12px;
+
+
+ font-weight:bold;
+
+
+ letter-spacing:3px;
+
+
+}
+
+
+
+.adorno {
+
+
+ margin:4px 0 12px;
+
+
+ color:#e7aa54;
+
+
+ font-size:20px;
+
+
+}
+
+
+
+.cabecera h2 {
+
+
+ margin:0;
+
+
+ padding:10px;
+
+
+ background:linear-gradient(
+ 90deg,
+ #f7ccda,
+ #f1abc1,
+ #f7ccda
+ );
+
+
+ color:var(--vino);
+
+
+ font-size:22px;
+
+
+}
+
+
+
+
+
+/* =========================
+ CONTENIDO
+========================= */
+
+
+.contenido {
+
+
+ padding:18px 28px;
+
+
+}
+
+
+
+
+
+.numeros {
+
+
+ display:grid;
+
+
+ grid-template-columns:repeat(2,1fr);
+
+
+ gap:15px;
+
+
+ margin-bottom:20px;
+
+
+}
+
+
+
+.tarjeta-numero {
+
+
+ display:flex;
+
+
+ align-items:center;
+
+
+ justify-content:center;
+
+
+ gap:10px;
+
+
+ min-height:75px;
+
+
+ border:2px solid var(--rosa-borde);
+
+
+ border-radius:16px;
+
+
+ background:#fff;
+
+
+}
+
+
+
+.tarjeta-numero .icono {
+
+
+ font-size:27px;
+
+
+}
+
+
+
+.tarjeta-numero small {
+
+
+ display:block;
+
+
+ color:var(--marron);
+
+
+ font-size:11px;
+
+
+ font-weight:bold;
+
+
+}
+
+
+
+.tarjeta-numero strong {
+
+
+ display:block;
+
+
+ margin-top:5px;
+
+
+ font-size:24px;
+
+
+ color:#182039;
+
+
+}
+
+
+
+
+
+/* =========================
+ BLOQUES
+========================= */
+
+
+.bloque {
+
+
+ position:relative;
+
+
+ margin-top:25px;
+
+
+ padding:28px 15px 8px;
+
+
+ border:2px solid var(--rosa-borde);
+
+
+ border-radius:18px;
+
+
+}
+
+
+
+.bloque h3 {
+
+
+ position:absolute;
+
+
+ top:-16px;
+
+
+ left:15px;
+
+
+ margin:0;
+
+
+ padding:7px 14px;
+
+
+ border-radius:5px;
+
+
+ background:var(--rosa);
+
+
+ color:white;
+
+
+ font-size:15px;
+
+
+}
+
+
+
+
+
+.dato {
+
+
+ display:flex;
+
+
+ justify-content:space-between;
+
+
+ gap:10px;
+
+
+ padding:9px 5px;
+
+
+ border-bottom:1px dashed #f7b6c6;
+
+
+ color:var(--marron);
+
+
+ font-size:14px;
+
+
+}
+
+
+
+.dato strong {
+
+
+ color:#182039;
+
+
+ text-align:right;
+
+
+}
+
+
+
+.sin-borde {
+
+
+ border-bottom:none;
+
+}
+
+
+
+
+
+/* =========================
+ MONTO
+========================= */
+
+
+.monto {
+
+
+ display:flex;
+
+
+ justify-content:space-between;
+
+
+ align-items:center;
+
+
+ margin:12px 0;
+
+
+ padding:12px;
+
+
+ border-radius:12px;
+
+
+ border:1px solid #f3b54e;
+
+
+ background:#fff7e8;
+
+
+ color:var(--marron);
+
+
+}
+
+
+
+.monto strong {
+
+
+ color:#cf0a3b;
+
+
+ font-size:32px;
+
+
+}
+
+
+
+
+
+/* =========================
+ ESTADO
+========================= */
+
+
+.estado {
+
+
+ margin-top:20px;
+
+
+}
+
+
+
+.estado-pagado,
+.estado-pendiente,
+.estado-rechazado {
+
+
+ display:flex;
+
+
+ justify-content:center;
+
+
+ align-items:center;
+
+
+ gap:15px;
+
+
+ padding:12px;
+
+
+ border-radius:16px;
+
+
+}
+
+
+
+.estado-pagado {
+
+
+ background:#f2fff5;
+
+
+ color:var(--verde);
+
+
+ border:1px solid #b7eec7;
+
+
+}
+
+
+
+.estado-pendiente {
+
+
+ background:#fffbe7;
+
+
+ color:#9b6700;
+
+
+}
+
+
+
+.estado-rechazado {
+
+
+ background:#fff1f1;
+
+
+ color:#c52424;
+
+
+}
+
+
+
+.check {
+
+
+ display:grid;
+
+
+ width:45px;
+
+
+ height:45px;
+
+
+ place-items:center;
+
+
+ border-radius:50%;
+
+
+ border:2px dashed currentColor;
+
+
+ font-size:28px;
+
+
+}
+
+
+
+
+.estado strong {
+
+
+ font-size:20px;
+
+
+}
+
+
+
+
+.estado p {
+
+
+ margin:3px;
+
+
+ font-size:13px;
+
+
+}
+
+
+
+
+
+/* =========================
+ FOOTER
+========================= */
+
+
+.pie {
+
+
+ padding:16px;
+
+
+ background:#fffafa;
+
+
+ text-align:center;
+
+
+}
+
+
+
+.pie p {
+
+
+ margin:0;
+
+
+ color:var(--rosa);
+
+
+ font-family:Georgia,serif;
+
+
+ font-size:20px;
+
+
+}
+
+
+
+.pie strong {
+
+
+ display:block;
+
+
+ margin-top:6px;
+
+
+ font-size:11px;
+
+
+ letter-spacing:1px;
+
+
+}
+
+
+
+.pie small {
+
+
+ color:#888;
+
+
+ font-size:11px;
+
+
+}
+
+
+
+
+
+/* =========================
+ BOTONES
+========================= */
+
+
+.acciones {
+
+
+ display:flex;
+
+
+ justify-content:center;
+
+
+ gap:10px;
+
+
+ padding:15px;
+
+
+ background:white;
+
+
+}
+
+
+
+.btn {
+
+
+ padding:9px 20px;
+
+
+ border:none;
+
+
+ border-radius:8px;
+
+
+ cursor:pointer;
+
+
+ font-weight:bold;
+
+
+}
+
+
+
+.btn-cerrar {
+
+
+ background:#ddd;
+
+
+}
+
+
+
+.btn-gabysweet {
+
+
+ background:var(--rosa);
+
+
+ color:white;
+
+
+}
+
+
+
+
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+
+@media(max-width:600px){
+
+
+.comprobante{
+
+max-width:95%;
+
+}
+
+
+
+.numeros{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.dato{
+
+
+flex-direction:column;
+
+
+}
+
+
+
+.dato strong{
+
+
+text-align:left;
+
+
+}
+
+
+}
+
+
+
+/* =========================
+ IMPRESION
+========================= */
+
+
+@media print {
+
+  @page{
+    size:A4 portrait;
+    margin:10mm;
+  }
+
+  body *{
+    visibility:hidden;
+  }
+
+  .comprobante,
+  .comprobante *{
+    visibility:visible;
+  }
+
+  .modal-fondo{
+    position:static;
+    display:block;
+    background:white;
+    padding:0;
+  }
+
+  .comprobante{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    max-width:none;
+
+    max-height:none;
+
+    overflow:visible;
+
+    border:none;
+
+    box-shadow:none;
+
+    transform:scale(.50);
+
+    transform-origin:top center;
+
+  }
+
+  .acciones{
+    display:none;
+  }
+
+}

@@ -1,0 +1,863 @@
+/* =====================================================
+   GABYSWEET - LOGIN PREMIUM
+===================================================== */
+
+
+:host{
+
+    --rosa:#D86B89;
+    --rosa-hover:#C95776;
+    --rosa-claro:#FCE8EF;
+
+    --marron:#6B3E26;
+
+    --crema:#FFF8F5;
+
+    --gris:#777;
+
+    --blanco:#ffffff;
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+
+.login-container{
+
+
+    min-height:100vh;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #FFF8F5,
+
+        #ffffff
+
+    );
+
+
+}
+
+
+
+
+
+
+
+/* Decoraciones de fondo */
+
+
+.login-background::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:420px;
+
+
+    height:420px;
+
+
+    background:var(--rosa-claro);
+
+
+    border-radius:50%;
+
+
+    top:-150px;
+
+
+    left:-150px;
+
+
+    opacity:.7;
+
+
+}
+
+
+
+
+.login-background::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:350px;
+
+
+    height:350px;
+
+
+    background:#F7D7E2;
+
+
+    border-radius:50%;
+
+
+    bottom:-120px;
+
+
+    right:-100px;
+
+
+    opacity:.6;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARD LOGIN
+===================================================== */
+
+
+.login-card{
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+    background:rgba(255,255,255,.92);
+
+
+    backdrop-filter:blur(15px);
+
+
+    border-radius:35px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+
+    0 25px 70px rgba(107,62,38,.15);
+
+
+    animation:entrada .6s ease;
+
+
+}
+
+
+
+
+
+
+.login-body{
+
+
+    padding:45px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   MARCA
+===================================================== */
+
+
+.brand{
+
+
+    text-align:center;
+
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+.brand-icon{
+
+
+    width:90px;
+
+
+    height:90px;
+
+
+    margin:auto;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-size:45px;
+
+
+    background:var(--rosa-claro);
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+
+    0 10px 25px rgba(216,107,137,.2);
+
+
+    animation:flotar 3s infinite;
+
+
+}
+
+
+
+
+.brand h1{
+
+
+    margin-top:20px;
+
+
+    color:var(--marron);
+
+
+    font-size:38px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.brand h3{
+
+
+    color:var(--rosa);
+
+
+    font-size:22px;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+.brand p{
+
+
+    color:var(--gris);
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULARIO
+===================================================== */
+
+
+.form-group{
+
+
+    margin-bottom:22px;
+
+
+}
+
+
+
+
+.form-group label{
+
+
+    display:block;
+
+
+    margin-bottom:8px;
+
+
+    color:var(--marron);
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+.input-box{
+
+
+    position:relative;
+
+
+}
+
+
+
+
+.input-box i{
+
+
+    position:absolute;
+
+
+    left:18px;
+
+
+    top:50%;
+
+
+    transform:translateY(-50%);
+
+
+    color:var(--rosa);
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+.input-box input{
+
+
+    width:100%;
+
+
+    padding:15px 20px 15px 50px;
+
+
+    border-radius:25px;
+
+
+    border:2px solid #f1d9e2;
+
+
+    outline:none;
+
+
+    font-size:15px;
+
+
+    transition:.3s;
+
+
+    background:#fff;
+
+
+}
+
+
+
+
+
+.input-box input:focus{
+
+
+    border-color:var(--rosa);
+
+
+    box-shadow:
+
+
+    0 0 0 4px rgba(216,107,137,.12);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ERRORES
+===================================================== */
+
+
+.error-message{
+
+
+    display:block;
+
+
+    margin-top:8px;
+
+
+    color:#c0392b;
+
+
+    font-size:13px;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   BOTON LOGIN
+===================================================== */
+
+
+.btn-login{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    padding:15px;
+
+
+    border-radius:30px;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #D86B89,
+
+        #E88BA3
+
+    );
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    font-weight:800;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+    margin-top:10px;
+
+
+    box-shadow:
+
+
+    0 12px 25px rgba(216,107,137,.3);
+
+
+}
+
+
+
+
+
+.btn-login:hover:not(:disabled){
+
+
+    transform:translateY(-3px);
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #C95776,
+
+        #D86B89
+
+    );
+
+
+}
+
+
+
+
+
+
+.btn-login:disabled{
+
+
+    opacity:.7;
+
+
+    cursor:not-allowed;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   DIVISOR
+===================================================== */
+
+
+.divider{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+    margin:30px 0;
+
+
+    color:#999;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+.divider::before,
+
+.divider::after{
+
+
+    content:"";
+
+
+    height:1px;
+
+
+    flex:1;
+
+
+    background:#ead8df;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   GOOGLE
+===================================================== */
+
+
+.google-area{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   REGISTRO
+===================================================== */
+
+
+.register-section{
+
+
+    text-align:center;
+
+
+}
+
+
+
+.register-section p{
+
+
+    color:#777;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.btn-register{
+
+
+    border:none;
+
+
+    background:#FFF0F5;
+
+
+    color:var(--rosa);
+
+
+    padding:12px 30px;
+
+
+    border-radius:30px;
+
+
+    font-weight:800;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.btn-register:hover{
+
+
+    background:var(--rosa);
+
+
+    color:white;
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+
+@keyframes entrada{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:translateY(30px);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+@keyframes flotar{
+
+
+    50%{
+
+
+        transform:translateY(-8px);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:600px){
+
+
+
+    .login-body{
+
+
+        padding:30px 22px;
+
+
+    }
+
+
+
+
+
+    .brand h1{
+
+
+        font-size:32px;
+
+
+    }
+
+
+
+    .brand h3{
+
+
+        font-size:19px;
+
+
+    }
+
+
+
+}

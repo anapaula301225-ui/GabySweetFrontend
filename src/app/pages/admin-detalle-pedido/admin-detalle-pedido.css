@@ -1,0 +1,783 @@
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.pedido-container {
+
+    padding: 35px;
+    background: #fff8fb;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+
+.pedido-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+    0 10px 30px rgba(214,51,132,.08);
+
+}
+
+
+
+.pedido-label {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #d63384;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+.pedido-header h2 {
+
+    margin: 8px 0;
+
+    font-size: 42px;
+
+    color: #6b3e26;
+
+}
+
+
+
+.pedido-header p {
+
+    color: #777;
+
+    margin: 0;
+
+}
+
+
+
+
+
+/* BOTON VOLVER */
+
+.btn-volver {
+
+    border: none;
+
+    background: #d63384;
+
+    color: white;
+
+    padding: 13px 25px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+
+.btn-volver:hover {
+
+    background: #ff8fb8;
+
+    transform: translateY(-3px);
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   INFORMACION PRINCIPAL
+========================================= */
+
+
+.info-grid {
+
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+
+}
+
+
+
+.info-card {
+
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.05);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.info-card:hover {
+
+
+    transform: translateY(-5px);
+
+
+}
+
+
+
+.info-card .icon {
+
+
+    width:55px;
+
+    height:55px;
+
+    background:#ffe0ec;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:26px;
+
+
+}
+
+
+
+.info-card h4 {
+
+
+    margin:0;
+
+    font-size:14px;
+
+    color:#999;
+
+
+}
+
+
+
+.info-card strong {
+
+
+    display:block;
+
+    color:#6b3e26;
+
+    margin-top:5px;
+
+}
+
+
+
+.info-card p {
+
+
+    margin:4px 0;
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   ESTADO
+========================================= */
+
+
+.estado-container {
+
+
+    background:white;
+
+    padding:25px 30px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.05);
+
+
+}
+
+
+
+.estado-container h4 {
+
+
+    margin:0 0 10px;
+
+    color:#555;
+
+
+}
+
+
+
+.estado-badge {
+
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    background:#ffe0ec;
+
+    color:#d63384;
+
+    font-weight:700;
+
+    font-size:14px;
+
+
+}
+
+
+
+
+.estado-control {
+
+
+    display:flex;
+
+    gap:15px;
+
+
+}
+
+
+
+.estado-select {
+
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    outline:none;
+
+    cursor:pointer;
+
+
+}
+
+
+
+.btn-actualizar {
+
+
+    background:#6b3e26;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn-actualizar:hover {
+
+
+    background:#8b5a3c;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   PRODUCTOS
+========================================= */
+
+
+.productos-container {
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.05);
+
+
+}
+
+
+
+.section-title {
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.section-title h3 {
+
+
+    margin:0;
+
+    color:#6b3e26;
+
+    font-size:24px;
+
+
+}
+
+
+
+.section-title span {
+
+
+    background:#ffe0ec;
+
+    color:#d63384;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+/* GRID PRODUCTOS */
+
+
+.productos-grid {
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fill,minmax(260px,1fr));
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+.producto-card {
+
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:#fff8fb;
+
+    transition:.3s;
+
+    border:1px solid #f5d8e5;
+
+
+}
+
+
+
+.producto-card:hover {
+
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 15px 35px rgba(214,51,132,.15);
+
+
+}
+
+
+
+
+.producto-card img {
+
+
+    width:100%;
+
+    height:190px;
+
+    object-fit:cover;
+
+
+}
+
+
+
+
+
+
+
+.producto-info {
+
+
+    padding:20px;
+
+
+}
+
+
+
+.producto-info h4 {
+
+
+    margin:0;
+
+    color:#6b3e26;
+
+    font-size:19px;
+
+
+}
+
+
+
+.producto-info p {
+
+
+    color:#777;
+
+    font-size:14px;
+
+    min-height:40px;
+
+
+}
+
+
+
+
+
+
+
+.producto-footer {
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+
+}
+
+
+
+.producto-footer span {
+
+
+    background:white;
+
+    padding:8px 12px;
+
+    border-radius:12px;
+
+    color:#666;
+
+    font-size:13px;
+
+
+}
+
+
+
+.producto-footer strong {
+
+
+    color:#d63384;
+
+    font-size:20px;
+
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   TOTAL FINAL
+========================================= */
+
+
+.total-final {
+
+
+    margin-top:30px;
+
+    background:#6b3e26;
+
+    color:white;
+
+    padding:25px 35px;
+
+    border-radius:22px;
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+}
+
+
+
+.total-final span {
+
+
+    font-size:18px;
+
+}
+
+
+
+.total-final strong {
+
+
+    font-size:32px;
+
+    color:#ffe0ec;
+
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+
+.loading {
+
+
+    text-align:center;
+
+    padding:40px;
+
+    color:#d63384;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+
+@media(max-width:1000px){
+
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .estado-container{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+    .pedido-container{
+
+        padding:15px;
+
+    }
+
+
+
+    .pedido-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+
+
+    .pedido-header h2{
+
+        font-size:32px;
+
+    }
+
+
+
+    .estado-control{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+
+
+    .estado-select,
+    .btn-actualizar{
+
+        width:100%;
+
+    }
+
+
+}

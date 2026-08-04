@@ -1,0 +1,349 @@
+<div class="container py-5 auditoria-container">
+
+
+    <!-- TITULO -->
+
+    <div class="mb-5">
+
+        <h2 class="fw-bold">
+
+            <i class="bi bi-clipboard-data"></i>
+
+            Auditoría del Sistema
+
+        </h2>
+
+
+        <p class="text-muted">
+
+            Historial de acciones realizadas en GabySweet.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <!-- TARJETAS -->
+
+    <div class="row g-4 mb-4">
+
+
+        <div class="col-md-4">
+
+
+            <div class="card resumen-card shadow-sm">
+
+
+                <div class="card-body text-center">
+
+
+                    <i class="bi bi-clock-history icono"></i>
+
+
+                    <h3>
+
+                        {{auditorias.length}}
+
+                    </h3>
+
+
+                    <p>
+
+                        Registros realizados
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="col-md-4">
+
+
+            <div class="card resumen-card shadow-sm">
+
+
+                <div class="card-body text-center">
+
+
+                    <i class="bi bi-person-check icono"></i>
+
+
+                    <h3>
+
+                        Usuarios activos
+
+                    </h3>
+
+
+                    <p>
+
+                        Acciones registradas
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="col-md-4">
+
+
+            <div class="card resumen-card shadow-sm">
+
+
+                <div class="card-body text-center">
+
+
+                    <i class="bi bi-shield-check icono"></i>
+
+
+                    <h3>
+
+                        Sistema
+
+                    </h3>
+
+
+                    <p>
+
+                        Control de actividad
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- TABLA -->
+
+
+    <div class="card tabla-card shadow-sm">
+
+
+        <div class="card-body">
+
+
+
+            <h4 class="mb-4">
+
+                Historial de acciones
+
+            </h4>
+
+
+
+
+
+            <div class="table-responsive">
+
+
+                <table class="table align-middle">
+
+
+
+                    <thead>
+
+
+                        <tr>
+
+
+                            <th>
+
+                                Fecha
+
+                            </th>
+
+
+                            <th>
+
+                                Usuario
+
+                            </th>
+
+
+                            <th>
+
+                                Acción
+
+                            </th>
+
+
+                            <th>
+
+                                Módulo
+
+                            </th>
+
+
+
+                        </tr>
+
+
+                    </thead>
+
+
+
+
+
+
+                    <tbody>
+
+
+                    @for(a of auditorias; track a.id_auditoria){
+
+
+
+                        <tr>
+
+
+                            <td>
+
+                                {{a.fecha | date:'dd/MM/yyyy HH:mm'}}
+
+                            </td>
+
+
+
+
+
+                            <td>
+
+
+                                <strong>
+
+                                    {{a.nombre}}
+                                    {{a.apellido}}
+
+                                </strong>
+
+
+                                <br>
+
+
+                                <small class="text-muted">
+
+                                    {{a.email}}
+
+                                </small>
+
+
+                            </td>
+
+
+
+
+
+
+                            <td>
+
+
+                                {{a.accion}}
+
+
+                            </td>
+
+
+
+
+
+
+                            <td>
+
+
+                                <span
+                                class="badge modulo"
+                                [ngClass]="{
+
+                                'usuario':
+                                a.tabla_afectada=='usuario',
+
+                                'producto':
+                                a.tabla_afectada=='producto',
+
+                                'pedido':
+                                a.tabla_afectada=='detalle_pedido',
+
+                                'pago':
+                                a.tabla_afectada=='pago'
+
+                                }">
+
+
+                                {{a.tabla_afectada}}
+
+
+                                </span>
+
+
+                            </td>
+
+
+
+
+                        </tr>
+
+
+
+                    }
+
+
+
+                    </tbody>
+
+
+
+                </table>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

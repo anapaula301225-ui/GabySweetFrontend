@@ -1,0 +1,613 @@
+/* =====================================================
+   GABYSWEET - CARD PRODUCTO PREMIUM
+===================================================== */
+
+
+/* ==========================
+   CARD PRINCIPAL
+========================== */
+
+.producto-card{
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #fff0f5,
+        #ffffff
+    );
+
+
+    border-radius:30px;
+
+
+    overflow:hidden;
+
+
+    border:2px solid #f8d1df;
+
+
+    box-shadow:
+
+    0 12px 30px rgba(214,51,132,.15);
+
+
+    transition:.35s ease;
+
+
+    height:100%;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+.producto-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+    box-shadow:
+
+    0 20px 45px rgba(214,51,132,.25);
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   IMAGEN
+========================== */
+
+
+.producto-imagen{
+
+
+    height:230px;
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ffdce9,
+        #fff5f8
+    );
+
+
+}
+
+
+
+
+
+.producto-imagen img{
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+    transition:.4s ease;
+
+
+}
+
+
+
+
+.producto-card:hover .producto-imagen img{
+
+
+    transform:scale(1.08);
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   BADGE AGOTADO
+========================== */
+
+
+.badge-agotado{
+
+
+    position:absolute;
+
+
+    top:15px;
+
+
+    right:15px;
+
+
+    background:#dc2626;
+
+
+    color:white;
+
+
+    padding:8px 18px;
+
+
+    border-radius:30px;
+
+
+    font-size:13px;
+
+
+    font-weight:800;
+
+
+    box-shadow:
+
+    0 5px 15px rgba(220,38,38,.3);
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   INFORMACION
+========================== */
+
+
+.producto-info{
+
+
+    padding:25px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    flex:1;
+
+
+}
+
+
+
+
+
+.producto-info h3{
+
+
+    color:#6B3E26;
+
+
+    font-size:22px;
+
+
+    font-weight:900;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+.precio{
+
+
+    color:#D63384;
+
+
+    font-size:26px;
+
+
+    font-weight:900;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+   STOCK
+========================== */
+
+
+.stock-container{
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.stock{
+
+
+    display:inline-flex;
+
+
+    padding:8px 18px;
+
+
+    border-radius:25px;
+
+
+    font-size:13px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+.stock.disponible{
+
+
+    background:#dcfce7;
+
+
+    color:#15803d;
+
+
+}
+
+
+
+
+
+.stock.pocas{
+
+
+    background:#fef3c7;
+
+
+    color:#a16207;
+
+
+}
+
+
+
+
+
+.stock.agotado{
+
+
+    background:#fee2e2;
+
+
+    color:#b91c1c;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   BOTON EDITAR ADMIN
+========================== */
+
+
+.btn-editar{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    border-radius:25px;
+
+
+    padding:13px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #fbbf24
+    );
+
+
+    color:white;
+
+
+    font-weight:800;
+
+
+    transition:.3s;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+.btn-editar:hover{
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 10px 20px rgba(245,158,11,.35);
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   BOTON CARRITO
+========================== */
+
+
+.btn-carrito{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    border-radius:25px;
+
+
+    padding:13px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #D63384,
+        #ff78ac
+    );
+
+
+    color:white;
+
+
+    font-weight:900;
+
+
+    transition:.3s;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+.btn-carrito:hover{
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 12px 25px rgba(214,51,132,.35);
+
+
+}
+
+
+
+
+
+
+.btn-carrito:disabled{
+
+
+    background:#d1d5db;
+
+
+    cursor:not-allowed;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   PRODUCTO AGOTADO
+========================== */
+
+
+.btn-agotado{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    border-radius:25px;
+
+
+    padding:13px;
+
+
+    background:#d1d5db;
+
+
+    color:#6b7280;
+
+
+    font-weight:900;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   BOTON DETALLE
+========================== */
+
+
+.btn-detalle{
+
+
+    width:100%;
+
+
+    border:2px solid #D63384;
+
+
+    border-radius:25px;
+
+
+    padding:12px;
+
+
+    background:white;
+
+
+    color:#D63384;
+
+
+    font-weight:800;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.btn-detalle:hover{
+
+
+    background:#D63384;
+
+
+    color:white;
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+
+    .producto-imagen{
+
+
+        height:200px;
+
+
+    }
+
+
+    .producto-info{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+}

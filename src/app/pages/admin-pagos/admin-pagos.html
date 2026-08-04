@@ -1,0 +1,431 @@
+<div class="pagos-container">
+
+
+    <!-- HEADER -->
+
+    <div class="pagos-header">
+
+
+        <div>
+
+            <span class="label">
+
+                ADMINISTRACIÓN
+
+            </span>
+
+
+            <h2>
+
+                Pagos 💳
+
+            </h2>
+
+
+            <p>
+
+                Gestiona, confirma y revisa los pagos realizados por tus clientes.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="icon-header">
+
+            💰
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- CONTENIDO -->
+
+
+    <div class="pagos-card">
+
+
+
+        @if(cargando){
+
+
+            <div class="loading">
+
+                <div class="spinner"></div>
+
+                Cargando pagos...
+
+            </div>
+
+
+        }
+
+
+        @else {
+
+
+
+            <div class="tabla-header">
+
+
+                <h3>
+
+                    Pagos registrados
+
+                </h3>
+
+
+                <span>
+
+                    {{pagos.length}} pagos
+
+                </span>
+
+
+            </div>
+
+
+
+
+
+            <div class="table-responsive">
+
+
+
+                <table>
+
+
+
+                    <thead>
+
+
+                        <tr>
+
+
+                            <th>
+                                Pedido
+                            </th>
+
+
+                            <th>
+                                Cliente
+                            </th>
+
+
+                            <th>
+                                Método
+                            </th>
+
+
+                            <th>
+                                Monto
+                            </th>
+
+
+                            <th>
+                                Código
+                            </th>
+
+
+                            <th>
+                                Estado
+                            </th>
+
+
+                            <th>
+                                Acción
+                            </th>
+
+
+                        </tr>
+
+
+                    </thead>
+
+
+
+
+
+
+
+                    <tbody>
+
+
+
+                    @for(pago of pagos; track pago.id_pago){
+
+
+
+                        <tr>
+
+
+                            <td>
+
+
+                                <span class="pedido">
+
+                                    #{{pago.id_pedido}}
+
+                                </span>
+
+
+                            </td>
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <div class="cliente">
+
+
+                                    <strong>
+
+                                        {{pago.nombre}}
+
+                                        {{pago.apellido}}
+
+                                    </strong>
+
+
+                                    <small>
+
+                                        {{pago.email}}
+
+                                    </small>
+
+
+                                </div>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <span class="metodo">
+
+
+                                    {{pago.metodo_pago}}
+
+
+                                </span>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <strong class="monto">
+
+
+                                    S/. {{pago.monto}}
+
+
+                                </strong>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <div class="codigo">
+
+
+                                    <strong>
+
+                                        {{pago.codigo_operacion}}
+
+                                    </strong>
+
+
+                                    <small>
+
+                                        {{pago.codigo_seguridad}}
+
+                                    </small>
+
+
+                                </div>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+                                <span
+
+
+                                class="estado"
+
+
+                                [class.pagado]="pago.estado==='PAGADO'"
+
+
+                                [class.pendiente]="pago.estado==='PENDIENTE'"
+
+
+                                [class.rechazado]="pago.estado==='RECHAZADO'">
+
+
+                                    {{pago.estado}}
+
+
+                                </span>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <td>
+
+
+
+                                @if(pago.estado==='PENDIENTE'){
+
+
+
+                                    <div class="acciones">
+
+
+
+                                        <button
+
+                                        class="btn-confirmar"
+
+                                        (click)="confirmarPago(pago.id_pago)">
+
+
+
+                                            ✓ Confirmar
+
+
+                                        </button>
+
+
+
+
+
+
+                                        <button
+
+                                        class="btn-rechazar"
+
+                                        (click)="rechazarPago(pago.id_pago)">
+
+
+
+                                            ✕ Rechazar
+
+
+                                        </button>
+
+
+
+                                    </div>
+
+
+
+                                }
+
+
+                                @else{
+
+
+                                    <span class="sin-accion">
+
+                                        Procesado
+
+                                    </span>
+
+
+                                }
+
+
+
+                            </td>
+
+
+
+                        </tr>
+
+
+
+                    }
+
+
+
+                    </tbody>
+
+
+
+                </table>
+
+
+
+            </div>
+
+
+
+        }
+
+
+
+    </div>
+
+
+
+</div>

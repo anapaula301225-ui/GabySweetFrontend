@@ -1,0 +1,720 @@
+/* =====================================================
+   GABYSWEET - PRODUCTOS PREMIUM
+===================================================== */
+
+
+:host{
+
+    --rosa:#D63384;
+    --rosa-hover:#B82C70;
+
+    --rosa-claro:#FFE4EF;
+
+    --crema:#FFF7F2;
+
+    --marron:#6B3E26;
+
+    --texto:#666;
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+
+.productos-container{
+
+
+    max-width:1200px;
+
+
+    margin:40px auto;
+
+
+    padding:35px;
+
+
+
+    animation:entrada .5s ease;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.productos-header{
+
+
+    text-align:center;
+
+
+    margin-bottom:40px;
+
+
+
+}
+
+
+
+
+.productos-header span{
+
+
+    color:var(--rosa);
+
+
+    font-size:14px;
+
+
+    font-weight:900;
+
+
+    letter-spacing:3px;
+
+
+
+}
+
+
+
+
+
+.productos-header h1{
+
+
+    margin-top:12px;
+
+
+    color:var(--marron);
+
+
+    font-size:42px;
+
+
+    font-weight:900;
+
+
+
+}
+
+
+
+
+
+.productos-header p{
+
+
+    color:#777;
+
+
+    font-size:17px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   BUSCADOR
+===================================================== */
+
+
+.buscador-card{
+
+
+    max-width:600px;
+
+
+    margin:0 auto 45px;
+
+
+    background:white;
+
+
+    padding:12px;
+
+
+    border-radius:35px;
+
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(214,51,132,.15);
+
+
+
+    border:2px solid #ffd5e3;
+
+
+
+}
+
+
+
+
+
+
+
+.buscador-card input{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    outline:none;
+
+
+    padding:16px 25px;
+
+
+    border-radius:30px;
+
+
+    background:#fff8fb;
+
+
+    font-size:16px;
+
+
+    color:#555;
+
+
+
+}
+
+
+
+
+
+.buscador-card input::placeholder{
+
+
+    color:#aaa;
+
+
+}
+
+
+
+
+
+.buscador-card input:focus{
+
+
+    background:white;
+
+
+    box-shadow:
+
+
+    0 0 0 4px rgba(214,51,132,.12);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   GRID PRODUCTOS
+===================================================== */
+
+
+.productos-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+
+    repeat(4,1fr);
+
+
+
+    gap:30px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   TARJETAS HIJAS
+===================================================== */
+
+
+.productos-grid app-card-producto{
+
+
+    transition:.3s;
+
+
+    animation:aparecer .5s ease;
+
+
+}
+
+
+
+
+
+
+
+.productos-grid app-card-producto:hover{
+
+
+    transform:
+
+
+    translateY(-8px);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARGANDO
+===================================================== */
+
+
+.loading-box{
+
+
+    background:white;
+
+
+    border-radius:30px;
+
+
+    padding:50px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+
+}
+
+
+
+
+
+
+
+.spinner{
+
+
+    width:55px;
+
+
+    height:55px;
+
+
+    margin:auto;
+
+
+    border-radius:50%;
+
+
+    border:6px solid #ffd6e5;
+
+
+    border-top-color:var(--rosa);
+
+
+    animation:girar 1s linear infinite;
+
+
+
+}
+
+
+
+
+
+.loading-box p{
+
+
+    margin-top:20px;
+
+
+    color:var(--rosa);
+
+
+    font-weight:800;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   SIN PRODUCTOS
+===================================================== */
+
+
+.sin-productos{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #fff0f6,
+
+        #fff7f2
+
+    );
+
+
+
+    padding:50px;
+
+
+    border-radius:35px;
+
+
+    text-align:center;
+
+
+    border:2px dashed #ffc7da;
+
+
+
+}
+
+
+
+
+
+.sin-productos div{
+
+
+    font-size:70px;
+
+
+    margin-bottom:20px;
+
+
+
+}
+
+
+
+
+
+.sin-productos h3{
+
+
+    color:var(--marron);
+
+
+    font-size:28px;
+
+
+    font-weight:900;
+
+
+
+}
+
+
+
+
+
+.sin-productos p{
+
+
+    color:#777;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+
+@keyframes entrada{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:translateY(25px);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+
+}
+
+
+
+
+
+@keyframes aparecer{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:scale(.95);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:scale(1);
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+@keyframes girar{
+
+
+    to{
+
+
+        transform:rotate(360deg);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:1100px){
+
+
+
+    .productos-grid{
+
+
+        grid-template-columns:
+
+
+        repeat(3,1fr);
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:768px){
+
+
+
+    .productos-container{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+
+
+    .productos-header h1{
+
+
+        font-size:32px;
+
+
+    }
+
+
+
+
+
+    .productos-grid{
+
+
+        grid-template-columns:
+
+
+        repeat(2,1fr);
+
+
+
+        gap:20px;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:480px){
+
+
+
+    .productos-grid{
+
+
+        grid-template-columns:1fr;
+
+
+
+    }
+
+
+
+    .productos-header h1{
+
+
+        font-size:28px;
+
+
+    }
+
+
+
+}

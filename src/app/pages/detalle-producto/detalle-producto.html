@@ -1,0 +1,393 @@
+<div class="detalle-container">
+
+
+    @if(producto){
+
+
+
+    <!-- HEADER PRODUCTO -->
+
+    <div class="producto-header">
+
+
+        <span>
+
+            PRODUCTO
+
+        </span>
+
+
+        <h1>
+
+            {{producto.nombre}}
+
+        </h1>
+
+
+        <p>
+
+            Conoce más detalles de este producto artesanal GabySweet.
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="producto-content">
+
+
+
+
+
+        <!-- IMAGEN -->
+
+        <div class="imagen-card">
+
+
+            <img
+
+            [src]="obtenerUrlImagen(producto.imagen)"
+
+            [alt]="producto.nombre">
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- INFORMACION -->
+
+        <div class="informacion-card">
+
+
+
+
+
+            <div class="categoria">
+
+
+                🧁 Postre artesanal
+
+
+            </div>
+
+
+
+
+
+
+
+            <h2>
+
+                {{producto.nombre}}
+
+            </h2>
+
+
+
+
+
+            <p class="descripcion">
+
+
+                {{producto.descripcion}}
+
+
+            </p>
+
+
+
+
+
+
+
+
+            <div class="precio">
+
+
+                S/. {{producto.precio}}
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="stock">
+
+
+                <span>
+
+                    Stock disponible:
+
+                </span>
+
+
+
+                <strong>
+
+                    {{producto.stock}}
+
+                </strong>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- ESTADO -->
+
+
+            @if(producto.disponible && producto.stock > 0){
+
+
+
+                <span class="estado disponible">
+
+
+                    Disponible
+
+
+                </span>
+
+
+
+            }
+
+            @else{
+
+
+
+                <span class="estado agotado">
+
+
+                    Agotado
+
+
+                </span>
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+            <!-- CLIENTE -->
+
+            @if(rol === 'CLIENTE'){
+
+
+
+
+
+            <div class="cantidad-box">
+
+
+                <button
+
+                (click)="disminuirCantidad()">
+
+
+                    −
+
+
+                </button>
+
+
+
+
+                <span>
+
+
+                    {{cantidad}}
+
+
+                </span>
+
+
+
+
+
+                <button
+
+                (click)="aumentarCantidad()">
+
+
+                    +
+
+
+                </button>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="subtotal">
+
+
+                Subtotal:
+
+
+                <strong>
+
+
+                    S/. {{producto.precio * cantidad}}
+
+
+                </strong>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <button
+
+            class="btn-carrito"
+
+            (click)="agregarCarrito()"
+
+            [disabled]="
+
+            !producto.disponible ||
+
+            producto.stock === 0
+
+            ">
+
+
+
+                🛒 Agregar al carrito
+
+
+
+            </button>
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+            <!-- ADMIN -->
+
+
+            @if(rol === 'ADMIN'){
+
+
+
+            <button
+
+            class="btn-editar"
+
+            (click)="editarProducto()">
+
+
+
+                <i class="bi bi-pencil-square"></i>
+
+
+                Editar producto
+
+
+
+            </button>
+
+
+
+            }
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    }
+
+    @else{
+
+
+
+        <div class="loading">
+
+
+            Cargando producto...
+
+
+
+        </div>
+
+
+
+    }
+
+
+
+</div>

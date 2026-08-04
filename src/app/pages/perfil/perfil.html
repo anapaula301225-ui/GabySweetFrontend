@@ -1,0 +1,553 @@
+<section class="perfil-container">
+
+
+    <!-- ========================= -->
+    <!-- CARD PRINCIPAL -->
+    <!-- ========================= -->
+
+
+    <div 
+    class="perfil-card"
+    [class.admin-card]="esAdmin()">
+
+
+
+
+
+
+
+        <!-- ========================= -->
+        <!-- HEADER PERFIL -->
+        <!-- ========================= -->
+
+
+        <div class="perfil-header">
+
+
+
+            <div class="avatar">
+
+
+                @if(esAdmin()){
+
+
+                    👑
+
+
+                }
+
+                @else{
+
+
+                    <i class="bi bi-person-fill"></i>
+
+
+                }
+
+
+            </div>
+
+
+
+
+
+
+
+            @if(esAdmin()){
+
+
+                <span class="rol-badge admin">
+
+
+                    ADMINISTRADOR
+
+
+                </span>
+
+
+
+
+                <h1>
+
+
+                    Perfil Administrador
+
+
+                </h1>
+
+
+
+                <p>
+
+
+                    Gestión de cuenta administrativa GabySweet.
+
+
+                </p>
+
+
+            }
+
+            @else{
+
+
+                <span class="rol-badge">
+
+
+                    CLIENTE
+
+
+                </span>
+
+
+
+
+                <h1>
+
+
+                    Mi Perfil
+
+
+                </h1>
+
+
+
+                <p>
+
+
+                    Administra tus datos personales.
+
+
+                </p>
+
+
+            }
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- ========================= -->
+        <!-- INFORMACION -->
+        <!-- ========================= -->
+
+
+        <div class="perfil-body">
+
+
+
+            <div class="seccion-titulo">
+
+
+                <h3>
+
+
+                    Información personal
+
+
+                </h3>
+
+
+
+                <p>
+
+
+                    Actualiza tus datos cuando sea necesario.
+
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="form-grid">
+
+
+
+
+
+                <!-- NOMBRE -->
+
+
+                <div class="campo">
+
+
+                    <label>
+
+
+                        Nombre
+
+
+                    </label>
+
+
+
+                    <input
+
+
+                    type="text"
+
+
+                    class="form-control"
+
+
+                    [(ngModel)]="usuario.nombre"
+
+
+                    [disabled]="!editar">
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- APELLIDO -->
+
+
+                <div class="campo">
+
+
+                    <label>
+
+
+                        Apellido
+
+
+                    </label>
+
+
+
+                    <input
+
+
+                    type="text"
+
+
+                    class="form-control"
+
+
+                    [(ngModel)]="usuario.apellido"
+
+
+                    [disabled]="!editar">
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- EMAIL -->
+
+
+                <div class="campo campo-completo">
+
+
+                    <label>
+
+
+                        Correo electrónico
+
+
+                    </label>
+
+
+
+                    <input
+
+
+                    type="email"
+
+
+                    class="form-control"
+
+
+                    [(ngModel)]="usuario.email"
+
+
+                    [disabled]="!editar">
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- ROL -->
+
+
+                <div class="campo">
+
+
+                    <label>
+
+
+                        Tipo de usuario
+
+
+                    </label>
+
+
+
+                    <input
+
+
+                    type="text"
+
+
+                    class="form-control rol-input"
+
+
+                    [(ngModel)]="usuario.rol"
+
+
+                    disabled>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- ========================= -->
+        <!-- ACCIONES -->
+        <!-- ========================= -->
+
+
+        <div class="perfil-actions">
+
+
+
+
+
+
+            @if(!editar){
+
+
+
+                <button
+
+
+                class="btn-gaby"
+
+
+                (click)="activarEdicion()">
+
+
+
+                    <i class="bi bi-pencil-square"></i>
+
+
+                    Editar perfil
+
+
+
+                </button>
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+            @if(editar){
+
+
+
+                <button
+
+
+                class="btn-guardar"
+
+
+                (click)="guardarCambios()"
+
+
+                [disabled]="cargando">
+
+
+
+
+
+                    @if(cargando){
+
+
+
+                        <span>
+
+
+                            Guardando...
+
+
+                        </span>
+
+
+
+                    }
+
+                    @else{
+
+
+
+                        <i class="bi bi-check-circle"></i>
+
+
+                        Guardar cambios
+
+
+
+                    }
+
+
+
+                </button>
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            @if(esAdmin()){
+
+
+
+                <button
+
+
+                class="btn-dashboard"
+
+
+                (click)="volverDashboard()">
+
+
+
+                    <i class="bi bi-speedometer2"></i>
+
+
+                    Dashboard
+
+
+
+                </button>
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+            <button
+
+
+            class="btn-salir"
+
+
+            (click)="salir()">
+
+
+
+                <i class="bi bi-box-arrow-right"></i>
+
+
+                Cerrar sesión
+
+
+
+            </button>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+</section>

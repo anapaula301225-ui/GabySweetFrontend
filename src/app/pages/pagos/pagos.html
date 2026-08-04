@@ -1,0 +1,899 @@
+<section class="pagos-container">
+
+
+    <!-- HEADER -->
+
+    <div class="pagos-header">
+
+
+        <div>
+
+
+            <span class="titulo-mini">
+
+                PAGOS
+
+            </span>
+
+
+            <h1>
+
+                Gestión de pagos 💳
+
+            </h1>
+
+
+            <p>
+
+                Realiza tu pago y consulta el historial de tus comprobantes.
+
+            </p>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- FORMULARIO PAGO -->
+    <!-- ========================= -->
+
+
+    @if(mostrarFormulario){
+
+
+    <div class="pago-card">
+
+
+
+        <div class="card-header-gaby">
+
+
+            <h2>
+
+                💳 Realizar pago
+
+            </h2>
+
+
+            <p>
+
+                Pedido #{{pedido.id_pedido}}
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="pedido-resumen">
+
+
+            <div>
+
+
+                <span>
+
+                    Pedido
+
+                </span>
+
+
+                <strong>
+
+                    #{{pedido.id_pedido}}
+
+                </strong>
+
+
+            </div>
+
+
+
+
+
+            <div>
+
+
+                <span>
+
+                    Total a pagar
+
+                </span>
+
+
+                <strong class="precio">
+
+
+                    S/. {{pedido.total}}
+
+
+                </strong>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- METODO -->
+
+
+        <div class="form-grid">
+
+
+
+            <div>
+
+
+                <label>
+
+                    Método de pago
+
+                </label>
+
+
+                <select
+
+                class="form-control"
+
+                [(ngModel)]="pago.metodo_pago"
+
+                (change)="cambiarMetodo()">
+
+
+
+                    <option value="YAPE">
+
+                        Yape
+
+                    </option>
+
+
+                    <option value="PLIN">
+
+                        Plin
+
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+
+
+
+
+
+            <div>
+
+
+                <label>
+
+                    Monto
+
+                </label>
+
+
+                <input
+
+                class="form-control"
+
+                type="number"
+
+                [(ngModel)]="pago.monto"
+
+                readonly>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- QR -->
+
+
+        <div class="qr-card">
+
+
+
+            <h3>
+
+
+                @if(pago.metodo_pago === 'YAPE'){
+
+                    📱 Pago con Yape
+
+                }
+
+                @else{
+
+                    📱 Pago con Plin
+
+                }
+
+
+            </h3>
+
+
+
+
+
+            <p>
+
+                Escanea el QR o realiza el pago al número indicado.
+
+            </p>
+
+
+
+
+            <img
+
+            src="img/yape-qr.jpeg"
+
+            alt="QR pago">
+
+
+
+
+
+            <div class="numero-pago">
+
+
+                Número:
+
+                <strong>
+
+                    {{numeroPago}}
+
+                </strong>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- CODIGOS -->
+
+
+        <div class="form-grid mt-4">
+
+
+
+            <div>
+
+
+                <label>
+
+                    Código de operación
+
+                </label>
+
+
+                <input
+
+                class="form-control"
+
+                maxlength="8"
+
+                inputmode="numeric"
+
+                placeholder="8 dígitos"
+
+                [(ngModel)]="pago.codigo_operacion"
+
+                (input)="soloNumerosOperacion()">
+
+
+
+                <small>
+
+                    Debe contener 8 dígitos.
+
+                </small>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            @if(pago.metodo_pago === 'YAPE'){
+
+
+            <div>
+
+
+                <label>
+
+                    Código seguridad Yape
+
+                </label>
+
+
+                <input
+
+                class="form-control"
+
+                maxlength="3"
+
+                inputmode="numeric"
+
+                placeholder="3 dígitos"
+
+                [(ngModel)]="pago.codigo_seguridad"
+
+                (input)="soloNumerosSeguridad()">
+
+
+
+                <small>
+
+                    Código de seguridad del comprobante.
+
+                </small>
+
+
+            </div>
+
+
+            }
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- INFORMACION -->
+
+
+        @if(pago.metodo_pago === 'YAPE'){
+
+
+        <div class="mensaje-info yape">
+
+
+            <strong>
+
+                Pago mediante Yape
+
+            </strong>
+
+
+            <p>
+
+                Completa el código de operación y seguridad para validar tu pago.
+
+            </p>
+
+
+        </div>
+
+
+        }
+
+
+        @else{
+
+
+        <div class="mensaje-info plin">
+
+
+            <strong>
+
+                Pago mediante Plin
+
+            </strong>
+
+
+            <p>
+
+                Ingresa únicamente el código de operación.
+
+            </p>
+
+
+        </div>
+
+
+        }
+
+
+
+
+
+
+
+
+
+        <div class="acciones">
+
+
+            <button
+
+            class="btn-gaby"
+
+            [disabled]="
+
+            pago.codigo_operacion.length !== 8 ||
+
+            (
+
+            pago.metodo_pago==='YAPE'
+
+            &&
+
+            pago.codigo_seguridad.length !==3
+
+            )
+
+            "
+
+            (click)="confirmarPago()">
+
+
+
+                Confirmar pago 💳
+
+
+            </button>
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+    }
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- HISTORIAL -->
+    <!-- ========================= -->
+
+
+    <div class="historial-card">
+
+
+
+        <div class="historial-header">
+
+
+            <h2>
+
+                Mis pagos realizados 📄
+
+            </h2>
+
+
+        </div>
+
+
+
+
+
+
+        @if(pagos.length===0){
+
+
+
+        <div class="sin-pagos">
+
+
+            No tienes pagos registrados.
+
+
+        </div>
+
+
+        }
+
+
+
+        @else{
+
+
+
+        <div class="table-responsive">
+
+
+            <table class="table align-middle">
+
+
+
+                <thead>
+
+
+                    <tr>
+
+
+                        <th>
+
+                            Pago
+
+                        </th>
+
+
+                        <th>
+
+                            Pedido
+
+                        </th>
+
+
+                        <th>
+
+                            Método
+
+                        </th>
+
+
+                        <th>
+
+                            Monto
+
+                        </th>
+
+
+                        <th>
+
+                            Estado
+
+                        </th>
+
+
+                        <th>
+
+                            Fecha
+
+                        </th>
+
+
+                        <th>
+
+                            Acciones
+
+                        </th>
+
+
+
+                    </tr>
+
+
+                </thead>
+
+
+
+
+
+                <tbody>
+
+
+                @for(pago of pagos; track pago.id_pago){
+
+
+
+                <tr>
+
+
+
+                    <td>
+
+                        #{{pago.id_pago}}
+
+                    </td>
+
+
+
+
+                    <td>
+
+                        #{{pago.id_pedido}}
+
+                    </td>
+
+
+
+
+
+                    <td>
+
+                        {{pago.metodo_pago}}
+
+                    </td>
+
+
+
+
+
+                    <td>
+
+                        S/. {{pago.monto}}
+
+                    </td>
+
+
+
+
+
+
+
+                    <td>
+
+
+                        @switch(pago.estado){
+
+
+
+                            @case('PENDIENTE'){
+
+
+                                <span class="estado pendiente">
+
+                                    ⏳ Pendiente
+
+                                </span>
+
+
+                            }
+
+
+
+
+
+                            @case('PAGADO'){
+
+
+                                <span class="estado pagado">
+
+                                    ✔ Pagado
+
+                                </span>
+
+
+                            }
+
+
+
+
+
+                            @case('RECHAZADO'){
+
+
+                                <span class="estado rechazado">
+
+                                    ✖ Rechazado
+
+                                </span>
+
+
+                            }
+
+
+
+
+                        }
+
+
+
+                    </td>
+
+
+
+
+
+
+                    <td>
+
+
+                        {{pago.fecha_pago | date:'dd/MM/yyyy HH:mm'}}
+
+
+                    </td>
+
+
+
+
+
+
+                    <td>
+
+
+
+                        @if(pago.estado==='PAGADO'){
+
+
+
+                        <div class="acciones-tabla">
+
+
+                            <button
+
+                            class="btn-mini"
+
+                            (click)="generarComprobante(pago)">
+
+
+                                📄 Generar
+
+
+                            </button>
+
+
+
+
+                            <button
+
+                            class="btn-mini azul"
+
+                            (click)="verPDF(pago.id_pago)">
+
+
+                                👁 Ver
+
+
+                            </button>
+
+
+
+
+
+                            <button
+
+                            class="btn-mini verde"
+
+                            (click)="descargar(pago.id_pago)">
+
+
+                                ⬇ Descargar
+
+
+                            </button>
+
+
+
+                        </div>
+
+
+
+                        }
+
+                        @else{
+
+
+                            <span class="text-muted">
+
+                                No disponible
+
+                            </span>
+
+
+                        }
+
+
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+                }
+
+
+
+                </tbody>
+
+
+
+            </table>
+
+
+
+        </div>
+
+
+
+        }
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- COMPONENTE PDF -->
+
+
+    @if(mostrarComprobante){
+
+
+    <app-comprobante-pago
+
+    [datos]="datosComprobante"
+
+    [visible]="mostrarComprobante"
+
+    (cerrar)="mostrarComprobante=false">
+
+
+    </app-comprobante-pago>
+
+
+
+    }
+
+
+
+</section>

@@ -1,0 +1,757 @@
+/* =====================================================
+   GABYSWEET - AUDITORIA ADMIN PREMIUM
+===================================================== */
+
+
+:host{
+
+    --rosa:#D98BA8;
+    --rosa-hover:#C87896;
+    --rosa-claro:#F7DCE5;
+
+    --marron:#6B3E26;
+
+    --crema:#FFF8F2;
+
+    --fondo:#F5EFEA;
+
+    --texto:#5B514C;
+
+    --borde:#EADDD5;
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+
+.auditoria-container{
+
+
+    min-height:100vh;
+
+
+    padding:40px;
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle at top left,
+
+        #F7DCE5,
+
+        transparent 35%
+
+    ),
+
+
+    linear-gradient(
+
+        135deg,
+
+        #F5EFEA,
+
+        #FFF8F2
+
+    );
+
+
+    font-family:'Poppins',sans-serif;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.auditoria-container > div:first-child{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #D98BA8,
+
+        #E7B3C5
+
+    );
+
+
+    padding:35px 40px;
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(107,62,38,.12);
+
+
+}
+
+
+
+
+
+.auditoria-container h2{
+
+
+    color:white;
+
+
+    font-size:34px;
+
+
+    font-weight:800;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+.auditoria-container h2 i{
+
+
+    margin-right:12px;
+
+
+}
+
+
+
+
+
+.auditoria-container p{
+
+
+    color:white !important;
+
+
+    opacity:.9;
+
+
+    margin:0;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARDS RESUMEN
+===================================================== */
+
+
+.resumen-card{
+
+
+    border:none;
+
+
+    border-radius:25px;
+
+
+    background:
+
+
+    rgba(255,248,242,.9);
+
+
+    box-shadow:
+
+
+    0 12px 30px rgba(107,62,38,.10);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.resumen-card:hover{
+
+
+    transform:translateY(-5px);
+
+
+    box-shadow:
+
+
+    0 18px 35px rgba(107,62,38,.15);
+
+
+}
+
+
+
+
+
+
+
+.resumen-card .card-body{
+
+
+    padding:30px;
+
+
+}
+
+
+
+
+
+
+
+.icono{
+
+
+    width:65px;
+
+
+    height:65px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    margin:auto;
+
+
+    border-radius:20px;
+
+
+    background:
+
+
+    var(--rosa-claro);
+
+
+    color:
+
+
+    var(--rosa);
+
+
+    font-size:32px;
+
+
+}
+
+
+
+
+
+
+
+.resumen-card h3{
+
+
+    margin-top:18px;
+
+
+    color:var(--marron);
+
+
+    font-size:28px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.resumen-card p{
+
+
+    color:#80736C !important;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   TABLA CARD
+===================================================== */
+
+
+.tabla-card{
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:
+
+
+    rgba(255,255,255,.75);
+
+
+    box-shadow:
+
+
+    0 15px 40px rgba(107,62,38,.12);
+
+
+}
+
+
+
+
+
+.tabla-card .card-body{
+
+
+    padding:30px;
+
+
+}
+
+
+
+
+
+.tabla-card h4{
+
+
+    color:var(--marron);
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   TABLA
+===================================================== */
+
+
+.table{
+
+
+    border-collapse:separate;
+
+
+    border-spacing:0 12px;
+
+
+}
+
+
+
+
+
+
+
+.table thead th{
+
+
+    background:
+
+
+    #6B3E26;
+
+
+    color:white;
+
+
+    padding:16px;
+
+
+    font-size:14px;
+
+
+    border:none;
+
+
+}
+
+
+
+
+
+.table thead th:first-child{
+
+
+    border-radius:18px 0 0 18px;
+
+
+}
+
+
+
+
+
+.table thead th:last-child{
+
+
+    border-radius:0 18px 18px 0;
+
+
+}
+
+
+
+
+
+
+
+
+.table tbody td{
+
+
+    background:#FFFDFC;
+
+
+    padding:18px;
+
+
+    border-top:1px solid var(--borde);
+
+
+    border-bottom:1px solid var(--borde);
+
+
+    color:var(--texto);
+
+
+}
+
+
+
+
+
+
+
+.table tbody tr{
+
+
+    transition:.25s;
+
+
+}
+
+
+
+
+
+.table tbody tr:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+.table tbody td:first-child{
+
+
+    border-left:1px solid var(--borde);
+
+
+    border-radius:18px 0 0 18px;
+
+
+}
+
+
+
+
+
+.table tbody td:last-child{
+
+
+    border-right:1px solid var(--borde);
+
+
+    border-radius:0 18px 18px 0;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   USUARIO
+===================================================== */
+
+
+.table strong{
+
+
+    color:var(--marron);
+
+
+}
+
+
+
+
+
+.table small{
+
+
+    color:#91847D;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+
+.modulo{
+
+
+    padding:8px 16px;
+
+
+    border-radius:20px;
+
+
+    font-weight:700;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+
+
+.usuario{
+
+
+    background:#E5EFFC;
+
+
+    color:#3765A8;
+
+
+}
+
+
+
+
+
+.producto{
+
+
+    background:#FCECCF;
+
+
+    color:#9A681E;
+
+
+}
+
+
+
+
+
+.pedido{
+
+
+    background:#DDEFE2;
+
+
+    color:#39734B;
+
+
+}
+
+
+
+
+
+.pago{
+
+
+    background:#EAE1F7;
+
+
+    color:#69519B;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMACION
+===================================================== */
+
+
+.auditoria-container{
+
+
+    animation:entrada .4s ease;
+
+
+}
+
+
+
+
+
+@keyframes entrada{
+
+
+from{
+
+
+    opacity:0;
+
+
+    transform:translateY(15px);
+
+
+}
+
+
+to{
+
+
+    opacity:1;
+
+
+    transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:768px){
+
+
+    .auditoria-container{
+
+
+        padding:20px;
+
+
+    }
+
+
+    .auditoria-container h2{
+
+
+        font-size:25px;
+
+
+    }
+
+
+}

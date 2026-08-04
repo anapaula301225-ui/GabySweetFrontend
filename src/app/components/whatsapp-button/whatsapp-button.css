@@ -1,0 +1,147 @@
+/* ==========================================
+   WHATSAPP FLOAT BUTTON GABYSWEET
+========================================== */
+
+
+.whatsapp-btn{
+
+
+    position:fixed;
+
+
+    bottom:30px;
+
+
+    right:30px;
+
+
+    width:65px;
+
+
+    height:65px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #25D366,
+        #128C7E
+    );
+
+
+    color:white;
+
+
+    font-size:35px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(37,211,102,.45);
+
+
+    z-index:9999;
+
+
+    transition:.3s;
+
+
+    animation:
+
+    flotarWhatsapp 3s infinite;
+
+
+}
+
+
+
+
+.whatsapp-btn:hover{
+
+
+    transform:scale(1.12);
+
+
+    box-shadow:
+
+    0 20px 45px rgba(37,211,102,.6);
+
+
+}
+
+
+
+
+
+@keyframes flotarWhatsapp{
+
+
+    0%,100%{
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+
+    50%{
+
+
+        transform:translateY(-10px);
+
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:576px){
+
+
+    .whatsapp-btn{
+
+
+        width:58px;
+
+
+        height:58px;
+
+
+        font-size:30px;
+
+
+        bottom:20px;
+
+
+        right:20px;
+
+
+    }
+
+
+}

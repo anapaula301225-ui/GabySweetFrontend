@@ -1,0 +1,317 @@
+<section class="register-container">
+
+
+
+    <div class="register-card">
+
+
+
+
+
+        <!-- HEADER -->
+
+
+        <div class="register-header">
+
+
+
+            <div class="logo">
+
+                🍰
+
+            </div>
+
+
+
+
+            <span>
+
+                GABYSWEET
+
+            </span>
+
+
+
+            <h1>
+
+                Crear Cuenta
+
+            </h1>
+
+
+
+
+            <p>
+
+                Regístrate para disfrutar nuestros postres artesanales.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- FORMULARIO -->
+
+
+        <form
+
+        [formGroup]="registerForm"
+
+        (ngSubmit)="registrar()">
+
+
+
+
+
+
+
+            <div class="form-grid">
+
+
+
+
+
+                <div class="campo">
+
+
+                    <label>
+
+                        Nombre
+
+                    </label>
+
+
+                    <input
+
+                    type="text"
+
+                    placeholder="Tu nombre"
+
+                    formControlName="nombre">
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <div class="campo">
+
+
+                    <label>
+
+                        Apellido
+
+                    </label>
+
+
+                    <input
+
+                    type="text"
+
+                    placeholder="Tu apellido"
+
+                    formControlName="apellido">
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="campo">
+
+
+                <label>
+
+                    Correo electrónico
+
+                </label>
+
+
+                <input
+
+                type="email"
+
+                placeholder="correo@ejemplo.com"
+
+                formControlName="email">
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="campo">
+
+
+                <label>
+
+                    Contraseña
+
+                </label>
+
+
+                <input
+
+                type="password"
+
+                placeholder="Mínimo 6 caracteres"
+
+                formControlName="password">
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="campo">
+
+
+                <label>
+
+                    Confirmar contraseña
+
+                </label>
+
+
+                <input
+
+                type="password"
+
+                placeholder="Repite tu contraseña"
+
+                formControlName="confirmarPassword">
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <button
+
+            type="submit"
+
+            class="btn-register"
+
+            [disabled]="cargando">
+
+
+
+
+
+                @if(cargando){
+
+
+                    Creando cuenta...
+
+
+                }
+
+                @else{
+
+
+                    Crear cuenta 🍰
+
+
+                }
+
+
+
+
+
+            </button>
+
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+        <!-- LOGIN -->
+
+
+        <div class="login-link">
+
+
+
+            <p>
+
+                ¿Ya tienes una cuenta?
+
+            </p>
+
+
+
+            <a routerLink="/login">
+
+                Iniciar sesión
+
+            </a>
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+</section>

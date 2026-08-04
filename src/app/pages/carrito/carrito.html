@@ -1,0 +1,846 @@
+<section class="carrito-page">
+
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+
+    <div class="carrito-header">
+
+
+        <div>
+
+            <span>
+
+                MI CARRITO
+
+            </span>
+
+
+            <h1>
+
+                Tus productos favoritos 🛒
+
+            </h1>
+
+
+            <p>
+
+                Revisa tu pedido antes de confirmar la compra.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="carrito-icon">
+
+            🛍️
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+@if(items.length === 0){
+
+
+
+    <div class="carrito-vacio">
+
+
+        <div class="vacio-icon">
+
+            🛒
+
+        </div>
+
+
+
+        <h3>
+
+            Tu carrito está vacío
+
+        </h3>
+
+
+
+        <p>
+
+            Agrega productos deliciosos de GabySweet para realizar tu pedido.
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+}
+
+@else {
+
+
+
+<div class="carrito-layout">
+
+
+
+
+
+<!-- =========================
+     TABLA PRODUCTOS
+========================== -->
+
+
+<div class="productos-card">
+
+
+
+<h3>
+
+    Productos seleccionados
+
+</h3>
+
+
+
+
+
+<div class="tabla-carrito">
+
+
+
+<table>
+
+
+
+<thead>
+
+<tr>
+
+
+<th>
+
+Producto
+
+</th>
+
+
+<th>
+
+Precio
+
+</th>
+
+
+<th>
+
+Cantidad
+
+</th>
+
+
+<th>
+
+Subtotal
+
+</th>
+
+
+<th>
+
+Acción
+
+</th>
+
+
+</tr>
+
+</thead>
+
+
+
+
+
+
+<tbody>
+
+
+
+@for(item of items; track item.producto.id_producto){
+
+
+
+<tr>
+
+
+
+<td>
+
+
+
+<div class="producto-info">
+
+
+
+<img
+
+[src]="item.producto.imagen || 'assets/img/no-image.png'"
+
+[alt]="item.producto.nombre"
+
+>
+
+
+
+<div>
+
+
+<strong>
+
+{{item.producto.nombre}}
+
+</strong>
+
+
+
+<small>
+
+Producto artesanal
+
+</small>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+
+
+S/. {{item.producto.precio}}
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+
+
+
+<div class="cantidad-control">
+
+
+
+<button
+
+(click)="disminuirCantidad(item.producto.id_producto!)">
+
+
+−
+
+</button>
+
+
+
+
+
+<span>
+
+{{item.cantidad}}
+
+</span>
+
+
+
+
+
+<button
+
+(click)="aumentarCantidad(item.producto.id_producto!)">
+
+
++
+
+</button>
+
+
+
+</div>
+
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+
+
+
+<strong class="subtotal">
+
+
+S/. {{item.producto.precio * item.cantidad}}
+
+
+</strong>
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+
+
+
+<button
+
+class="btn-eliminar"
+
+(click)="eliminarProducto(item.producto.id_producto!)">
+
+
+🗑
+
+</button>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+}
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+<button
+
+class="btn-vaciar"
+
+(click)="vaciarCarrito()">
+
+
+
+🗑 Vaciar carrito
+
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- =========================
+     RESUMEN
+========================== -->
+
+
+<div class="resumen-card">
+
+
+
+<h3>
+
+Resumen del pedido
+
+</h3>
+
+
+
+
+<div class="resumen-linea">
+
+
+<span>
+
+Productos
+
+</span>
+
+
+
+<strong>
+
+{{items.length}}
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+<div class="resumen-linea">
+
+
+<span>
+
+Subtotal
+
+</span>
+
+
+
+<strong>
+
+S/. {{total}}
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<hr>
+
+
+
+
+
+<div class="total-final">
+
+
+<span>
+
+Total
+
+</span>
+
+
+
+<strong>
+
+S/. {{total}}
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+<button
+
+class="btn-comprar"
+
+(click)="continuarCompra()">
+
+
+
+🛒 Continuar compra
+
+
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- =========================
+     FORMULARIO ENTREGA
+========================== -->
+
+
+@if(mostrarFormulario){
+
+
+
+<div class="checkout-card">
+
+
+
+
+
+<div class="checkout-header">
+
+
+<h3>
+
+Finalizar pedido 📦
+
+</h3>
+
+
+<p>
+
+Completa los datos para preparar tu entrega.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+@if(cargando){
+
+
+
+<div class="verificando">
+
+
+<div class="spinner"></div>
+
+
+<strong>
+
+Verificando disponibilidad...
+
+</strong>
+
+
+<p>
+
+Estamos confirmando tus productos.
+
+</p>
+
+
+
+</div>
+
+
+
+}
+
+
+
+
+
+<div class="form-grid">
+
+
+
+
+
+<div class="campo">
+
+
+
+<label>
+
+Tipo de entrega
+
+</label>
+
+
+
+<select
+
+[(ngModel)]="pedido.tipo_entrega"
+
+[disabled]="cargando">
+
+
+
+<option value="RECOJO">
+
+Recojo en tienda
+
+</option>
+
+
+
+<option value="DELIVERY">
+
+Delivery
+
+</option>
+
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+@if(pedido.tipo_entrega === 'DELIVERY'){
+
+
+
+<div class="campo">
+
+
+<label>
+
+Dirección
+
+</label>
+
+
+<input
+
+type="text"
+
+[(ngModel)]="pedido.direccion_entrega"
+
+placeholder="Ingrese dirección"
+
+[disabled]="cargando">
+
+
+</div>
+
+
+
+}
+
+
+
+
+
+
+
+
+<div class="campo">
+
+
+<label>
+
+Teléfono contacto
+
+</label>
+
+
+<input
+
+type="text"
+
+[(ngModel)]="pedido.telefono_contacto"
+
+placeholder="999999999"
+
+[disabled]="cargando">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="campo completo">
+
+
+<label>
+
+Observaciones
+
+</label>
+
+
+
+<textarea
+
+rows="3"
+
+[(ngModel)]="pedido.observaciones"
+
+placeholder="Ejemplo: tocar timbre, sin azúcar..."
+
+[disabled]="cargando">
+
+</textarea>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="acciones-checkout">
+
+
+
+<button
+
+class="btn-cancelar"
+
+(click)="mostrarFormulario=false"
+
+[disabled]="cargando">
+
+
+Cancelar
+
+
+</button>
+
+
+
+
+
+
+
+<button
+
+class="btn-confirmar"
+
+(click)="confirmarPedido()"
+
+[disabled]="cargando">
+
+
+
+@if(cargando){
+
+
+⏳ Verificando...
+
+
+}
+
+@else{
+
+
+✓ Confirmar pedido
+
+
+}
+
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+}
+
+
+
+
+
+}
+
+
+
+</section>

@@ -1,0 +1,391 @@
+<!-- HERO -->
+
+<section class="hero">
+
+
+    <div class="container">
+
+
+        <div class="row align-items-center">
+
+
+
+            <!-- TEXTO -->
+
+            <div class="col-lg-6">
+
+
+
+                <h1>
+
+                    Bienvenid@ a
+
+                    <span>
+
+                        GabySweet
+
+                    </span>
+
+
+                </h1>
+
+
+
+
+                <h3>
+
+                    Pastelería Artesanal
+
+                </h3>
+
+
+
+
+                <p>
+
+                    El sabor artesanal que convierte cada ocasión
+
+                    en un recuerdo inolvidable.
+
+                </p>
+
+
+
+
+
+                @if (esAdmin) {
+
+
+
+                    <button
+
+                        class="btn btn-gabysweet"
+
+                        routerLink="/admin/productos">
+
+
+
+                        Administrar Productos
+
+
+
+                    </button>
+
+
+
+                } @else {
+
+
+
+                    <button
+
+                        class="btn btn-gabysweet"
+
+                        routerLink="/productos">
+
+
+
+                        Ver Productos
+
+
+
+                    </button>
+
+
+
+                }
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- LOGO -->
+
+
+            <div class="col-lg-6 text-center">
+
+
+
+                <div class="hero-image">
+
+
+
+                    <img
+
+                    src="/img/GabySweet_logo_.png"
+
+                    alt="Logo GabySweet">
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PRODUCTOS DESTACADOS -->
+
+
+<section class="container my-5">
+
+
+
+    <h2 class="text-center mb-5">
+
+        Productos Destacados
+
+    </h2>
+
+
+
+
+
+
+    <div class="row g-4">
+
+
+
+
+
+        @for(producto of productos; track producto.id_producto){
+
+
+
+
+
+            <div class="col-md-3">
+
+
+
+
+
+                <app-card-producto
+
+
+
+                    [id]="producto.id_producto!"
+
+
+
+                    [nombre]="producto.nombre"
+
+
+
+                    [precio]="producto.precio"
+
+
+
+                    [imagen]="'http://localhost:3000/uploads/' + producto.imagen"
+
+
+
+                    [stock]="producto.stock"
+
+
+
+                    modo="home">
+
+
+
+
+
+                </app-card-producto>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        }
+
+
+
+
+
+    </div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- BENEFICIOS -->
+
+
+<section class="container my-5">
+
+
+
+    <h2 class="text-center mb-5">
+
+
+        ¿Por qué elegir GabySweet?
+
+
+    </h2>
+
+
+
+
+
+    <div class="row text-center g-4">
+
+
+
+
+
+        <div class="col-md-4">
+
+
+
+            <i class="bi bi-heart-fill text-danger fs-1"></i>
+
+
+
+            <h4>
+
+                Hecho con amor
+
+            </h4>
+
+
+
+            <p>
+
+                Cada postre es preparado artesanalmente con dedicación.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="col-md-4">
+
+
+
+            <i class="bi bi-stars text-warning fs-1"></i>
+
+
+
+            <h4>
+
+                Ingredientes de calidad
+
+            </h4>
+
+
+
+            <p>
+
+                Utilizamos ingredientes frescos para garantizar
+
+                el mejor sabor.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="col-md-4">
+
+
+
+            <i class="bi bi-truck text-success fs-1"></i>
+
+
+
+            <h4>
+
+                Entrega rápida
+
+            </h4>
+
+
+
+            <p>
+
+                Tus pedidos llegan en el menor tiempo posible
+
+                y en perfectas condiciones.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<app-whatsapp-button></app-whatsapp-button>

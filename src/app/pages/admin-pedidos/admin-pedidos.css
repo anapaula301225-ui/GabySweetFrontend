@@ -1,0 +1,982 @@
+/* =====================================================
+   GABYSWEET - ADMIN PEDIDOS
+   DASHBOARD PREMIUM SUAVE
+===================================================== */
+
+
+:host{
+
+    --rosa:#D96B92;
+    --rosa-hover:#C6537B;
+    --rosa-claro:#FCE8EF;
+
+    --marron:#6B3E26;
+
+    --vino:#7A3E52;
+
+    --crema:#FFF9F6;
+
+    --gris:#777;
+
+    --borde:#EADDE2;
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+
+.pedidos-container{
+
+
+    min-height:100vh;
+
+
+    padding:40px;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #FFF9F6,
+
+        #FDF1F5
+
+    );
+
+
+    font-family:'Poppins',sans-serif;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.header{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #ffffff,
+
+        #FCE8EF
+
+    );
+
+
+    border-radius:30px;
+
+
+    padding:35px;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-bottom:35px;
+
+
+    border:1px solid #efdce4;
+
+
+    box-shadow:
+
+
+    0 15px 40px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+
+
+
+.header span{
+
+
+    color:var(--rosa);
+
+
+    font-size:12px;
+
+
+    font-weight:800;
+
+
+    letter-spacing:3px;
+
+
+}
+
+
+
+
+
+.header h2{
+
+
+    margin:12px 0;
+
+
+    color:var(--marron);
+
+
+    font-size:36px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.header p{
+
+
+    color:#888;
+
+
+    margin:0;
+
+
+}
+
+
+
+
+
+
+
+.header-icon{
+
+
+    width:110px;
+
+
+    height:110px;
+
+
+    background:white;
+
+
+    border-radius:30px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-size:50px;
+
+
+    box-shadow:
+
+
+    0 10px 30px rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARD TABLA
+===================================================== */
+
+
+.card-pedidos{
+
+
+    background:white;
+
+
+    border-radius:30px;
+
+
+    padding:30px;
+
+
+    box-shadow:
+
+
+    0 15px 45px rgba(0,0,0,.07);
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   TITULO TABLA
+===================================================== */
+
+
+.titulo-tabla{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.titulo-tabla h3{
+
+
+    color:var(--marron);
+
+
+    font-size:24px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.titulo-tabla strong{
+
+
+    background:var(--rosa-claro);
+
+
+    color:var(--rosa);
+
+
+    padding:10px 22px;
+
+
+    border-radius:25px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   TABLA
+===================================================== */
+
+
+.tabla-contenedor{
+
+
+    width:100%;
+
+
+}
+
+
+
+
+
+
+table{
+
+
+    width:100%;
+
+
+    border-collapse:separate;
+
+
+    border-spacing:0 12px;
+
+
+}
+
+
+
+
+
+
+
+thead th{
+
+
+    background:#F8E9EF;
+
+
+    color:var(--marron);
+
+
+    padding:16px;
+
+
+    font-size:14px;
+
+
+    font-weight:700;
+
+
+    border:none;
+
+
+}
+
+
+
+
+
+thead th:first-child{
+
+
+    border-radius:18px 0 0 18px;
+
+
+}
+
+
+
+
+
+thead th:last-child{
+
+
+    border-radius:0 18px 18px 0;
+
+
+}
+
+
+
+
+
+
+
+
+tbody tr{
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+tbody tr:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+tbody td{
+
+
+    background:white;
+
+
+    padding:18px;
+
+
+    border-top:1px solid #eee;
+
+
+    border-bottom:1px solid #eee;
+
+
+    vertical-align:middle;
+
+
+}
+
+
+
+
+
+
+tbody td:first-child{
+
+
+    border-left:1px solid #eee;
+
+
+    border-radius:20px 0 0 20px;
+
+
+}
+
+
+
+
+
+tbody td:last-child{
+
+
+    border-right:1px solid #eee;
+
+
+    border-radius:0 20px 20px 0;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   DATOS PEDIDO
+===================================================== */
+
+
+.pedido-id{
+
+
+    background:var(--rosa-claro);
+
+
+    color:var(--rosa);
+
+
+    padding:8px 16px;
+
+
+    border-radius:20px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+
+
+.cliente{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+.cliente strong{
+
+
+    color:var(--marron);
+
+
+}
+
+
+
+
+
+.cliente small{
+
+
+    color:#999;
+
+
+}
+
+
+
+
+
+
+
+
+.entrega{
+
+
+    background:#FDF1F5;
+
+
+    color:var(--rosa);
+
+
+    padding:8px 15px;
+
+
+    border-radius:20px;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+
+.total{
+
+
+    color:var(--rosa);
+
+
+    font-size:18px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   SELECT ESTADO
+===================================================== */
+
+
+select{
+
+
+    width:100%;
+
+
+    padding:10px 15px;
+
+
+    border-radius:20px;
+
+
+    border:1px solid #eadde2;
+
+
+    background:#fff;
+
+
+    color:var(--marron);
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+select:hover{
+
+
+    border-color:var(--rosa);
+
+
+}
+
+
+
+
+
+select:focus{
+
+
+    outline:none;
+
+
+    border-color:var(--rosa);
+
+
+    box-shadow:
+
+
+    0 0 0 .2rem rgba(217,107,146,.15);
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+
+.acciones{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+
+
+button{
+
+
+    border:none;
+
+
+    padding:10px 18px;
+
+
+    border-radius:25px;
+
+
+    font-weight:700;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+
+
+
+.btn-detalle{
+
+
+    background:var(--rosa);
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.btn-detalle:hover{
+
+
+    background:var(--rosa-hover);
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+
+
+
+.btn-cancelar{
+
+
+    background:var(--marron);
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.btn-cancelar:hover{
+
+
+    background:#8b5a3c;
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+
+.loading{
+
+
+    padding:60px;
+
+
+    text-align:center;
+
+
+    color:var(--rosa);
+
+
+    font-weight:700;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+
+
+.loader{
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+    border-radius:50%;
+
+
+    border:4px solid var(--rosa-claro);
+
+
+    border-top-color:var(--rosa);
+
+
+    margin:auto;
+
+
+    animation:girar 1s linear infinite;
+
+
+}
+
+
+
+
+
+
+
+
+@keyframes girar{
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:1000px){
+
+
+    .pedidos-container{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+    .header{
+
+
+        flex-direction:column;
+
+
+        align-items:flex-start;
+
+
+        gap:20px;
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:768px){
+
+
+    .header h2{
+
+
+        font-size:28px;
+
+
+    }
+
+
+
+    .tabla-contenedor{
+
+
+        overflow-x:auto;
+
+
+    }
+
+
+
+    table{
+
+
+        min-width:1000px;
+
+
+    }
+
+
+
+}

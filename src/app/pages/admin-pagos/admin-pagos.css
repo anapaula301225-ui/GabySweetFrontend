@@ -1,0 +1,669 @@
+/* ===================================
+   GENERAL
+=================================== */
+
+
+.pagos-container{
+
+
+    min-height:100vh;
+
+    background:#FFF8FB;
+
+    padding:40px;
+
+    font-family:'Poppins',sans-serif;
+
+
+}
+
+
+
+
+
+
+/* ===================================
+ HEADER
+=================================== */
+
+
+.pagos-header{
+
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(214,51,132,.10);
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+.label{
+
+
+    color:#D63384;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+
+}
+
+
+
+.pagos-header h2{
+
+
+    margin:8px 0;
+
+    color:#6B3E26;
+
+    font-size:40px;
+
+}
+
+
+
+.pagos-header p{
+
+
+    color:#888;
+
+    margin:0;
+
+
+}
+
+
+
+
+.icon-header{
+
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+
+    background:#FFE0EC;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    font-size:45px;
+
+
+}
+
+
+
+
+
+
+
+/* ===================================
+ CARD
+=================================== */
+
+
+.pagos-card{
+
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:30px;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.06);
+
+
+}
+
+
+
+
+
+.tabla-header{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.tabla-header h3{
+
+
+    color:#6B3E26;
+
+}
+
+
+
+.tabla-header span{
+
+
+    background:#FFE0EC;
+
+    color:#D63384;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+/* ===================================
+ TABLA
+=================================== */
+
+
+table{
+
+
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0 12px;
+
+
+}
+
+
+
+thead{
+
+
+    background:#FFE0EC;
+
+
+}
+
+
+
+thead th{
+
+
+    padding:18px;
+
+    color:#6B3E26;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+tbody tr{
+
+
+    background:#fff;
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.05);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+tbody tr:hover{
+
+
+    transform:translateY(-4px);
+
+
+}
+
+
+
+tbody td{
+
+
+    padding:18px;
+
+}
+
+
+
+
+
+
+/* ===================================
+ CLIENTE
+=================================== */
+
+
+.cliente{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+}
+
+
+
+.cliente strong{
+
+
+    color:#6B3E26;
+
+
+}
+
+
+
+.cliente small{
+
+
+    color:#999;
+
+
+}
+
+
+
+
+
+
+
+/* ===================================
+ BADGES
+=================================== */
+
+
+.pedido{
+
+
+    background:#FFE0EC;
+
+    color:#D63384;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    font-weight:700;
+
+
+}
+
+
+
+.metodo{
+
+
+    background:#FFF0F5;
+
+    color:#D63384;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    font-weight:700;
+
+
+}
+
+
+
+
+.monto{
+
+
+    color:#D63384;
+
+    font-size:18px;
+
+
+}
+
+
+
+
+.codigo{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+}
+
+
+
+.codigo small{
+
+
+    color:#999;
+
+
+}
+
+
+
+
+
+
+
+/* ===================================
+ ESTADOS
+=================================== */
+
+
+.estado{
+
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-weight:700;
+
+    font-size:13px;
+
+
+}
+
+
+
+.pagado{
+
+
+    background:#DDF6E5;
+
+    color:#198754;
+
+
+}
+
+
+
+.pendiente{
+
+
+    background:#FFF3CD;
+
+    color:#997404;
+
+
+}
+
+
+
+.rechazado{
+
+
+    background:#FFE0E0;
+
+    color:#C0392B;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===================================
+ BOTONES
+=================================== */
+
+
+.acciones{
+
+
+    display:flex;
+
+    gap:10px;
+
+
+}
+
+
+
+button{
+
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:10px 15px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn-confirmar{
+
+
+    background:#198754;
+
+    color:white;
+
+
+}
+
+
+
+.btn-confirmar:hover{
+
+
+    transform:translateY(-3px);
+
+    opacity:.8;
+
+
+}
+
+
+
+
+.btn-rechazar{
+
+
+    background:#D63384;
+
+    color:white;
+
+
+}
+
+
+
+.btn-rechazar:hover{
+
+
+    background:#FF8FB8;
+
+
+}
+
+
+
+
+
+.sin-accion{
+
+
+    color:#999;
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+
+
+/* ===================================
+ LOADING
+=================================== */
+
+
+.loading{
+
+
+    text-align:center;
+
+    padding:50px;
+
+    color:#D63384;
+
+    font-weight:700;
+
+
+}
+
+
+
+.spinner{
+
+
+    width:40px;
+
+    height:40px;
+
+    border:4px solid #FFE0EC;
+
+    border-top-color:#D63384;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    animation:girar 1s linear infinite;
+
+
+}
+
+
+
+@keyframes girar{
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ===================================
+ RESPONSIVE
+=================================== */
+
+
+@media(max-width:900px){
+
+
+    .pagos-container{
+
+        padding:20px;
+
+    }
+
+
+
+    .pagos-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+
+
+    table{
+
+        min-width:900px;
+
+    }
+
+
+}

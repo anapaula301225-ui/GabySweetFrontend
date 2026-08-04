@@ -1,0 +1,125 @@
+@if (visible) {
+  <div class="modal-fondo">
+    <article class="comprobante">
+      <header class="cabecera">
+
+        <div class="logo-circulo">🍰</div>
+        <h1>GabySweet</h1>
+        <p class="subtitulo">PASTELERÍA ARTESANAL</p>
+        <div class="adorno">〰 ♡ 〰</div>
+
+        <h2>COMPROBANTE DE PAGO</h2>
+      </header>
+
+      <main class="contenido">
+        <section class="numeros">
+          <div class="tarjeta-numero">
+            <span class="icono">🧾</span>
+            <div>
+              <small>NÚMERO DE PAGO</small>
+              <strong># {{ datos?.id_pago }}</strong>
+            </div>
+          </div>
+
+          <div class="tarjeta-numero">
+            <span class="icono">🛍️</span>
+            <div>
+              <small>PEDIDO</small>
+              <strong># {{ datos?.id_pedido }}</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="bloque">
+          <h3><span>👤</span> CLIENTE</h3>
+
+          <div class="dato">
+            <span>👩 <b>Nombre:</b></span>
+            <strong>{{ datos?.cliente }}</strong>
+          </div>
+
+          <div class="dato">
+            <span>✉️ <b>Correo:</b></span>
+            <strong>{{ datos?.email }}</strong>
+          </div>
+        </section>
+
+        <section class="bloque">
+          <h3><span>💳</span> DETALLES DEL PAGO</h3>
+
+          <div class="dato">
+            <span>📱 <b>Método de pago:</b></span>
+            <strong class="metodo">{{ datos?.metodo_pago }}</strong>
+          </div>
+
+          <div class="dato">
+            <span>🏷️ <b>Número de operación:</b></span>
+            <strong>{{ datos?.codigo_operacion }}</strong>
+          </div>
+
+          @if (datos?.metodo_pago === 'YAPE') {
+            <div class="dato">
+              <span>🛡️ <b>Código de seguridad:</b></span>
+              <strong>{{ datos?.codigo_seguridad }}</strong>
+            </div>
+          }
+
+          <div class="monto">
+            <span>💰 <b>MONTO PAGADO</b></span>
+            <strong>S/. {{ datos?.monto }}</strong>
+          </div>
+
+          <div class="dato sin-borde">
+            <span>📅 <b>Fecha de confirmación:</b></span>
+            <strong>{{ datos?.fecha_confirmacion | date:'dd/MM/yyyy, hh:mm a' }}</strong>
+          </div>
+        </section>
+
+        <section class="estado">
+          @switch (datos?.estado) {
+            @case ('PAGADO') {
+              <div class="estado-pagado">
+                <span class="check">✓</span>
+                <div>
+                  <strong>PAGO CONFIRMADO</strong>
+                  <p>¡Gracias por confiar en GabySweet! ♥</p>
+                </div>
+              </div>
+            }
+
+            @case ('PENDIENTE') {
+              <div class="estado-pendiente">
+                <span class="check">⏳</span>
+                <div>
+                  <strong>PAGO PENDIENTE</strong>
+                  <p>Estamos esperando la confirmación de tu pago.</p>
+                </div>
+              </div>
+            }
+
+            @case ('RECHAZADO') {
+              <div class="estado-rechazado">
+                <span class="check">✕</span>
+                <div>
+                  <strong>PAGO RECHAZADO</strong>
+                  <p>No se pudo confirmar el pago.</p>
+                </div>
+              </div>
+            }
+          }
+        </section>
+      </main>
+
+      <footer class="pie">
+        <p>〰 Endulzamos tus momentos 〰</p>
+        <strong>🍰 GABYSWEET · PASTELERÍA ARTESANAL 🍰</strong>
+        <small>Comprobante generado electrónicamente</small>
+      </footer>
+
+      <div class="acciones">
+        <button class="btn btn-cerrar" (click)="cerrarModal()">Cerrar</button>
+        <button class="btn btn-gabysweet" (click)="imprimir()">🖨 Imprimir</button>
+      </div>
+    </article>
+  </div>
+}

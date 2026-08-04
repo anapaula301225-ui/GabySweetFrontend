@@ -1,0 +1,204 @@
+<section class="productos-container">
+
+
+
+    <!-- HEADER -->
+
+    <div class="productos-header">
+
+
+        <span>
+
+            GABYSWEET
+
+        </span>
+
+
+        <h1>
+
+            Nuestros Productos 🍰
+
+        </h1>
+
+
+        <p>
+
+            Descubre nuestros postres artesanales preparados con mucho amor.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- BUSCADOR -->
+
+
+    <div class="buscador-card">
+
+
+        <input
+
+        type="text"
+
+        placeholder="🔎 Buscar producto..."
+
+        [(ngModel)]="busqueda"
+
+        (input)="buscarProducto()">
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- CARGANDO -->
+
+
+    @if(cargando){
+
+
+
+        <div class="loading-box">
+
+
+            <div class="spinner"></div>
+
+
+            <p>
+
+                Cargando productos...
+
+            </p>
+
+
+        </div>
+
+
+
+    }
+
+
+
+
+
+
+
+
+    <!-- SIN PRODUCTOS -->
+
+
+    @else if(productosFiltrados.length === 0){
+
+
+
+        <div class="sin-productos">
+
+
+            <div>
+
+                🍰
+
+            </div>
+
+
+            <h3>
+
+                No encontramos productos
+
+            </h3>
+
+
+            <p>
+
+                Intenta buscar otro nombre.
+
+            </p>
+
+
+
+        </div>
+
+
+
+    }
+
+
+
+
+
+
+
+
+    <!-- PRODUCTOS -->
+
+
+    @else{
+
+
+
+    <div class="productos-grid">
+
+
+
+
+
+        @for(producto of productosFiltrados; track producto.id_producto){
+
+
+
+
+
+            <app-card-producto
+
+
+            [id]="producto.id_producto!"
+
+
+            [nombre]="producto.nombre"
+
+
+            [precio]="producto.precio"
+
+
+            [imagen]="obtenerUrlImagen(producto.imagen)"
+
+
+            [stock]="producto.stock"
+
+
+            modo="tienda">
+
+
+
+            </app-card-producto>
+
+
+
+
+
+        }
+
+
+
+    </div>
+
+
+
+    }
+
+
+
+</section>

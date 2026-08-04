@@ -1,0 +1,683 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+
+
+<div class="container">
+
+
+
+<!-- =========================
+     LOGO
+========================= -->
+
+<a
+class="navbar-brand logo"
+routerLink="/">
+
+🍰 GabySweet
+
+</a>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     MENU MOBILE
+========================= -->
+
+
+<button
+
+class="navbar-toggler"
+
+type="button"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#menuNavbar">
+
+
+<span class="navbar-toggler-icon"></span>
+
+
+</button>
+
+
+
+
+
+
+
+
+
+<div
+
+class="collapse navbar-collapse"
+
+id="menuNavbar">
+
+
+
+
+
+
+
+<ul class="navbar-nav mx-auto">
+
+
+
+
+
+
+
+<!-- =========================
+     VISITANTE
+========================= -->
+
+
+@if(!estaLogueado()){
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/"
+
+routerLinkActive="active"
+
+[routerLinkActiveOptions]="{exact:true}">
+
+
+<i class="bi bi-house"></i>
+
+
+Inicio
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/productos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-cake2"></i>
+
+
+Productos
+
+
+</a>
+
+
+</li>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     CLIENTE
+========================= -->
+
+
+@if(esCliente()){
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/productos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-cake2"></i>
+
+
+Productos
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/carrito"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-cart3"></i>
+
+
+Carrito
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/pedidos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-bag-check"></i>
+
+
+Mis pedidos
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/pagos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-credit-card"></i>
+
+
+Mis pagos
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/perfil"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-person"></i>
+
+
+Mi Perfil
+
+
+</a>
+
+
+</li>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+
+@if(esAdmin()){
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/dashboard"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-speedometer2"></i>
+
+
+Dashboard
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/admin/productos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-box-seam"></i>
+
+
+Productos
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/admin/pedidos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-bag"></i>
+
+
+Pedidos
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/admin/pagos"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-credit-card"></i>
+
+
+Pagos
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/admin/auditoria"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-clipboard-data"></i>
+
+
+Auditoría
+
+
+</a>
+
+
+</li>
+
+
+
+
+
+
+
+<li class="nav-item">
+
+
+<a
+
+class="nav-link"
+
+routerLink="/perfil"
+
+routerLinkActive="active">
+
+
+<i class="bi bi-person-badge"></i>
+
+
+Mi Perfil
+
+
+</a>
+
+
+</li>
+
+
+
+}
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     ZONA DERECHA
+========================= -->
+
+
+<div
+
+class="d-flex align-items-center gap-3 usuario-area">
+
+
+
+
+
+
+
+<!-- =========================
+     NO LOGUEADO
+========================= -->
+
+
+@if(!estaLogueado()){
+
+
+
+<a
+
+routerLink="/login"
+
+class="btn-login">
+
+
+<i class="bi bi-box-arrow-in-right"></i>
+
+
+Iniciar sesión
+
+
+</a>
+
+
+
+
+
+
+
+<a
+
+routerLink="/register"
+
+class="btn-register">
+
+
+<i class="bi bi-person-plus"></i>
+
+
+Registrarse
+
+
+</a>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     LOGUEADO
+========================= -->
+
+
+@else{
+
+
+
+
+
+<div class="usuario-card">
+
+
+
+<div class="avatar-navbar">
+
+
+<i class="bi bi-person-circle"></i>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="usuario-datos">
+
+
+<strong>
+
+{{usuario?.nombre}}
+
+</strong>
+
+
+
+
+
+
+<span>
+
+{{usuario?.rol}}
+
+</span>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<button
+
+class="btn-salir"
+
+(click)="cerrarSesion()">
+
+
+
+<i class="bi bi-box-arrow-right"></i>
+
+
+Salir
+
+
+
+</button>
+
+
+
+
+
+}
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+</nav>

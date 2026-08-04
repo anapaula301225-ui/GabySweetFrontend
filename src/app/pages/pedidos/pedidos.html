@@ -1,0 +1,590 @@
+<section class="pedidos-container">
+
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+
+
+    <div class="pedidos-header">
+
+
+        <div>
+
+
+            <span class="titulo-mini">
+
+                PEDIDOS
+
+            </span>
+
+
+
+            <h1>
+
+                Mis pedidos 📦
+
+            </h1>
+
+
+
+            <p>
+
+                Revisa tus compras, estados y pagos pendientes.
+
+            </p>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- CARGANDO -->
+    <!-- ========================= -->
+
+
+    @if(cargando){
+
+
+        <div class="loading-card">
+
+
+            <div class="spinner"></div>
+
+
+            <p>
+
+                Cargando pedidos...
+
+            </p>
+
+
+        </div>
+
+
+    }
+
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- SIN PEDIDOS -->
+    <!-- ========================= -->
+
+
+    @else if(pedidos.length === 0){
+
+
+
+        <div class="empty-card">
+
+
+
+            <div class="empty-icon">
+
+                🧁
+
+            </div>
+
+
+
+
+            <h2>
+
+                No tienes pedidos todavía
+
+            </h2>
+
+
+
+
+            <p>
+
+                Cuando realices una compra aparecerá aquí.
+
+            </p>
+
+
+
+        </div>
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    <!-- ========================= -->
+    <!-- LISTADO -->
+    <!-- ========================= -->
+
+
+    @else{
+
+
+
+        <div class="pedidos-card">
+
+
+
+            <div class="card-title">
+
+
+                <h2>
+
+                    Historial de pedidos
+
+                </h2>
+
+
+
+                <span>
+
+                    {{pedidos.length}} pedidos
+
+                </span>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="table-responsive">
+
+
+
+                <table class="tabla-pedidos">
+
+
+
+
+
+                    <thead>
+
+
+                        <tr>
+
+
+                            <th>
+
+                                Pedido
+
+                            </th>
+
+
+
+                            <th>
+
+                                Fecha
+
+                            </th>
+
+
+
+                            <th>
+
+                                Entrega
+
+                            </th>
+
+
+
+                            <th>
+
+                                Estado
+
+                            </th>
+
+
+
+                            <th>
+
+                                Total
+
+                            </th>
+
+
+
+                            <th>
+
+                                Acciones
+
+                            </th>
+
+
+                        </tr>
+
+
+                    </thead>
+
+
+
+
+
+
+
+
+                    <tbody>
+
+
+
+                    @for(
+                    
+                    pedido of pedidos; 
+                    
+                    track pedido.id_pedido
+                    
+                    ){
+
+
+
+                        <tr>
+
+
+
+                            <!-- ID -->
+
+
+                            <td>
+
+
+                                <div class="pedido-numero">
+
+
+                                    #{{pedido.id_pedido}}
+
+
+                                </div>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+                            <!-- FECHA -->
+
+
+                            <td>
+
+
+                                <div class="fecha">
+
+
+                                    {{pedido.fecha_pedido 
+                                    
+                                    | date:'dd/MM/yyyy HH:mm'}}
+
+
+                                </div>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+                            <!-- ENTREGA -->
+
+
+                            <td>
+
+
+                                <span class="tipo-entrega">
+
+
+                                    🚚 {{pedido.tipo_entrega}}
+
+
+                                </span>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <!-- ESTADO -->
+
+
+                            <td>
+
+
+                                @switch(pedido.estado){
+
+
+
+                                    @case("PENDIENTE"){
+
+
+                                        <span class="estado pendiente">
+
+
+                                            ⏳ Pendiente
+
+
+                                        </span>
+
+
+                                    }
+
+
+
+                                    @case("EN_PREPARACION"){
+
+
+                                        <span class="estado preparacion">
+
+
+                                            👩‍🍳 Preparando
+
+
+                                        </span>
+
+
+                                    }
+
+
+
+                                    @case("LISTO"){
+
+
+                                        <span class="estado listo">
+
+
+                                            📦 Listo
+
+
+                                        </span>
+
+
+                                    }
+
+
+
+                                    @case("ENTREGADO"){
+
+
+                                        <span class="estado entregado">
+
+
+                                            ✅ Entregado
+
+
+                                        </span>
+
+
+                                    }
+
+
+
+                                    @case("CANCELADO"){
+
+
+                                        <span class="estado cancelado">
+
+
+                                            ❌ Cancelado
+
+
+                                        </span>
+
+
+                                    }
+
+
+
+                                    @default{
+
+
+                                        <span class="estado">
+
+
+                                            {{pedido.estado}}
+
+
+                                        </span>
+
+
+                                    }
+
+
+                                }
+
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <!-- TOTAL -->
+
+
+                            <td>
+
+
+                                <strong class="total">
+
+
+                                    S/. {{pedido.total}}
+
+
+                                </strong>
+
+
+                            </td>
+
+
+
+
+
+
+
+
+
+                            <!-- ACCIONES -->
+
+
+                            <td>
+
+
+                                <div class="acciones">
+
+
+
+
+
+                                    <button
+
+                                    class="btn-detalle"
+
+                                    (click)="verDetalle(pedido.id_pedido)">
+
+
+
+                                        👁 Ver detalle
+
+
+                                    </button>
+
+
+
+
+
+
+
+                                    @if(pedido.estado === 'PENDIENTE'){
+
+
+
+                                        <button
+
+                                        class="btn-pagar"
+
+                                        (click)="pagarPedido(pedido.id_pedido)">
+
+
+
+                                            💳 Pagar
+
+
+                                        </button>
+
+
+
+                                    }
+
+
+
+
+                                </div>
+
+
+
+                            </td>
+
+
+
+
+                        </tr>
+
+
+
+
+                    }
+
+
+
+                    </tbody>
+
+
+
+
+
+                </table>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+    }
+
+
+
+</section>

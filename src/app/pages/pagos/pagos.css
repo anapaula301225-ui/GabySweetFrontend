@@ -1,0 +1,918 @@
+/* =====================================================
+   GABYSWEET - PAGOS PREMIUM
+===================================================== */
+
+:host{
+
+    --rosa:#D63384;
+    --rosa-hover:#B82C70;
+
+    --rosa-bg:#FCE4EC;
+    --rosa-card:#FFF0F5;
+
+    --crema:#FFF3E8;
+
+    --marron:#6B3E26;
+
+    --texto:#5B5B5B;
+
+    --verde:#22A06B;
+
+    --azul:#2563EB;
+
+    --rojo:#DC2626;
+
+}
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+
+.pagos-container{
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    padding:35px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFD6E5,
+        #FFF0D9
+    );
+
+
+    border-radius:35px;
+
+    animation:entrada .5s ease;
+
+}
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.pagos-header{
+
+    margin-bottom:40px;
+
+}
+
+
+
+.titulo-mini{
+
+    color:var(--rosa);
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    font-weight:900;
+
+}
+
+
+
+.pagos-header h1{
+
+    margin-top:10px;
+
+    color:var(--marron);
+
+    font-size:40px;
+
+    font-weight:900;
+
+}
+
+
+
+.pagos-header p{
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+
+.pago-card,
+.historial-card{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFF0F5,
+        #FFE4EC
+    );
+
+
+    border-radius:30px;
+
+
+    padding:35px;
+
+
+    margin-bottom:40px;
+
+
+    border:3px solid #F8BBD0;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(214,51,132,.20);
+
+
+}
+
+
+
+
+
+/* =====================================================
+   HEADER CARD
+===================================================== */
+
+
+.card-header-gaby{
+
+    border-bottom:
+
+    2px dashed #F4B8CF;
+
+
+    padding-bottom:20px;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.card-header-gaby h2{
+
+    color:var(--marron);
+
+    font-weight:900;
+
+}
+
+
+
+.card-header-gaby p{
+
+    color:var(--rosa);
+
+    font-weight:800;
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESUMEN PEDIDO
+===================================================== */
+
+
+.pedido-resumen{
+
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+.pedido-resumen div{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFD4E4,
+        #FFEAF2
+    );
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    border:
+
+    2px solid #F5A9C1;
+
+
+}
+
+
+
+.pedido-resumen span{
+
+    color:#666;
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.pedido-resumen strong{
+
+
+    color:var(--marron);
+
+    font-size:24px;
+
+}
+
+
+
+.pedido-resumen .precio{
+
+    color:var(--rosa);
+
+}
+
+
+
+
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+
+.form-grid{
+
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+label{
+
+
+    color:var(--marron);
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+    display:block;
+
+
+}
+
+
+
+.form-control{
+
+
+    background:#FFF8FB;
+
+
+    border:
+
+    2px solid #F2B8CE;
+
+
+    border-radius:18px;
+
+
+    padding:14px 18px;
+
+
+}
+
+
+
+.form-control:focus{
+
+
+    border-color:var(--rosa);
+
+
+    box-shadow:
+
+    0 0 0 4px rgba(214,51,132,.15);
+
+
+}
+
+
+
+
+
+/* =====================================================
+   QR
+===================================================== */
+
+
+.qr-card{
+
+
+    margin-top:35px;
+
+
+    padding:35px;
+
+
+    text-align:center;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFD6E5,
+        #FFEFD8
+    );
+
+
+    border-radius:35px;
+
+
+    border:
+
+    2px solid #F3A6C1;
+
+
+}
+
+
+
+.qr-card h3{
+
+    color:var(--marron);
+
+    font-weight:900;
+
+}
+
+
+
+.qr-card p{
+
+    color:#666;
+
+}
+
+
+
+.qr-card img{
+
+
+    width:240px;
+
+
+    padding:15px;
+
+
+    background:white;
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.15);
+
+
+}
+
+
+
+.numero-pago{
+
+
+    margin-top:20px;
+
+    font-size:20px;
+
+
+}
+
+
+
+.numero-pago strong{
+
+
+    color:var(--rosa);
+
+}
+
+
+
+
+
+/* =====================================================
+   MENSAJES
+===================================================== */
+
+
+.mensaje-info{
+
+
+    margin-top:30px;
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+}
+
+
+
+.mensaje-info.yape{
+
+    background:#DDF7E6;
+
+    color:#176B38;
+
+}
+
+
+
+.mensaje-info.plin{
+
+    background:#DCE7FF;
+
+    color:#2646A8;
+
+}
+
+
+
+
+
+/* =====================================================
+   BOTON PRINCIPAL
+===================================================== */
+
+
+.btn-gaby{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #D63384,
+        #FF78AC
+    );
+
+
+    border:none;
+
+
+    color:white;
+
+
+    padding:15px 40px;
+
+
+    border-radius:35px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.btn-gaby:hover{
+
+
+    transform:translateY(-4px);
+
+
+    box-shadow:
+
+    0 15px 30px rgba(214,51,132,.35);
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABLA
+===================================================== */
+
+
+.table-responsive{
+
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+
+}
+
+
+
+.table{
+
+
+    margin:0;
+
+
+    background:#FFEAF2;
+
+
+}
+
+
+
+.table thead{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #D63384,
+        #F783B4
+    );
+
+
+}
+
+
+
+.table thead th{
+
+
+    color:white;
+
+
+    padding:18px;
+
+
+    border:none;
+
+
+}
+
+
+
+.table tbody tr{
+
+
+    background:#FFF0F6;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.table tbody tr:nth-child(even){
+
+
+    background:#FFDDEB;
+
+
+}
+
+
+
+.table tbody tr:hover{
+
+
+    background:#FFC7DD;
+
+
+}
+
+
+
+.table tbody td{
+
+
+    padding:18px;
+
+
+    color:#5A3A2E;
+
+
+    font-weight:700;
+
+
+    border-color:#F5B5CD;
+
+
+}
+
+
+
+
+
+/* =====================================================
+   ESTADOS
+===================================================== */
+
+
+.estado{
+
+
+    padding:8px 18px;
+
+
+    border-radius:25px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.pendiente{
+
+
+    background:#FFE9A8;
+
+    color:#8A5A00;
+
+
+}
+
+
+
+.pagado{
+
+
+    background:#CFF5DC;
+
+    color:#15703A;
+
+
+}
+
+
+
+.rechazado{
+
+
+    background:#FFD0D0;
+
+    color:#B42318;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   BOTONES TABLA
+===================================================== */
+
+
+.acciones-tabla{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+
+}
+
+
+
+.btn-mini{
+
+
+    border:none;
+
+
+    border-radius:20px;
+
+
+    padding:10px 18px;
+
+
+    color:white !important;
+
+
+    font-weight:900;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn-mini:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+/* GENERAR */
+
+
+.btn-mini:not(.azul):not(.verde){
+
+
+    background:#D63384;
+
+
+}
+
+
+
+/* VER PDF */
+
+
+.btn-mini.azul{
+
+
+    background:#2563EB !important;
+
+
+}
+
+
+
+/* DESCARGAR */
+
+
+.btn-mini.verde{
+
+
+    background:#22A06B !important;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMACION
+===================================================== */
+
+
+@keyframes entrada{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:768px){
+
+
+.pagos-container{
+
+padding:20px;
+
+}
+
+
+
+.pagos-header h1{
+
+font-size:30px;
+
+}
+
+
+
+.form-grid,
+.pedido-resumen{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.pago-card,
+.historial-card{
+
+padding:20px;
+
+}
+
+
+
+.table{
+
+min-width:900px;
+
+}
+
+
+}

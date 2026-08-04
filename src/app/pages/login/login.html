@@ -1,0 +1,420 @@
+<section class="login-container">
+
+
+    <div class="login-background"></div>
+
+
+
+    <div class="container">
+
+
+        <div class="row justify-content-center align-items-center min-vh-100">
+
+
+            <div class="col-lg-5 col-md-7 col-sm-11">
+
+
+
+                <div class="login-card">
+
+
+
+                    <div class="login-body">
+
+
+
+
+
+                        <!-- LOGO Y MARCA -->
+
+                        <div class="brand">
+
+
+
+                            <div class="brand-icon">
+
+                                🍰
+
+                            </div>
+
+
+
+                            <h1>
+
+                                GabySweet
+
+                            </h1>
+
+
+
+                            <h3>
+
+                                Bienvenido nuevamente
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Ingresa para gestionar tus pedidos
+                                y disfrutar nuestros postres.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <!-- FORMULARIO LOGIN -->
+
+
+                        <form
+
+                        [formGroup]="loginForm"
+
+                        (ngSubmit)="iniciarSesion()">
+
+
+
+
+
+
+
+                            <!-- EMAIL -->
+
+
+                            <div class="form-group">
+
+
+
+                                <label>
+
+                                    Correo electrónico
+
+                                </label>
+
+
+
+
+                                <div class="input-box">
+
+
+                                    <i class="bi bi-envelope"></i>
+
+
+
+                                    <input
+
+                                    type="email"
+
+                                    placeholder="correo@ejemplo.com"
+
+                                    formControlName="email">
+
+
+
+                                </div>
+
+
+
+
+
+
+                                @if(
+
+                                loginForm.get('email')?.touched
+
+                                &&
+
+                                loginForm.get('email')?.invalid
+
+                                ){
+
+
+
+                                    <small class="error-message">
+
+                                        <i class="bi bi-exclamation-circle"></i>
+
+                                        Ingresa un correo válido.
+
+                                    </small>
+
+
+
+                                }
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- PASSWORD -->
+
+
+                            <div class="form-group">
+
+
+
+                                <label>
+
+                                    Contraseña
+
+                                </label>
+
+
+
+
+
+                                <div class="input-box">
+
+
+                                    <i class="bi bi-lock"></i>
+
+
+
+                                    <input
+
+                                    type="password"
+
+                                    placeholder="********"
+
+                                    formControlName="password">
+
+
+
+                                </div>
+
+
+
+
+
+
+                                @if(
+
+                                loginForm.get('password')?.touched
+
+                                &&
+
+                                loginForm.get('password')?.invalid
+
+                                ){
+
+
+
+                                    <small class="error-message">
+
+
+                                        <i class="bi bi-exclamation-circle"></i>
+
+
+                                        La contraseña es obligatoria.
+
+
+
+                                    </small>
+
+
+
+                                }
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- BOTON LOGIN -->
+
+
+                            <button
+
+                            type="submit"
+
+                            class="btn-login"
+
+                            [disabled]="cargando">
+
+
+
+
+
+                                @if(cargando){
+
+
+
+                                    <i class="bi bi-hourglass-split"></i>
+
+
+                                    Ingresando...
+
+
+
+                                }
+
+
+                                @else{
+
+
+
+                                    <i class="bi bi-heart-fill"></i>
+
+
+                                    Iniciar sesión
+
+
+
+                                }
+
+
+
+
+
+                            </button>
+
+
+
+
+
+
+                        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- DIVISOR -->
+
+
+                        <div class="divider">
+
+
+                            <span>
+
+                                O continuar con
+
+                            </span>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <!-- GOOGLE -->
+
+
+                        <div class="google-area">
+
+
+                            <div id="googleButton"></div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <!-- REGISTRO -->
+
+
+                        <div class="register-section">
+
+
+
+                            <p>
+
+                                ¿Todavía no tienes una cuenta?
+
+                            </p>
+
+
+
+
+                            <button
+
+                            routerLink="/register"
+
+                            class="btn-register">
+
+
+
+                                Crear cuenta
+
+
+
+                            </button>
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>

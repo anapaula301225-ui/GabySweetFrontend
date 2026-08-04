@@ -1,0 +1,1080 @@
+/* =====================================================
+   GABYSWEET - PERFIL PREMIUM
+===================================================== */
+
+
+:host{
+
+    --rosa:#D63384;
+    --rosa-hover:#B82C70;
+
+    --rosa-claro:#FFE4EF;
+
+    --crema:#FFF7F2;
+
+    --marron:#6B3E26;
+
+    --texto:#666;
+
+    --verde:#45A049;
+
+    --azul:#5B6CFF;
+
+    --rojo:#E74C3C;
+
+}
+
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+
+.perfil-container{
+
+
+    min-height:calc(100vh - 100px);
+
+
+    padding:50px 20px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #FFE5EF,
+
+        #FFF4E8
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARD PRINCIPAL
+===================================================== */
+
+
+.perfil-card{
+
+
+    width:100%;
+
+
+    max-width:720px;
+
+
+    background:white;
+
+
+    border-radius:40px;
+
+
+    padding:45px;
+
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+
+    border:2px solid #ffd0df;
+
+
+
+    box-shadow:
+
+
+    0 25px 60px rgba(214,51,132,.18);
+
+
+
+    animation:entrada .6s ease;
+
+
+}
+
+
+
+
+
+.perfil-card::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:0;
+
+
+    width:100%;
+
+
+    height:10px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #D63384,
+
+        #FF9BC2
+
+    );
+
+
+}
+
+
+
+
+
+
+
+/* ADMIN CARD */
+
+
+.admin-card{
+
+
+    border-color:#f2d27a;
+
+
+
+    box-shadow:
+
+
+    0 25px 60px rgba(212,160,23,.20);
+
+
+}
+
+
+
+.admin-card::before{
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #D4A017,
+
+        #FFE082
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.perfil-header{
+
+
+    text-align:center;
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+
+
+
+
+.avatar{
+
+
+    width:110px;
+
+
+    height:110px;
+
+
+    margin:auto;
+
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    border-radius:50%;
+
+
+
+    font-size:55px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #FFE0EC,
+
+        #FFF0F5
+
+    );
+
+
+
+    color:var(--rosa);
+
+
+
+    box-shadow:
+
+
+    0 15px 30px rgba(214,51,132,.20);
+
+
+}
+
+
+
+
+
+
+
+.admin-card .avatar{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #FFF3CD,
+
+        #FFE082
+
+    );
+
+}
+
+
+
+
+
+.avatar i{
+
+
+    font-size:55px;
+
+
+}
+
+
+
+
+
+
+
+
+
+.rol-badge{
+
+
+    display:inline-block;
+
+
+
+    margin-top:20px;
+
+
+
+    padding:8px 22px;
+
+
+
+    border-radius:30px;
+
+
+
+    background:#FFE4EF;
+
+
+
+    color:var(--rosa);
+
+
+
+    font-size:13px;
+
+
+
+    font-weight:900;
+
+
+
+    letter-spacing:1px;
+
+
+}
+
+
+
+
+
+.rol-badge.admin{
+
+
+    background:#FFF3CD;
+
+
+    color:#9A6700;
+
+
+}
+
+
+
+
+
+
+
+.perfil-header h1{
+
+
+    margin-top:20px;
+
+
+    color:var(--marron);
+
+
+
+    font-size:34px;
+
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+
+
+.perfil-header p{
+
+
+    color:#888;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CUERPO
+===================================================== */
+
+
+.perfil-body{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #fff8fb,
+
+        #fff
+
+    );
+
+
+
+    border-radius:30px;
+
+
+
+    padding:30px;
+
+
+
+    border:1px solid #f8d6e2;
+
+
+}
+
+
+
+
+
+
+
+
+.seccion-titulo h3{
+
+
+    color:var(--marron);
+
+
+    font-size:22px;
+
+
+    font-weight:900;
+
+
+    margin-bottom:5px;
+
+
+}
+
+
+
+
+
+.seccion-titulo p{
+
+
+    color:#888;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   FORMULARIO
+===================================================== */
+
+
+.form-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(2,1fr);
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+.campo-completo{
+
+
+    grid-column:span 2;
+
+
+}
+
+
+
+
+
+.campo label{
+
+
+    display:block;
+
+
+    margin-bottom:10px;
+
+
+    color:var(--marron);
+
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+.form-control{
+
+
+    width:100%;
+
+
+    padding:15px 18px;
+
+
+
+    border-radius:18px;
+
+
+
+    border:2px solid #f1cada;
+
+
+
+    background:#fffafd;
+
+
+
+    color:#555;
+
+
+
+    font-size:15px;
+
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+
+.form-control:focus{
+
+
+    outline:none;
+
+
+
+    border-color:var(--rosa);
+
+
+
+    box-shadow:
+
+
+    0 0 0 4px rgba(214,51,132,.15);
+
+
+}
+
+
+
+
+
+
+
+
+.form-control:disabled{
+
+
+    background:#f5f5f5;
+
+
+    color:#777;
+
+
+    border-style:dashed;
+
+
+
+    cursor:not-allowed;
+
+
+}
+
+
+
+
+
+
+
+
+.rol-input{
+
+
+    font-weight:800;
+
+
+    text-transform:uppercase;
+
+
+
+    color:var(--rosa)!important;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+
+.perfil-actions{
+
+
+    margin-top:35px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:15px;
+
+
+}
+
+
+
+
+
+
+
+button{
+
+
+    width:100%;
+
+
+    border:none;
+
+
+    border-radius:35px;
+
+
+    padding:15px;
+
+
+
+    font-size:16px;
+
+
+
+    font-weight:900;
+
+
+
+    cursor:pointer;
+
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+button:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+.btn-gaby{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #D63384,
+
+        #FF78AC
+
+    );
+
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+.btn-gaby:hover{
+
+
+    box-shadow:
+
+
+    0 15px 30px rgba(214,51,132,.35);
+
+
+}
+
+
+
+
+
+
+
+.btn-guardar{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #43A047,
+
+        #66BB6A
+
+    );
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+
+.btn-dashboard{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #6B3E26,
+
+        #A56B45
+
+    );
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+
+.btn-salir{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #E74C3C,
+
+        #FF7675
+
+    );
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+button:disabled{
+
+
+    opacity:.6;
+
+
+    cursor:not-allowed;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   DECORACION
+===================================================== */
+
+
+.perfil-card::after{
+
+
+    content:"🍰";
+
+
+    position:absolute;
+
+
+
+    right:-30px;
+
+
+
+    bottom:-35px;
+
+
+
+    font-size:130px;
+
+
+
+    opacity:.07;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMACION
+===================================================== */
+
+
+@keyframes entrada{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:translateY(30px);
+
+
+    }
+
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:768px){
+
+
+    .perfil-container{
+
+
+        padding:25px 15px;
+
+
+    }
+
+
+
+    .perfil-card{
+
+
+        padding:25px;
+
+
+        border-radius:30px;
+
+
+    }
+
+
+
+    .form-grid{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+    .campo-completo{
+
+
+        grid-column:auto;
+
+
+    }
+
+
+
+    .perfil-header h1{
+
+
+        font-size:26px;
+
+
+    }
+
+
+
+}

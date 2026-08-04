@@ -1,0 +1,1243 @@
+/* =====================================================
+   GABYSWEET - CARRITO PREMIUM CHECKOUT
+===================================================== */
+
+
+:host{
+
+    --rosa:#D98BA8;
+    --rosa-hover:#C87896;
+    --rosa-claro:#F7DCE5;
+
+    --marron:#6B3E26;
+
+    --crema:#FFF8F2;
+
+    --fondo:#F5EFEA;
+
+    --texto:#5A504A;
+
+    --borde:#E9DDD5;
+
+}
+
+
+
+
+
+
+/* =====================================================
+   PAGINA GENERAL
+===================================================== */
+
+
+.carrito-page{
+
+
+    min-height:100vh;
+
+
+    padding:40px;
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle at top left,
+
+        #F7DCE5,
+
+        transparent 35%
+
+    ),
+
+
+    linear-gradient(
+
+        135deg,
+
+        #F5EFEA,
+
+        #FFF8F2
+
+    );
+
+
+    font-family:'Poppins',sans-serif;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.carrito-header{
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #D98BA8,
+
+        #E7B3C5
+
+    );
+
+
+    padding:35px 45px;
+
+
+    border-radius:32px;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-bottom:35px;
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(107,62,38,.15);
+
+
+}
+
+
+
+.carrito-header span{
+
+
+    color:white;
+
+
+    font-size:13px;
+
+
+    letter-spacing:3px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.carrito-header h1{
+
+
+    color:white;
+
+
+    font-size:38px;
+
+
+    margin:10px 0;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.carrito-header p{
+
+
+    color:white;
+
+
+    opacity:.9;
+
+
+    margin:0;
+
+
+}
+
+
+
+
+.carrito-icon{
+
+
+    width:100px;
+
+
+    height:100px;
+
+
+    border-radius:30px;
+
+
+    background:white;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-size:45px;
+
+
+    box-shadow:
+
+
+    0 10px 25px rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARRITO VACIO
+===================================================== */
+
+
+.carrito-vacio{
+
+
+    background:#FFFDFC;
+
+
+    padding:70px;
+
+
+    border-radius:30px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+
+    0 15px 40px rgba(107,62,38,.10);
+
+
+}
+
+
+
+.vacio-icon{
+
+
+    font-size:70px;
+
+
+}
+
+
+
+.carrito-vacio h3{
+
+
+    color:var(--marron);
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.carrito-vacio p{
+
+
+    color:#887A72;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   LAYOUT PRINCIPAL
+===================================================== */
+
+
+.carrito-layout{
+
+
+    display:grid;
+
+
+    grid-template-columns:2fr 1fr;
+
+
+    gap:30px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+
+.productos-card,
+
+
+.resumen-card,
+
+
+.checkout-card{
+
+
+    background:
+
+
+    rgba(255,255,255,.75);
+
+
+    border-radius:30px;
+
+
+    padding:30px;
+
+
+    box-shadow:
+
+
+    0 15px 40px rgba(107,62,38,.12);
+
+
+}
+
+
+
+
+
+
+.productos-card h3,
+
+
+.resumen-card h3,
+
+
+.checkout-card h3{
+
+
+    color:var(--marron);
+
+
+    font-weight:800;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   TABLA
+===================================================== */
+
+
+.tabla-carrito{
+
+
+    width:100%;
+
+
+}
+
+
+
+table{
+
+
+    width:100%;
+
+
+    border-collapse:separate;
+
+
+    border-spacing:0 12px;
+
+
+}
+
+
+
+thead th{
+
+
+    background:#6B3E26;
+
+
+    color:white;
+
+
+    padding:15px;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+thead th:first-child{
+
+
+    border-radius:15px 0 0 15px;
+
+
+}
+
+
+
+thead th:last-child{
+
+
+    border-radius:0 15px 15px 0;
+
+
+}
+
+
+
+
+
+tbody td{
+
+
+    background:#FFFDFC;
+
+
+    padding:18px;
+
+
+    color:var(--texto);
+
+
+    border-top:1px solid var(--borde);
+
+
+    border-bottom:1px solid var(--borde);
+
+
+}
+
+
+
+
+tbody td:first-child{
+
+
+    border-left:1px solid var(--borde);
+
+
+    border-radius:18px 0 0 18px;
+
+
+}
+
+
+
+
+tbody td:last-child{
+
+
+    border-right:1px solid var(--borde);
+
+
+    border-radius:0 18px 18px 0;
+
+
+}
+
+
+
+tbody tr{
+
+
+    transition:.25s;
+
+
+}
+
+
+
+tbody tr:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   PRODUCTO
+===================================================== */
+
+
+.producto-info{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.producto-info img{
+
+
+    width:75px;
+
+
+    height:75px;
+
+
+    object-fit:cover;
+
+
+    border-radius:18px;
+
+
+    border:3px solid var(--rosa-claro);
+
+
+}
+
+
+
+.producto-info strong{
+
+
+    display:block;
+
+
+    color:var(--marron);
+
+
+}
+
+
+
+.producto-info small{
+
+
+    color:#91847D;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CANTIDAD
+===================================================== */
+
+
+.cantidad-control{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    gap:12px;
+
+
+}
+
+
+
+.cantidad-control button{
+
+
+    width:32px;
+
+
+    height:32px;
+
+
+    border:none;
+
+
+    border-radius:50%;
+
+
+    background:var(--rosa-claro);
+
+
+    color:var(--rosa-hover);
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+.cantidad-control span{
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+
+.subtotal{
+
+
+    color:var(--rosa-hover);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+
+.btn-eliminar{
+
+
+    width:38px;
+
+
+    height:38px;
+
+
+    border:none;
+
+
+    border-radius:50%;
+
+
+    background:#F8E1E1;
+
+
+    color:#B34B4B;
+
+
+}
+
+
+
+.btn-vaciar{
+
+
+    margin-top:20px;
+
+
+    border:none;
+
+
+    padding:12px 25px;
+
+
+    border-radius:30px;
+
+
+    background:#F3E3DE;
+
+
+    color:var(--marron);
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESUMEN
+===================================================== */
+
+
+.resumen-linea{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    margin-bottom:15px;
+
+
+    color:var(--texto);
+
+
+}
+
+
+
+.resumen-linea strong{
+
+
+    color:var(--marron);
+
+
+}
+
+
+
+.total-final{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    font-size:22px;
+
+
+}
+
+
+
+.total-final strong{
+
+
+    color:var(--rosa-hover);
+
+
+    font-size:28px;
+
+
+}
+
+
+
+
+
+
+.btn-comprar,
+
+
+.btn-confirmar{
+
+
+    width:100%;
+
+
+    margin-top:25px;
+
+
+    padding:14px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        #D98BA8,
+
+        #C87896
+
+    );
+
+
+    color:white;
+
+
+    font-weight:800;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn-comprar:hover,
+
+
+.btn-confirmar:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+
+.checkout-card{
+
+
+    margin-top:35px;
+
+
+}
+
+
+
+.checkout-header p{
+
+
+    color:#887A72;
+
+
+}
+
+
+
+.form-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:1fr 1fr;
+
+
+    gap:20px;
+
+
+}
+
+
+
+.campo{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:8px;
+
+
+}
+
+
+
+.campo label{
+
+
+    color:var(--marron);
+
+
+    font-weight:700;
+
+
+}
+
+
+
+.campo input,
+
+
+.campo select,
+
+
+.campo textarea{
+
+
+    border:1px solid var(--borde);
+
+
+    padding:13px;
+
+
+    border-radius:18px;
+
+
+    background:#FFFDFC;
+
+
+}
+
+
+
+.campo input:focus,
+
+
+.campo select:focus,
+
+
+.campo textarea:focus{
+
+
+    outline:none;
+
+
+    border-color:var(--rosa);
+
+
+}
+
+
+
+
+
+
+.completo{
+
+
+    grid-column:1/3;
+
+
+}
+
+
+
+
+
+
+.acciones-checkout{
+
+
+    display:flex;
+
+
+    justify-content:flex-end;
+
+
+    gap:15px;
+
+
+    margin-top:25px;
+
+
+}
+
+
+
+
+.btn-cancelar{
+
+
+    border:none;
+
+
+    padding:12px 25px;
+
+
+    border-radius:30px;
+
+
+    background:#E9DDD5;
+
+
+    color:var(--marron);
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+
+.verificando{
+
+
+    text-align:center;
+
+
+    padding:30px;
+
+
+    background:#FDF1F5;
+
+
+    border-radius:20px;
+
+
+    color:var(--marron);
+
+
+}
+
+
+
+.spinner{
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+    border-radius:50%;
+
+
+    border:4px solid var(--rosa-claro);
+
+
+    border-top-color:var(--rosa);
+
+
+    margin:auto auto 15px;
+
+
+    animation:girar 1s linear infinite;
+
+
+}
+
+
+
+@keyframes girar{
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:1000px){
+
+
+    .carrito-layout{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    .carrito-page{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+    .carrito-header{
+
+
+        flex-direction:column;
+
+
+        gap:20px;
+
+
+        text-align:center;
+
+
+    }
+
+
+
+    .carrito-header h1{
+
+
+        font-size:28px;
+
+
+    }
+
+
+
+    .form-grid{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+    .completo{
+
+
+        grid-column:auto;
+
+
+    }
+
+
+
+    table{
+
+
+        min-width:750px;
+
+
+    }
+
+
+
+    .tabla-carrito{
+
+
+        overflow-x:auto;
+
+
+    }
+
+
+}

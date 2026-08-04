@@ -1,0 +1,979 @@
+/* =====================================================
+   GABYSWEET - PEDIDOS PREMIUM
+===================================================== */
+
+
+:host{
+
+    --rosa:#D63384;
+    --rosa-hover:#B82C70;
+
+    --rosa-claro:#FFE4EF;
+
+    --crema:#FFF3E8;
+
+    --marron:#6B3E26;
+
+    --texto:#5B5B5B;
+
+    --verde:#63B97A;
+
+}
+
+
+
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+
+.pedidos-container{
+
+
+    max-width:1200px;
+
+
+    margin:40px auto;
+
+
+    padding:35px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFDCEB,
+        #FFF1DC
+    );
+
+
+    border-radius:35px;
+
+
+    animation:entrada .5s ease;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+
+.pedidos-header{
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.titulo-mini{
+
+
+    color:var(--rosa);
+
+
+    font-size:14px;
+
+
+    font-weight:900;
+
+
+    letter-spacing:3px;
+
+
+}
+
+
+
+.pedidos-header h1{
+
+
+    margin-top:10px;
+
+
+    color:var(--marron);
+
+
+    font-size:40px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.pedidos-header p{
+
+
+    color:#777;
+
+
+    font-size:17px;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+
+.loading-card{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFF0F5,
+        #FFE4EC
+    );
+
+
+    padding:50px;
+
+
+    border-radius:30px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(214,51,132,.15);
+
+
+}
+
+
+
+.spinner{
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+    border-radius:50%;
+
+
+    border:5px solid #ffd0df;
+
+
+    border-top-color:var(--rosa);
+
+
+    margin:auto;
+
+
+    animation:giro 1s linear infinite;
+
+
+}
+
+
+
+.loading-card p{
+
+
+    margin-top:20px;
+
+
+    color:var(--marron);
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   SIN PEDIDOS
+===================================================== */
+
+
+.empty-card{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFF0F5,
+        #FFE8D6
+    );
+
+
+    padding:50px;
+
+
+    text-align:center;
+
+
+    border-radius:35px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(107,62,38,.15);
+
+
+}
+
+
+
+.empty-icon{
+
+
+    font-size:60px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.empty-card h2{
+
+
+    color:var(--marron);
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.empty-card p{
+
+
+    color:#777;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   CARD HISTORIAL
+===================================================== */
+
+
+.pedidos-card{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #FFF0F5,
+        #FFE8F1
+    );
+
+
+    padding:35px;
+
+
+    border-radius:35px;
+
+
+    border:2px solid #f8bfd4;
+
+
+    box-shadow:
+
+    0 18px 40px rgba(214,51,132,.18);
+
+
+}
+
+
+
+
+
+
+.card-title{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.card-title h2{
+
+
+    color:var(--marron);
+
+
+    font-weight:900;
+
+
+}
+
+
+
+.card-title span{
+
+
+    background:var(--rosa);
+
+
+    color:white;
+
+
+    padding:8px 18px;
+
+
+    border-radius:25px;
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   TABLA
+===================================================== */
+
+
+.table-responsive{
+
+
+    border-radius:25px;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+.tabla-pedidos{
+
+
+    width:100%;
+
+
+    border-collapse:collapse;
+
+
+}
+
+
+
+
+
+
+
+.tabla-pedidos thead{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #D63384,
+        #F783B4
+    );
+
+
+}
+
+
+
+
+
+.tabla-pedidos th{
+
+
+    color:white;
+
+
+    padding:18px;
+
+
+    text-transform:uppercase;
+
+
+    font-size:13px;
+
+
+    font-weight:900;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+.tabla-pedidos tbody tr{
+
+
+    background:#FFF7FA;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.tabla-pedidos tbody tr:nth-child(even){
+
+
+    background:#FFEAF3;
+
+
+}
+
+
+
+
+
+.tabla-pedidos tbody tr:hover{
+
+
+    background:#FFD9E8;
+
+
+    transform:scale(1.01);
+
+
+}
+
+
+
+
+
+
+.tabla-pedidos td{
+
+
+    padding:18px;
+
+
+    text-align:center;
+
+
+    color:var(--texto);
+
+
+    border-bottom:1px solid #f5cddd;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   PEDIDO ID
+===================================================== */
+
+
+.pedido-numero{
+
+
+    display:inline-block;
+
+
+    background:#FFE0EC;
+
+
+    color:var(--rosa);
+
+
+    padding:8px 15px;
+
+
+    border-radius:20px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   ENTREGA
+===================================================== */
+
+
+.tipo-entrega{
+
+
+    background:#fff0d8;
+
+
+    color:#a56b00;
+
+
+    padding:8px 15px;
+
+
+    border-radius:20px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+
+.total{
+
+
+    color:var(--rosa);
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ESTADOS
+===================================================== */
+
+
+.estado{
+
+
+    display:inline-block;
+
+
+    padding:8px 18px;
+
+
+    border-radius:25px;
+
+
+    font-size:13px;
+
+
+    font-weight:900;
+
+
+}
+
+
+
+
+
+
+.pendiente{
+
+
+    background:#fff0c9;
+
+
+    color:#a56b00;
+
+
+}
+
+
+
+
+
+.preparacion{
+
+
+    background:#dbeafe;
+
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+
+.listo{
+
+
+    background:#dcfce7;
+
+
+    color:#15803d;
+
+
+}
+
+
+
+
+
+.entregado{
+
+
+    background:#c7f9cc;
+
+
+    color:#166534;
+
+
+}
+
+
+
+
+
+.cancelado{
+
+
+    background:#ffdede;
+
+
+    color:#b91c1c;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+
+.acciones{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+
+
+
+.btn-detalle,
+
+
+.btn-pagar{
+
+
+    border:none;
+
+
+    padding:10px 18px;
+
+
+    border-radius:25px;
+
+
+    font-weight:800;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+
+.btn-detalle{
+
+
+    background:#8B5CF6;
+
+
+}
+
+
+
+
+
+
+.btn-pagar{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #D63384,
+        #FF78AC
+    );
+
+
+}
+
+
+
+
+
+
+.btn-detalle:hover,
+
+
+.btn-pagar:hover{
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 10px 20px rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   ANIMACION
+===================================================== */
+
+
+@keyframes entrada{
+
+
+from{
+
+
+    opacity:0;
+
+
+    transform:translateY(25px);
+
+
+}
+
+
+to{
+
+
+    opacity:1;
+
+
+    transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+@keyframes giro{
+
+
+to{
+
+
+    transform:rotate(360deg);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:768px){
+
+
+    .pedidos-container{
+
+
+        margin:20px;
+
+
+        padding:20px;
+
+
+    }
+
+
+
+    .pedidos-header h1{
+
+
+        font-size:30px;
+
+
+    }
+
+
+
+    .pedidos-card{
+
+
+        padding:20px;
+
+
+    }
+
+
+
+    .tabla-pedidos{
+
+
+        min-width:900px;
+
+
+    }
+
+
+
+}

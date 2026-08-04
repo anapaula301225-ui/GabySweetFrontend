@@ -1,0 +1,525 @@
+<div class="pedido-container">
+
+
+
+    <!-- =========================
+         HEADER PEDIDO
+    ========================== -->
+
+
+    <div class="pedido-header">
+
+
+        <div class="header-info">
+
+
+            <span class="pedido-label">
+                DETALLE DE PEDIDO
+            </span>
+
+
+            <h2>
+
+                #{{idPedido}}
+
+            </h2>
+
+
+            <p>
+
+                Revisa la información y gestiona el estado del pedido.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <button
+
+        class="btn-volver"
+
+        (click)="volver()">
+
+
+            ← Volver
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+@if(pedido){
+
+
+
+    <!-- =========================
+         INFORMACION PRINCIPAL
+    ========================== -->
+
+
+    <div class="info-grid">
+
+
+
+        <!-- CLIENTE -->
+
+
+        <div class="info-card">
+
+
+            <div class="icon">
+
+                👤
+
+            </div>
+
+
+            <div>
+
+
+                <h4>
+                    Cliente
+                </h4>
+
+
+                <strong>
+
+                    {{pedido.nombre}}
+                    {{pedido.apellido}}
+
+                </strong>
+
+
+                <p>
+
+                    {{pedido.email}}
+
+                </p>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ENTREGA -->
+
+
+        <div class="info-card">
+
+
+            <div class="icon">
+
+                🚚
+
+            </div>
+
+
+            <div>
+
+
+                <h4>
+                    Tipo de entrega
+                </h4>
+
+
+                <strong>
+
+                    {{pedido.tipo_entrega}}
+
+                </strong>
+
+
+
+                @if(pedido.tipo_entrega === 'DELIVERY'){
+
+
+                    <p>
+
+                        {{pedido.direccion_entrega}}
+
+                    </p>
+
+
+                }
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- FECHA -->
+
+
+        <div class="info-card">
+
+
+            <div class="icon">
+
+                📅
+
+            </div>
+
+
+            <div>
+
+
+                <h4>
+                    Fecha
+                </h4>
+
+
+                <strong>
+
+                    {{pedido.fecha_pedido | date:'dd/MM/yyyy'}}
+
+                </strong>
+
+
+                <p>
+
+                    {{pedido.fecha_pedido | date:'HH:mm'}}
+
+                </p>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- =========================
+         ESTADO PEDIDO
+    ========================== -->
+
+
+    <div class="estado-container">
+
+
+
+        <div>
+
+
+            <h4>
+
+                Estado actual
+
+            </h4>
+
+
+
+            <span
+
+            class="estado-badge">
+
+
+                {{pedido.estado}}
+
+
+            </span>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="estado-control">
+
+
+
+            <select
+
+            class="estado-select"
+
+            [(ngModel)]="pedido.estado">
+
+
+                @for(estado of estados; track estado){
+
+
+                    <option
+
+                    [value]="estado">
+
+
+                        {{estado}}
+
+
+                    </option>
+
+
+                }
+
+
+            </select>
+
+
+
+
+
+
+            <button
+
+            class="btn-actualizar"
+
+            (click)="cambiarEstado()">
+
+
+
+                Guardar cambio
+
+
+
+            </button>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+}
+
+
+
+
+
+
+
+<!-- =========================
+     PRODUCTOS
+========================== -->
+
+
+
+<div class="productos-container">
+
+
+
+    <div class="section-title">
+
+
+        <h3>
+
+            Productos del pedido
+
+        </h3>
+
+
+        <span>
+
+            {{detalle.length}} productos
+
+        </span>
+
+
+
+    </div>
+
+
+
+
+
+
+
+@if(cargando){
+
+
+    <div class="loading">
+
+        Cargando productos...
+
+    </div>
+
+
+}
+
+@else {
+
+
+
+<div class="productos-grid">
+
+
+
+
+
+@for(item of detalle; track item.id_detalle){
+
+
+
+<div class="producto-card">
+
+
+
+
+
+    <img
+
+    [src]="'http://localhost:3000/uploads/' + item.imagen"
+
+    >
+
+
+
+
+
+    <div class="producto-info">
+
+
+
+        <h4>
+
+            {{item.nombre}}
+
+        </h4>
+
+
+
+
+        <p>
+
+            {{item.descripcion}}
+
+        </p>
+
+
+
+
+
+
+        <div class="producto-footer">
+
+
+
+            <span>
+
+                Cantidad:
+                {{item.cantidad}}
+
+            </span>
+
+
+
+
+            <strong>
+
+                S/. {{item.subtotal}}
+
+            </strong>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+}
+
+
+
+</div>
+
+
+
+}
+
+
+
+
+
+
+
+@if(pedido){
+
+
+<div class="total-final">
+
+
+    <span>
+        Total del pedido
+    </span>
+
+
+    <strong>
+
+        S/. {{pedido.total}}
+
+    </strong>
+
+
+</div>
+
+
+}
+
+
+
+
+
+</div>
+
+
+
+
+</div>

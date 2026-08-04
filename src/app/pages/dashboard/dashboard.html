@@ -1,0 +1,1131 @@
+<div class="dashboard-page">
+
+<div class="container py-5">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="dashboard-header text-center mb-5">
+
+<h1>
+👑 Panel Administrativo
+</h1>
+
+<h2>
+GabySweet 🍰
+</h2>
+
+
+<p>
+Bienvenido,
+<strong>
+{{usuario.nombre}}
+</strong>
+👋
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- =========================
+     PERFIL ADMIN
+========================= -->
+
+
+<div class="admin-profile mb-5">
+
+
+
+<div class="admin-avatar">
+
+<i class="bi bi-person-circle"></i>
+
+</div>
+
+
+
+
+
+<div class="admin-info">
+
+<h3>
+{{usuario.nombre}}
+</h3>
+
+
+<p>
+Administrador de GabySweet
+</p>
+
+
+
+<span>
+👑 {{usuario.rol}}
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="admin-actions">
+
+
+
+<!-- =====================
+     NOTIFICACIONES
+===================== -->
+
+
+<div class="notificacion-box">
+
+
+<button
+
+type="button"
+
+class="btn-notificacion"
+
+(click)="abrirNotificaciones()">
+
+
+
+<i class="bi bi-bell-fill"></i>
+
+
+
+<span
+*ngIf="cantidadNotificaciones > 0">
+
+{{cantidadNotificaciones}}
+
+</span>
+
+
+
+</button>
+
+
+
+
+
+
+<!-- PANEL NOTIFICACIONES -->
+
+
+<div
+
+class="lista-notificaciones"
+
+*ngIf="mostrarNotificaciones">
+
+
+<h4>
+🔔 Notificaciones
+</h4>
+
+
+
+
+
+<div
+
+class="notificacion"
+
+*ngFor="let n of notificaciones"
+
+(click)="marcarLeida(n.id_notificacion)">
+
+
+
+<strong>
+
+{{n.titulo}}
+
+</strong>
+
+
+
+
+<p>
+
+{{n.mensaje}}
+
+</p>
+
+
+
+<small>
+
+{{n.fecha | date:'short'}}
+
+</small>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div
+
+*ngIf="notificaciones.length === 0"
+
+class="sin-notificaciones">
+
+
+No tienes notificaciones
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- PERFIL -->
+
+
+<a
+
+routerLink="/perfil"
+
+class="btn btn-gabysweet">
+
+
+<i class="bi bi-person"></i>
+
+
+Mi Perfil
+
+
+</a>
+
+
+
+
+
+
+
+
+<!-- CERRAR SESION -->
+
+
+<button
+
+class="btn btn-outline-danger"
+
+(click)="cerrarSesion()">
+
+
+
+<i class="bi bi-box-arrow-right"></i>
+
+
+Salir
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     MENU ADMIN
+========================= -->
+
+
+<div class="admin-menu mb-5">
+
+
+
+<a routerLink="/admin/productos">
+
+<i class="bi bi-cake2"></i>
+
+Productos
+
+</a>
+
+
+
+
+
+<a routerLink="/admin/pedidos">
+
+<i class="bi bi-bag-check"></i>
+
+Pedidos
+
+</a>
+
+
+
+
+
+<a routerLink="/admin/pagos">
+
+<i class="bi bi-credit-card"></i>
+
+Pagos
+
+</a>
+
+
+
+
+
+<a routerLink="/admin/auditoria">
+
+<i class="bi bi-clipboard-data"></i>
+
+Auditoría
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     ESTADISTICAS
+========================= -->
+
+
+<div class="section-title">
+
+<h3>
+
+Resumen del negocio 📊
+
+</h3>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="row g-4">
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card usuarios">
+
+
+<div class="icon-box">
+
+<i class="bi bi-people"></i>
+
+</div>
+
+
+<div>
+
+<h2>
+{{resumen.usuarios}}
+</h2>
+
+
+<p>
+Usuarios registrados
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card productos">
+
+
+<div class="icon-box">
+
+<i class="bi bi-box-seam"></i>
+
+</div>
+
+
+
+<div>
+
+<h2>
+
+{{resumen.productos}}
+
+</h2>
+
+
+<p>
+
+Productos disponibles
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card pedidos">
+
+
+<div class="icon-box">
+
+<i class="bi bi-bag-check"></i>
+
+</div>
+
+
+
+<div>
+
+<h2>
+
+{{resumen.pedidos}}
+
+</h2>
+
+
+
+<p>
+
+Pedidos realizados
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card pendientes">
+
+
+<div class="icon-box">
+
+<i class="bi bi-clock-history"></i>
+
+</div>
+
+
+
+
+<div>
+
+<h2>
+
+{{resumen.pendientes}}
+
+</h2>
+
+
+<p>
+
+Pedidos pendientes
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card preparacion">
+
+
+<div class="icon-box">
+
+<i class="bi bi-fire"></i>
+
+</div>
+
+
+
+<div>
+
+
+<h2>
+
+{{resumen.preparacion}}
+
+</h2>
+
+
+
+<p>
+
+En preparación
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card entregados">
+
+
+<div class="icon-box">
+
+<i class="bi bi-check-circle"></i>
+
+</div>
+
+
+
+
+<div>
+
+
+<h2>
+
+{{resumen.entregados}}
+
+</h2>
+
+
+
+<p>
+
+Entregados
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card ventas">
+
+
+<div class="icon-box">
+
+<i class="bi bi-calendar-check"></i>
+
+</div>
+
+
+
+<div>
+
+
+<h2>
+
+S/. {{resumen.ventasMes}}
+
+</h2>
+
+
+
+<p>
+
+Ventas del mes
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="dashboard-card pagos">
+
+
+<div class="icon-box">
+
+<i class="bi bi-credit-card"></i>
+
+</div>
+
+
+
+<div>
+
+
+<h2>
+
+{{resumen.pagos.PENDIENTE}}
+
+</h2>
+
+
+
+<p>
+
+Pagos pendientes
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     VENTAS TOTAL
+========================= -->
+
+
+<div class="ventas-card mt-5">
+
+
+<i class="bi bi-cash-coin"></i>
+
+
+<h3>
+
+Ventas totales
+
+</h3>
+
+
+
+<h1>
+
+S/. {{resumen.ventas}}
+
+</h1>
+
+
+
+<p>
+
+Resumen general del negocio
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     PRODUCTOS MAS VENDIDOS
+========================= -->
+
+
+<div class="productos-card mt-5">
+
+
+<h3>
+
+🍰 Productos más vendidos
+
+</h3>
+
+
+
+
+
+<div
+
+*ngFor="let producto of resumen.productosVendidos"
+
+class="producto-item">
+
+
+
+<span>
+
+{{producto.nombre}}
+
+</span>
+
+
+
+
+<strong>
+
+{{producto.vendidos}} vendidos
+
+</strong>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+     GRAFICOS
+========================= -->
+
+
+<div class="graficos-row mt-5">
+
+
+
+
+
+<div class="grafico-card">
+
+
+<h3>
+
+📦 Estado de pedidos
+
+</h3>
+
+
+
+
+
+<div class="barra">
+
+
+<span>
+
+Pendientes
+
+</span>
+
+
+
+
+<div class="progreso">
+
+
+<div
+
+class="relleno pendiente"
+
+[style.width.%]="
+
+resumen.pedidos ?
+
+(resumen.pendientes/resumen.pedidos)*100
+
+:0
+
+">
+
+
+</div>
+
+
+</div>
+
+
+
+
+<strong>
+
+{{resumen.pendientes}}
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="barra">
+
+
+<span>
+
+Preparación
+
+</span>
+
+
+
+
+<div class="progreso">
+
+
+<div
+
+class="relleno preparacion"
+
+[style.width.%]="
+
+resumen.pedidos ?
+
+(resumen.preparacion/resumen.pedidos)*100
+
+:0
+
+">
+
+
+</div>
+
+
+</div>
+
+
+
+
+<strong>
+
+{{resumen.preparacion}}
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="barra">
+
+
+<span>
+
+Entregados
+
+</span>
+
+
+
+
+<div class="progreso">
+
+
+<div
+
+class="relleno entregado"
+
+[style.width.%]="
+
+resumen.pedidos ?
+
+(resumen.entregados/resumen.pedidos)*100
+
+:0
+
+">
+
+
+</div>
+
+
+</div>
+
+
+
+
+<strong>
+
+{{resumen.entregados}}
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="grafico-card">
+
+
+<h3>
+
+💳 Pagos
+
+</h3>
+
+
+
+
+
+<div class="pago-item">
+
+Pendientes
+
+<strong>
+
+{{resumen.pagos.PENDIENTE}}
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="pago-item">
+
+Pagados
+
+<strong>
+
+{{resumen.pagos.PAGADO}}
+
+</strong>
+
+</div>
+
+
+
+
+
+
+<div class="pago-item">
+
+Rechazados
+
+<strong>
+
+{{resumen.pagos.RECHAZADO}}
+
+</strong>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
