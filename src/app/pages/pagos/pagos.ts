@@ -58,7 +58,6 @@ import Swal from 'sweetalert2';
 export class Pagos implements OnInit {
 
 
-
 private pagoService = inject(PagoService);
 
 private pedidoService = inject(PedidoService);
@@ -107,9 +106,9 @@ mostrarFormulario=false;
 // ==========================
 
 
-numeroPago="999888777";
+numeroPago="955997913";
 
-qrPago="assets/images/yape-qr.jpeg";
+qrPago = "img/yape-qr.jpeg";
 
 
 
@@ -162,7 +161,6 @@ this.cargarPedido(id);
 
 
 }
-
 
 
 
@@ -226,7 +224,6 @@ this.pago.codigo_seguridad
 
 
 
-
 // ==========================
 // CARGAR PEDIDO
 // ==========================
@@ -240,7 +237,7 @@ this.pedidoService.obtener(id)
 .subscribe({
 
 
-next:(respuesta)=>{
+next:(respuesta:any)=>{
 
 
 this.pedido=respuesta.data;
@@ -261,7 +258,7 @@ Number(this.pedido.total);
 },
 
 
-error:(error)=>{
+error:(error:any)=>{
 
 
 console.error(error);
@@ -296,7 +293,6 @@ confirmButtonColor:'#D63384'
 
 
 
-
 // ==========================
 // LISTAR PAGOS
 // ==========================
@@ -310,7 +306,7 @@ this.pagoService.listarPagos()
 .subscribe({
 
 
-next:(respuesta)=>{
+next:(respuesta:any)=>{
 
 
 this.pagos=respuesta.data;
@@ -320,10 +316,11 @@ this.pagos=respuesta.data;
 },
 
 
-error:(error)=>{
+error:(error:any)=>{
 
 
 console.error(error);
+
 
 
 }
@@ -416,6 +413,7 @@ return;
 
 
 
+
 if(!this.pago.codigo_seguridad.trim()){
 
 
@@ -442,10 +440,7 @@ return;
 
 }
 
-
-
-
-
+// CONTINUACIÓN CONFIRMAR PAGO
 
 
 if(!/^\d{8}$/.test(this.pago.codigo_operacion)){
@@ -594,7 +589,7 @@ this.listarPagos();
 
 
 
-error:(error)=>{
+error:(error:any)=>{
 
 
 console.error(error);
@@ -632,6 +627,7 @@ confirmButtonColor:'#D63384'
 
 
 }
+
 
 
 
@@ -770,6 +766,7 @@ ${pago.estado}
 
 
 
+
 this.pagoService.generarComprobante({
 
 id_pago:pago.id_pago,
@@ -809,7 +806,12 @@ confirmButtonColor:'#D63384'
 
 
 
-error:()=>{
+
+
+error:(error:any)=>{
+
+
+console.error(error);
 
 
 Swal.fire({
@@ -836,6 +838,7 @@ confirmButtonColor:'#D63384'
 
 
 }
+
 
 
 
@@ -881,11 +884,16 @@ a.click();
 window.URL.revokeObjectURL(url);
 
 
+
 },
 
 
 
-error:()=>{
+
+error:(error:any)=>{
+
+
+console.error(error);
 
 
 Swal.fire({
@@ -909,6 +917,7 @@ confirmButtonColor:'#D63384'
 });
 
 
+
 }
 
 
@@ -923,12 +932,13 @@ verPDF(id:number){
 
 this.pagoService.descargarComprobante(id)
 
-.subscribe((archivo)=>{
+.subscribe((archivo:Blob)=>{
 
 
 const url=
 
 URL.createObjectURL(archivo);
+
 
 
 window.open(url,'_blank');
@@ -939,6 +949,7 @@ window.open(url,'_blank');
 
 
 }
+
 
 
 }

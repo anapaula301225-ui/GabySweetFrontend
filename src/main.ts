@@ -24,6 +24,8 @@ bootstrapApplication(
 
 .catch(
 
-  err => console.error(err)
+  (err) => {
+    console.error(err);
+  }
 
 );
