@@ -683,13 +683,11 @@
 
 
 
-                                <img
-
-
-                                [src]="'http://localhost:3000/uploads/' + producto.imagen"
-
-
-                                [alt]="producto.nombre">
+                                <img 
+[src]="producto.imagen?.startsWith('http') 
+? producto.imagen 
+: urlImagen + producto.imagen"
+alt="Imagen producto">
 
 
 

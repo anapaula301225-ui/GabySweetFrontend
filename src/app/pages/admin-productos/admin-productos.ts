@@ -12,6 +12,7 @@ import { ProductoService } from '../../services/producto';
 import { Producto } from '../../models/producto';
 
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -46,7 +47,7 @@ private fb = inject(FormBuilder);
 
 private route = inject(ActivatedRoute);
 
-
+urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
 
 productos:Producto[]=[];

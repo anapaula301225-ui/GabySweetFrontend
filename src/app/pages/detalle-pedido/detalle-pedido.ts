@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 import { PedidoService } from '../../services/pedido';
 import { DetallePedidoService } from '../../services/detalle-pedido';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -40,6 +41,7 @@ private pedidoService = inject(PedidoService);
 private detalleService = inject(DetallePedidoService);
 
 
+urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
 
 

@@ -14,6 +14,7 @@ import { Producto } from '../../models/producto';
 
 import { WhatsappButton } 
 from '../../components/whatsapp-button/whatsapp-button';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -45,7 +46,7 @@ export class Home implements OnInit {
 
 
   private productoService = inject(ProductoService);
-
+  urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
 
   esAdmin = false;

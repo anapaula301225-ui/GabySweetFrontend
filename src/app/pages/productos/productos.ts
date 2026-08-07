@@ -29,6 +29,7 @@ import {
 
 
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -80,9 +81,7 @@ export class Productos implements OnInit {
 
 
 
-  urlImagen =
-  'http://localhost:3000/uploads/';
-
+  urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
 
   cargando:boolean = true;

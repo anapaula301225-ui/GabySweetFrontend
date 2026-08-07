@@ -22,6 +22,7 @@ from '../../services/notificacion';
 
 import Swal from 'sweetalert2';
 
+
 @Component({
 
 selector:'app-dashboard',

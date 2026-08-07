@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -11,8 +12,7 @@ export class NotificacionService {
 private http = inject(HttpClient);
 
 
-private url =
-'http://localhost:3000/api/notificaciones';
+private url = `${environment.apiUrl}/notificaciones`;
 
 
 

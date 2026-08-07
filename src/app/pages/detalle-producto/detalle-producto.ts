@@ -8,6 +8,7 @@ import { ProductoService } from '../../services/producto';
 import { Producto } from '../../models/producto';
 
 import { CarritoService } from '../../services/carrito';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -56,7 +57,7 @@ rol='';
 
 
 
-urlImagen='http://localhost:3000/uploads/';
+urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
 
 
