@@ -46,8 +46,7 @@ export class Home implements OnInit {
 
 
   private productoService = inject(ProductoService);
-urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
-
+urlImagen = '';
   esAdmin = false;
 
 

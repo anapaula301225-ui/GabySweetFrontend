@@ -41,8 +41,7 @@ private pedidoService = inject(PedidoService);
 private detalleService = inject(DetallePedidoService);
 
 
-urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
-
+urlImagen = '';
 
 idPedido!:number;
 

@@ -57,8 +57,7 @@ rol='';
 
 
 
-urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
-
+urlImagen = '';
 
 
 

@@ -1,4 +1,3 @@
-
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -32,7 +31,12 @@ export class AdminProductos implements OnInit {
   private fb = inject(FormBuilder);
   private route = inject(ActivatedRoute);
 
-urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
+  // ==========================================
+  // URL DE IMÁGENES
+  // ==========================================
+
+  urlImagen = '';
+
 
   productos: Producto[] = [];
 
@@ -50,6 +54,10 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
   nombreImagen = '';
 
+
+  // ==========================================
+  // FORMULARIO
+  // ==========================================
 
   productoForm = this.fb.group({
 
@@ -81,6 +89,10 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
   });
 
+
+  // ==========================================
+  // INIT
+  // ==========================================
 
   ngOnInit(): void {
 
@@ -174,7 +186,8 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
             title: 'Error',
 
-            text: 'No se pudo cargar el producto.'
+            text:
+              'No se pudo cargar el producto.'
 
           });
 
@@ -272,10 +285,6 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
     );
 
 
-    // ------------------------------------------
-    // VALIDAR PRODUCTO
-    // ------------------------------------------
-
     if (
       !producto ||
       !producto.id_producto
@@ -304,10 +313,6 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
     }
 
 
-    // ------------------------------------------
-    // ACTIVAR MODO EDICIÓN
-    // ------------------------------------------
-
     this.mostrarFormulario = true;
 
     this.modoEdicion = true;
@@ -316,15 +321,8 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
       Number(producto.id_producto);
 
 
-    // ------------------------------------------
-    // REINICIAR IMAGEN SELECCIONADA
-    // ------------------------------------------
-
     this.imagenSeleccionada = null;
 
-
-    // Si el producto ya tiene imagen,
-    // mostramos que existe una imagen actual.
 
     this.nombreImagen =
       producto.imagen
@@ -332,33 +330,25 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
         : '';
 
 
-    // ------------------------------------------
-    // CARGAR DATOS EN EL FORMULARIO
-    // ------------------------------------------
-
     this.productoForm.patchValue({
 
-  nombre:
-    producto.nombre ?? '',
+      nombre:
+        producto.nombre ?? '',
 
-  descripcion:
-    producto.descripcion ?? '',
+      descripcion:
+        producto.descripcion ?? '',
 
-  precio:
-    Number(producto.precio) || 0,
+      precio:
+        Number(producto.precio) || 0,
 
-  stock:
-    Number(producto.stock) || 0,
+      stock:
+        Number(producto.stock) || 0,
 
-  disponible:
-    producto.disponible
+      disponible:
+        producto.disponible
 
-});
+    });
 
-
-    // ------------------------------------------
-    // DEBUG
-    // ------------------------------------------
 
     console.log(
       'ID producto editando:',
@@ -419,7 +409,7 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
     if (
       input.files &&
-      input.files.length
+      input.files.length > 0
     ) {
 
       this.imagenSeleccionada =
@@ -427,6 +417,12 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
       this.nombreImagen =
         this.imagenSeleccionada.name;
+
+
+      console.log(
+        'IMAGEN SELECCIONADA:',
+        this.imagenSeleccionada
+      );
 
     }
 
@@ -479,18 +475,71 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
     );
 
 
-    // Solo enviamos imagen si el usuario
-    // seleccionó una nueva.
+    // ==========================================
+    // IMAGEN
+    // ==========================================
 
     if (this.imagenSeleccionada) {
 
       formData.append(
         'imagen',
-        this.imagenSeleccionada
+        this.imagenSeleccionada,
+        this.imagenSeleccionada.name
       );
 
     }
 
+
+    // ==========================================
+    // DEBUG FORMDATA
+    // ==========================================
+
+    console.log(
+      '========== FORMDATA =========='
+    );
+
+
+    formData.forEach(
+      (valor, clave) => {
+
+        if (valor instanceof File) {
+
+          console.log(
+            clave,
+            'FILE:',
+            valor.name,
+            valor.type,
+            valor.size,
+            'bytes'
+          );
+
+        } else {
+
+          console.log(
+            clave,
+            valor
+          );
+
+        }
+
+      }
+    );
+
+
+    console.log(
+      'IMAGEN SELECCIONADA:',
+      this.imagenSeleccionada
+    );
+
+
+    console.log(
+      '=============================='
+    );
+
+
+    // ==========================================
+    // IMPORTANTE
+    // ==========================================
 
     return formData;
 
@@ -503,9 +552,9 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
   guardarProducto(): void {
 
-    // ------------------------------------------
+    // ==========================================
     // VALIDAR FORMULARIO
-    // ------------------------------------------
+    // ==========================================
 
     if (this.productoForm.invalid) {
 
@@ -516,17 +565,17 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
     }
 
 
-    // ------------------------------------------
+    // ==========================================
     // CREAR FORMDATA
-    // ------------------------------------------
+    // ==========================================
 
     const formData =
       this.crearFormData();
 
 
-    // ------------------------------------------
+    // ==========================================
     // MODO EDICIÓN
-    // ------------------------------------------
+    // ==========================================
 
     if (this.modoEdicion) {
 
@@ -621,9 +670,9 @@ urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
     }
 
 
-    // ------------------------------------------
-    // MODO NUEVO PRODUCTO
-    // ------------------------------------------
+    // ==========================================
+    // NUEVO PRODUCTO
+    // ==========================================
 
     console.log(
       'Registrando nuevo producto'
