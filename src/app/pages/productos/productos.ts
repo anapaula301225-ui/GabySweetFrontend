@@ -81,8 +81,7 @@ export class Productos implements OnInit {
 
 
 
-  urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
-
+urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
   cargando:boolean = true;
 

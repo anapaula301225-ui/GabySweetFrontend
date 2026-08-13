@@ -32,8 +32,7 @@ export class AdminProductos implements OnInit {
   private fb = inject(FormBuilder);
   private route = inject(ActivatedRoute);
 
-  urlImagen =
-    environment.apiUrl.replace('/api', '') + '/uploads/';
+urlImagen = environment.apiUrl.replace('/api', '') + '/uploads/';
 
   productos: Producto[] = [];
 
