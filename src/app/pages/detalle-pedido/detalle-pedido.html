@@ -72,7 +72,9 @@
             <div class="info-grid">
 
 
-                <!-- FECHA -->
+                <!-- ==========================
+                     FECHA
+                =========================== -->
 
                 <div class="info-card">
 
@@ -88,7 +90,9 @@
 
 
 
-                <!-- ESTADO -->
+                <!-- ==========================
+                     ESTADO
+                =========================== -->
 
                 <div class="info-card">
 
@@ -108,7 +112,9 @@
 
 
 
-                <!-- TOTAL -->
+                <!-- ==========================
+                     TOTAL
+                =========================== -->
 
                 <div class="info-card">
 
@@ -127,6 +133,162 @@
 
             </div>
 
+
+            <!-- ==========================
+                 INFORMACIÓN DE ENTREGA
+            =========================== -->
+
+            <div class="entrega-section">
+
+
+                <h2>
+                    Información de entrega 🚚
+                </h2>
+
+
+                <div class="entrega-grid">
+
+
+                    <!-- ==========================
+                         TIPO DE ENTREGA
+                    =========================== -->
+
+                    <div class="entrega-card">
+
+
+                        <span>
+                            🚚 Tipo de entrega
+                        </span>
+
+
+                        <strong>
+
+                            {{pedido.tipo_entrega}}
+
+                        </strong>
+
+
+                    </div>
+
+
+
+                    <!-- ==========================
+                         TELÉFONO
+                    =========================== -->
+
+                    <div class="entrega-card">
+
+
+                        <span>
+                            📞 Teléfono de contacto
+                        </span>
+
+
+                        <strong>
+
+                            {{pedido.telefono_contacto || 'No registrado'}}
+
+                        </strong>
+
+
+                    </div>
+
+
+
+                    <!-- ==========================
+                         DIRECCIÓN
+                    =========================== -->
+
+                    <div class="entrega-card">
+
+
+                        <span>
+                            📍 Dirección de entrega
+                        </span>
+
+
+                        @if(pedido.tipo_entrega === 'DELIVERY' && pedido.direccion_entrega){
+
+                            <strong>
+
+                                {{pedido.direccion_entrega}}
+
+                            </strong>
+
+                        }
+
+                        @else {
+
+                            <strong class="texto-secundario">
+
+                                Recojo en tienda
+
+                            </strong>
+
+                        }
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==========================
+                 OBSERVACIONES
+            =========================== -->
+
+            <div class="observaciones-section">
+
+
+                <div class="observaciones-icon">
+
+                    📝
+
+                </div>
+
+
+                <div class="observaciones-info">
+
+
+                    <h2>
+
+                        Observaciones
+
+                    </h2>
+
+
+                    @if(pedido.observaciones){
+
+                        <p>
+
+                            {{pedido.observaciones}}
+
+                        </p>
+
+                    }
+
+                    @else {
+
+                        <p class="sin-observaciones">
+
+                            No registraste observaciones para este pedido.
+
+                        </p>
+
+                    }
+
+
+                </div>
+
+
+            </div>
+
+
         }
 
 
@@ -139,9 +301,40 @@
         <div class="productos-section">
 
 
-            <h2>
-                Productos del pedido 🧁
-            </h2>
+            <div class="productos-header">
+
+
+                <h2>
+                    Productos del pedido 🧁
+                </h2>
+
+
+                <span>
+
+                    {{detalle.length}} productos
+
+                </span>
+
+
+            </div>
+
+            <div class="aviso-imagen">
+                <span clas="aviso-icono">
+                    ✨
+                </span>
+
+                <div>
+                    <strong>
+                        Imagen referencial
+                    </strong>
+
+                    <p>
+                        Las imágenes mostradas son ilustrativas.
+                        El producto final puede presentar variaciones
+                        en decoración, colores y presentación.
+                    </p>
+                </div>
+            </div>
 
 
 
@@ -162,8 +355,14 @@
                             =========================== -->
 
                             <img
+
                                 [src]="getImagenUrl(item.imagen)"
-                                [alt]="item.nombre">
+
+                                [alt]="item.nombre"
+
+                                (error)="$any($event.target).src='assets/img/producto-default.png'"
+
+                            >
 
 
                             <!-- ==========================
@@ -179,7 +378,9 @@
 
 
 
-                                <!-- CANTIDAD -->
+                                <!-- ==========================
+                                     CANTIDAD
+                                =========================== -->
 
                                 <div class="dato">
 
@@ -195,12 +396,14 @@
 
 
 
-                                <!-- PRECIO -->
+                                <!-- ==========================
+                                     PRECIO UNITARIO
+                                =========================== -->
 
                                 <div class="dato">
 
                                     <span>
-                                        Precio
+                                        Precio unitario
                                     </span>
 
                                     <strong>
@@ -211,13 +414,19 @@
 
 
 
-                                <!-- SUBTOTAL -->
+                                <!-- ==========================
+                                     SUBTOTAL
+                                =========================== -->
 
                                 <div class="subtotal">
 
-                                    Subtotal:
+                                    <span>
+                                        Subtotal
+                                    </span>
 
-                                    S/. {{item.subtotal}}
+                                    <strong>
+                                        S/. {{item.subtotal}}
+                                    </strong>
 
                                 </div>
 
@@ -243,6 +452,36 @@
                 <div class="sin-productos">
 
                     No hay productos registrados en este pedido.
+
+                </div>
+
+
+            }
+
+
+            <!-- ==========================
+                 TOTAL DEL PEDIDO
+            =========================== -->
+
+            @if(pedido){
+
+
+                <div class="total-final">
+
+
+                    <span>
+
+                        Total del pedido
+
+                    </span>
+
+
+                    <strong>
+
+                        S/. {{pedido.total}}
+
+                    </strong>
+
 
                 </div>
 

@@ -1,938 +1,1452 @@
+
 /* =====================================================
-   GABYSWEET - DETALLE PEDIDO PREMIUM
+   GABYSWEET - DETALLE PEDIDO CLIENTE PREMIUM
 ===================================================== */
 
+:host {
 
-:host{
+    --rosa: #D86B89;
+    --rosa-oscuro: #B94F6C;
+    --rosa-claro: #FBE7EE;
 
-    --rosa:#D86B89;
-    --rosa-oscuro:#B94F6C;
-    --rosa-claro:#FBE7EE;
+    --marron: #6B3E26;
 
-    --marron:#6B3E26;
+    --crema: #FFF8F5;
 
-    --crema:#FFF8F5;
+    --gris: #777;
 
-    --gris:#777;
+    --gris-claro: #999;
 
-    --blanco:#ffffff;
+    --blanco: #ffffff;
+
+    display: block;
 
 }
-
-
-
 
 
 /* =====================================================
    CONTENEDOR GENERAL
 ===================================================== */
 
+.detalle-container {
 
-.detalle-container{
+    min-height: 100vh;
 
-
-    min-height:100vh;
-
-
-    padding:40px;
-
+    padding: 40px;
 
     background:
 
+        radial-gradient(
+            circle at top left,
+            #FBE7EE,
+            transparent 35%
+        ),
 
-    radial-gradient(
-        circle at top left,
-        #FBE7EE,
-        transparent 35%
-    ),
+        linear-gradient(
+            135deg,
+            #FFF8F5,
+            #ffffff
+        );
 
+    font-family: 'Poppins', sans-serif;
 
-    linear-gradient(
-        135deg,
-        #FFF8F5,
-        #ffffff
-    );
-
-
-
-    font-family:'Poppins',sans-serif;
-
-
-    animation:entrada .5s ease;
-
+    animation: entrada .5s ease;
 
 }
-
-
-
-
 
 
 /* =====================================================
    HEADER
 ===================================================== */
 
-
-.detalle-header{
-
+.detalle-header {
 
     background:
 
+        linear-gradient(
+            135deg,
+            #D86B89,
+            #EFA1B6
+        );
 
-    linear-gradient(
-        135deg,
-        #D86B89,
-        #EFA1B6
-    );
+    padding: 40px;
 
+    border-radius: 35px;
 
-    padding:40px;
+    display: flex;
 
+    justify-content: space-between;
 
-    border-radius:35px;
+    align-items: center;
 
+    margin-bottom: 35px;
 
-    display:flex;
+    position: relative;
 
-
-    justify-content:space-between;
-
-
-    align-items:center;
-
-
-    margin-bottom:35px;
-
-
-    position:relative;
-
-
-    overflow:hidden;
-
+    overflow: hidden;
 
     box-shadow:
 
-
-    0 20px 50px rgba(216,107,137,.25);
-
-
-}
-
-
-
-.detalle-header::after{
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    width:220px;
-
-
-    height:220px;
-
-
-    right:-80px;
-
-
-    top:-80px;
-
-
-    background:rgba(255,255,255,.15);
-
-
-    border-radius:50%;
-
+        0 20px 50px
+        rgba(216, 107, 137, .25);
 
 }
 
 
+.detalle-header::before {
 
+    content: "";
 
-.detalle-header span{
+    position: absolute;
 
+    width: 300px;
 
-    color:white;
+    height: 300px;
 
+    right: -130px;
 
-    font-size:13px;
+    bottom: -180px;
 
+    background:
 
-    font-weight:800;
+        rgba(255, 255, 255, .10);
 
-
-    letter-spacing:4px;
-
-
-}
-
-
-
-
-
-.detalle-header h1{
-
-
-    color:white;
-
-
-    font-size:38px;
-
-
-    font-weight:900;
-
-
-    margin:10px 0;
-
+    border-radius: 50%;
 
 }
 
 
+.detalle-header::after {
 
+    content: "";
 
+    position: absolute;
 
-.detalle-header p{
+    width: 220px;
 
+    height: 220px;
 
-    color:white;
+    right: -80px;
 
+    top: -80px;
 
-    opacity:.9;
+    background:
 
+        rgba(255, 255, 255, .15);
 
-    margin:0;
-
+    border-radius: 50%;
 
 }
 
 
+.detalle-header > div {
+
+    position: relative;
+
+    z-index: 2;
+
+}
 
 
+.detalle-header span {
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+
+.detalle-header h1 {
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    margin: 10px 0;
+
+    line-height: 1.2;
+
+}
+
+
+.detalle-header p {
+
+    color: white;
+
+    opacity: .9;
+
+    margin: 0;
+
+    font-size: 15px;
+
+}
 
 
 /* =====================================================
-   BOTON VOLVER
+   BOTÓN VOLVER
 ===================================================== */
 
+.btn-volver {
 
-.btn-volver{
+    position: relative;
 
+    z-index: 3;
 
-    position:relative;
+    border: none;
 
+    background: white;
 
-    z-index:2;
+    color: var(--rosa);
 
+    padding: 13px 25px;
 
-    border:none;
+    border-radius: 30px;
 
+    font-weight: 700;
 
-    background:white;
+    cursor: pointer;
 
+    transition: .3s;
 
-    color:var(--rosa);
-
-
-    padding:13px 25px;
-
-
-    border-radius:30px;
-
-
-    font-weight:700;
-
-
-    cursor:pointer;
-
-
-    transition:.3s;
-
+    font-family: inherit;
 
 }
 
 
+.btn-volver:hover {
 
-.btn-volver:hover{
-
-
-    transform:translateY(-3px);
-
+    transform: translateY(-3px);
 
     box-shadow:
 
-    0 10px 25px rgba(0,0,0,.15);
-
+        0 10px 25px
+        rgba(0, 0, 0, .15);
 
 }
 
 
+.btn-volver:active {
 
+    transform: translateY(0);
 
-
-
+}
 
 
 /* =====================================================
    LOADING
 ===================================================== */
 
+.loading-card {
 
-.loading-card{
+    background: white;
 
+    padding: 50px;
 
-    background:white;
+    border-radius: 30px;
 
-
-    padding:50px;
-
-
-    border-radius:30px;
-
-
-    text-align:center;
-
+    text-align: center;
 
     box-shadow:
 
-    0 15px 35px rgba(0,0,0,.08);
-
-
-}
-
-
-
-.loading-card p{
-
-
-    color:var(--rosa);
-
-
-    font-weight:600;
-
+        0 15px 35px
+        rgba(0, 0, 0, .08);
 
 }
 
 
+.loading-card p {
 
+    color: var(--rosa);
 
+    font-weight: 600;
 
-.loader{
-
-
-    width:55px;
-
-
-    height:55px;
-
-
-    margin:auto;
-
-
-    border-radius:50%;
-
-
-    border:5px solid var(--rosa-claro);
-
-
-    border-top-color:var(--rosa);
-
-
-    animation:girar 1s linear infinite;
-
+    margin-top: 20px;
 
 }
-
-
-
-
-
-
-
 
 
 /* =====================================================
-   INFORMACION PEDIDO
+   LOADER
 ===================================================== */
 
+.loader {
 
-.info-grid{
+    width: 55px;
+
+    height: 55px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    border: 5px solid var(--rosa-claro);
+
+    border-top-color: var(--rosa);
+
+    animation: girar 1s linear infinite;
+
+}
 
 
-    display:grid;
+/* =====================================================
+   INFORMACIÓN PRINCIPAL DEL PEDIDO
+===================================================== */
 
+.info-grid {
+
+    display: grid;
 
     grid-template-columns:
+        repeat(3, 1fr);
 
-    repeat(3,1fr);
+    gap: 25px;
 
-
-    gap:25px;
-
-
-    margin-bottom:40px;
-
+    margin-bottom: 40px;
 
 }
 
 
+.info-card {
 
+    background: white;
 
-.info-card{
+    padding: 25px;
 
-
-    background:white;
-
-
-    padding:25px;
-
-
-    border-radius:25px;
-
+    border-radius: 25px;
 
     box-shadow:
 
+        0 12px 30px
+        rgba(0, 0, 0, .07);
 
-    0 12px 30px rgba(0,0,0,.07);
+    transition: .3s;
 
-
-    transition:.3s;
-
-
-}
-
-
-
-
-.info-card:hover{
-
-
-    transform:translateY(-5px);
-
+    min-width: 0;
 
 }
 
 
+.info-card:hover {
 
+    transform: translateY(-5px);
 
+    box-shadow:
 
-.info-card span{
-
-
-    display:block;
-
-
-    color:#999;
-
-
-    font-size:14px;
-
-
-    margin-bottom:12px;
-
+        0 18px 35px
+        rgba(0, 0, 0, .10);
 
 }
 
 
+.info-card span {
 
+    display: block;
 
+    color: var(--gris-claro);
 
-.info-card strong{
+    font-size: 14px;
 
-
-    color:var(--marron);
-
-
-    font-size:20px;
-
+    margin-bottom: 12px;
 
 }
 
 
+.info-card strong {
 
+    display: block;
 
+    color: var(--marron);
 
-.total{
+    font-size: 20px;
 
-
-    color:var(--rosa)!important;
-
-
-    font-size:25px!important;
-
+    word-break: break-word;
 
 }
 
 
+.total {
 
+    color: var(--rosa) !important;
 
+    font-size: 25px !important;
+
+}
 
 
 /* =====================================================
-   ESTADOS
+   ESTADOS DEL PEDIDO
 ===================================================== */
 
+.estado {
 
-.estado{
+    display: inline-block !important;
 
+    width: fit-content;
 
-    display:inline-block;
+    padding: 8px 18px;
 
+    border-radius: 25px;
 
-    padding:8px 18px;
+    color: white !important;
 
+    font-size: 14px !important;
 
-    border-radius:25px;
+    font-weight: 700;
 
-
-    color:white!important;
-
-
-    font-size:14px!important;
-
-
-}
-
-
-
-
-
-.pendiente{
-
-
-    background:#D99A3D;
-
+    text-transform: uppercase;
 
 }
 
 
+.pendiente {
 
-.en_preparacion{
-
-
-    background:#5C9BD6;
-
+    background: #D99A3D;
 
 }
 
 
+.en_preparacion {
 
-.listo{
-
-
-    background:#67B77A;
-
+    background: #5C9BD6;
 
 }
 
 
+.listo {
 
-.entregado{
-
-
-    background:#3C9660;
-
+    background: #67B77A;
 
 }
 
 
+.entregado {
 
-.cancelado{
-
-
-    background:#D9534F;
-
+    background: #3C9660;
 
 }
 
 
+.cancelado {
+
+    background: #D9534F;
+
+}
 
 
+/* =====================================================
+   INFORMACIÓN DE ENTREGA
+===================================================== */
+
+.entrega-section {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(0, 0, 0, .07);
+
+}
 
 
+.entrega-section h2 {
 
+    color: var(--marron);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    margin: 0 0 25px;
+
+}
+
+
+/* =====================================================
+   GRID ENTREGA
+===================================================== */
+
+.entrega-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.entrega-card {
+
+    background: var(--crema);
+
+    border: 1px solid var(--rosa-claro);
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    transition: .3s;
+
+    min-width: 0;
+
+}
+
+
+.entrega-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(216, 107, 137, .10);
+
+}
+
+
+.entrega-card span {
+
+    display: block;
+
+    color: var(--gris);
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.entrega-card strong {
+
+    display: block;
+
+    color: var(--marron);
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+
+}
+
+
+.texto-secundario {
+
+    color: var(--gris) !important;
+
+    font-weight: 500;
+
+}
+
+
+/* =====================================================
+   OBSERVACIONES
+===================================================== */
+
+.observaciones-section {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    margin-bottom: 40px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(0, 0, 0, .07);
+
+}
+
+
+.observaciones-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    min-width: 55px;
+
+    background: var(--rosa-claro);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+}
+
+
+.observaciones-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.observaciones-info h2 {
+
+    color: var(--marron);
+
+    font-size: 22px;
+
+    margin: 0 0 10px;
+
+    font-weight: 800;
+
+}
+
+
+.observaciones-info p {
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    word-break: break-word;
+
+}
+
+
+.observaciones-info .sin-observaciones {
+
+    color: #999;
+
+    font-style: italic;
+
+}
 
 
 /* =====================================================
    PRODUCTOS
 ===================================================== */
 
+.productos-section {
 
-.productos-section h2{
-
-
-    color:var(--marron);
-
-
-    font-size:28px;
-
-
-    font-weight:800;
-
-
-    margin-bottom:25px;
-
+    width: 100%;
 
 }
 
 
+.productos-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
 
 
+.productos-header h2 {
+
+    color: var(--marron);
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    margin: 0;
+
+}
 
 
-.productos-grid{
+.productos-header > span {
+
+    background: var(--rosa-claro);
+
+    color: var(--rosa);
+
+    padding: 8px 16px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
 
 
-    display:grid;
+/* =====================================================
+   GRID PRODUCTOS
+===================================================== */
 
+.productos-grid {
+
+    display: grid;
 
     grid-template-columns:
+        repeat(2, 1fr);
 
-    repeat(2,1fr);
-
-
-    gap:25px;
-
+    gap: 25px;
 
 }
 
 
+/* =====================================================
+   TARJETA PRODUCTO
+===================================================== */
 
+.producto-card {
 
+    background: white;
 
+    padding: 25px;
 
-.producto-card{
+    border-radius: 30px;
 
+    display: flex;
 
-    background:white;
+    gap: 25px;
 
-
-    padding:25px;
-
-
-    border-radius:30px;
-
-
-    display:flex;
-
-
-    gap:25px;
-
-
-    align-items:center;
-
+    align-items: center;
 
     box-shadow:
 
+        0 15px 35px
+        rgba(0, 0, 0, .08);
 
-    0 15px 35px rgba(0,0,0,.08);
+    transition: .3s;
 
-
-    transition:.3s;
-
+    min-width: 0;
 
 }
 
 
+.producto-card:hover {
 
-.producto-card:hover{
-
-
-    transform:translateY(-6px);
-
+    transform: translateY(-6px);
 
     box-shadow:
 
-
-    0 20px 45px rgba(0,0,0,.12);
-
-
-}
-
-
-
-
-
-
-
-.producto-card img{
-
-
-    width:130px;
-
-
-    height:130px;
-
-
-    object-fit:cover;
-
-
-    border-radius:25px;
-
-
-    border:4px solid var(--rosa-claro);
-
+        0 20px 45px
+        rgba(0, 0, 0, .12);
 
 }
 
 
+/* =====================================================
+   IMAGEN PRODUCTO
+===================================================== */
 
+.producto-card img {
 
+    width: 130px;
 
-.producto-info h3{
+    height: 130px;
 
+    min-width: 130px;
 
-    color:var(--rosa);
+    object-fit: cover;
 
+    border-radius: 25px;
 
-    font-size:22px;
+    border: 4px solid var(--rosa-claro);
 
+    background: var(--rosa-claro);
 
-    font-weight:800;
-
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-
-
-
-
-.dato{
-
-
-    display:flex;
-
-
-    justify-content:space-between;
-
-
-    gap:20px;
-
-
-    margin-bottom:8px;
-
+    display: block;
 
 }
 
 
+/* =====================================================
+   INFORMACIÓN PRODUCTO
+===================================================== */
 
-.dato span{
+.producto-info {
 
+    flex: 1;
 
-    color:#888;
-
-
-}
-
-
-
-
-
-.dato strong{
-
-
-    color:var(--marron);
-
+    min-width: 0;
 
 }
 
 
+.producto-info h3 {
 
+    color: var(--rosa);
 
+    font-size: 22px;
 
+    font-weight: 800;
 
-.subtotal{
+    margin: 0 0 18px;
 
-
-    margin-top:15px;
-
-
-    color:var(--rosa);
-
-
-    font-weight:800;
-
-
-    font-size:18px;
-
+    word-break: break-word;
 
 }
 
 
+/* =====================================================
+   DATOS PRODUCTO
+===================================================== */
+
+.dato {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 10px;
+
+}
 
 
+.dato span {
 
+    color: #888;
+
+    font-size: 14px;
+
+}
+
+
+.dato strong {
+
+    color: var(--marron);
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   SUBTOTAL
+===================================================== */
+
+.subtotal {
+
+    margin-top: 16px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid var(--rosa-claro);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.subtotal span {
+
+    color: #888;
+
+    font-size: 14px;
+
+}
+
+
+.subtotal strong {
+
+    color: var(--rosa);
+
+    font-weight: 800;
+
+    font-size: 19px;
+
+}
 
 
 /* =====================================================
    SIN PRODUCTOS
 ===================================================== */
 
+.sin-productos {
 
-.sin-productos{
+    background: var(--rosa-claro);
 
+    padding: 35px;
 
-    background:var(--rosa-claro);
+    border-radius: 25px;
 
+    text-align: center;
 
-    padding:35px;
+    color: #777;
 
-
-    border-radius:25px;
-
-
-    text-align:center;
-
-
-    color:#777;
-
-
-    font-weight:600;
-
+    font-weight: 600;
 
 }
 
 
+/* =====================================================
+   TOTAL FINAL
+===================================================== */
+
+.total-final {
+
+    margin-top: 30px;
+
+    padding: 25px 30px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--marron),
+            #815238
+        );
+
+    color: white;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(107, 62, 38, .18);
+
+}
 
 
+.total-final span {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+}
 
 
+.total-final strong {
+
+    font-size: 30px;
+
+    color: var(--rosa-claro);
+
+}
 
 
 /* =====================================================
    ANIMACIONES
 ===================================================== */
 
+@keyframes girar {
 
-@keyframes girar{
+    to {
 
-
-    to{
-
-        transform:rotate(360deg);
+        transform: rotate(360deg);
 
     }
 
 }
 
 
+@keyframes entrada {
 
-@keyframes entrada{
+    from {
 
+        opacity: 0;
 
-    from{
-
-        opacity:0;
-
-        transform:translateY(20px);
+        transform: translateY(20px);
 
     }
 
+    to {
 
-    to{
+        opacity: 1;
 
-        opacity:1;
-
-        transform:translateY(0);
+        transform: translateY(0);
 
     }
-
 
 }
-
-
-
-
-
 
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE - TABLET
 ===================================================== */
 
+@media (max-width: 1100px) {
 
-@media(max-width:900px){
+    .productos-grid {
 
-
-    .info-grid{
-
-
-        grid-template-columns:1fr;
-
+        grid-template-columns: 1fr;
 
     }
 
 
+    .entrega-grid {
 
-    .productos-grid{
-
-
-        grid-template-columns:1fr;
-
+        grid-template-columns:
+            repeat(2, 1fr);
 
     }
-
-
-
-    .detalle-header{
-
-
-        flex-direction:column;
-
-
-        align-items:flex-start;
-
-
-        gap:25px;
-
-
-    }
-
 
 }
 
 
+/* =====================================================
+   RESPONSIVE - TABLET PEQUEÑA
+===================================================== */
 
-@media(max-width:600px){
+@media (max-width: 900px) {
 
+    .info-grid {
 
-    .detalle-container{
-
-
-        padding:20px;
-
-
-    }
-
-
-
-    .detalle-header h1{
-
-
-        font-size:28px;
-
+        grid-template-columns: 1fr;
 
     }
 
 
+    .entrega-grid {
 
-    .producto-card{
-
-
-        flex-direction:column;
-
-
-        text-align:center;
-
+        grid-template-columns: 1fr;
 
     }
 
+
+    .productos-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .detalle-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+    }
+
+
+    .btn-volver {
+
+        align-self: flex-start;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MÓVIL
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .detalle-container {
+
+        padding: 20px 15px;
+
+    }
+
+
+    .detalle-header {
+
+        padding: 30px 25px;
+
+        border-radius: 25px;
+
+    }
+
+
+    .detalle-header h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .detalle-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .btn-volver {
+
+        width: 100%;
+
+    }
+
+
+    .info-card {
+
+        padding: 20px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .entrega-section {
+
+        padding: 22px;
+
+        border-radius: 25px;
+
+    }
+
+
+    .entrega-section h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    .observaciones-section {
+
+        padding: 22px;
+
+        border-radius: 25px;
+
+        flex-direction: column;
+
+    }
+
+
+    .observaciones-icon {
+
+        width: 50px;
+
+        height: 50px;
+
+        min-width: 50px;
+
+    }
+
+
+    .productos-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+    }
+
+
+    .productos-header h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .producto-card {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 20px;
+
+        border-radius: 25px;
+
+    }
+
+
+    .producto-card img {
+
+        width: 160px;
+
+        height: 160px;
+
+        min-width: 160px;
+
+    }
+
+
+    .producto-info {
+
+        width: 100%;
+
+    }
+
+
+    .producto-info h3 {
+
+        font-size: 20px;
+
+    }
+
+
+    .dato {
+
+        text-align: left;
+
+    }
+
+
+    .subtotal {
+
+        text-align: left;
+
+    }
+
+
+    .total-final {
+
+        padding: 22px;
+
+    }
+
+
+    .total-final span {
+
+        font-size: 16px;
+
+    }
+
+
+    .total-final strong {
+
+        font-size: 25px;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MÓVIL PEQUEÑO
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .detalle-container {
+
+        padding: 15px 10px;
+
+    }
+
+
+    .detalle-header {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .detalle-header h1 {
+
+        font-size: 24px;
+
+    }
+
+
+    .info-card strong {
+
+        font-size: 18px;
+
+    }
+
+
+    .entrega-section {
+
+        padding: 18px;
+
+    }
+
+
+    .observaciones-section {
+
+        padding: 18px;
+
+    }
+
+
+    .producto-card img {
+
+        width: 140px;
+
+        height: 140px;
+
+        min-width: 140px;
+
+    }
+
+
+    .dato {
+
+        gap: 10px;
+
+    }
+
+
+    .subtotal {
+
+        gap: 8px;
+
+    }
+
+
+    .total-final {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+
+    }
+
+}
+
+/* =====================================================
+   AVISO IMAGEN REFERENCIAL
+===================================================== */
+
+.aviso-imagen {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #FFF8E8;
+
+    border: 1px solid #F3D98B;
+
+    padding: 15px 20px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.aviso-icono {
+
+    width: 42px;
+
+    height: 42px;
+
+    min-width: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #FFEFC2;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+}
+
+
+.aviso-imagen strong {
+
+    display: block;
+
+    color: #8A6518;
+
+    font-size: 14px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.aviso-imagen p {
+
+    margin: 0;
+
+    color: #806F43;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+@media (max-width: 600px) {
+
+    .aviso-imagen {
+
+        align-items: flex-start;
+
+        padding: 14px;
+
+    }
+
+
+    .aviso-icono {
+
+        width: 38px;
+
+        height: 38px;
+
+        min-width: 38px;
+
+    }
+
+
+    .aviso-imagen p {
+
+        font-size: 12px;
+
+    }
 
 }

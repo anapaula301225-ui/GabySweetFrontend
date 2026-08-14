@@ -106,6 +106,43 @@
 
 
             <!-- =========================
+                 TELEFONO DE CONTACTO
+            ========================== -->
+
+            <div class="info-card">
+
+
+                <div class="icon">
+
+                    📞
+
+                </div>
+
+
+                <div>
+
+
+                    <h4>
+
+                        Teléfono de contacto
+
+                    </h4>
+
+
+                    <strong>
+
+                        {{ pedido.telefono_contacto || 'No registrado' }}
+
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
                  ENTREGA
             ========================== -->
 
@@ -194,6 +231,61 @@
 
 
                 </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             OBSERVACIONES
+        ========================== -->
+
+        <div class="observaciones-container">
+
+
+            <div class="observaciones-icon">
+
+                📝
+
+            </div>
+
+
+            <div class="observaciones-info">
+
+
+                <h4>
+
+                    Observaciones del cliente
+
+                </h4>
+
+
+                @if(pedido.observaciones) {
+
+
+                    <p>
+
+                        {{ pedido.observaciones }}
+
+                    </p>
+
+
+                }
+
+                @else {
+
+
+                    <p class="sin-observaciones">
+
+                        El cliente no dejó observaciones.
+
+                    </p>
+
+
+                }
 
 
             </div>
@@ -367,6 +459,10 @@
                                 </p>
 
 
+                                <!-- =========================
+                                     INFORMACION DEL PRODUCTO
+                                ========================== -->
+
                                 <div class="producto-footer">
 
 
@@ -420,7 +516,7 @@
 
 
         <!-- =========================
-             TOTAL
+             TOTAL DEL PEDIDO
         ========================== -->
 
         @if(pedido) {
