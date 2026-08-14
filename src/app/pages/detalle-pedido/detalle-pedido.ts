@@ -1,28 +1,38 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+
+import {
+  Component,
+  OnInit,
+  inject
+} from '@angular/core';
+
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 
 import Swal from 'sweetalert2';
 
 import { PedidoService } from '../../services/pedido';
-import { DetallePedidoService } from '../../services/detalle-pedido';
-import { environment } from '../../../environments/environment';
 
+import { DetallePedidoService } from '../../services/detalle-pedido';
+
+import { environment } from '../../../environments/environment';
 
 
 @Component({
 
-  selector:'app-detalle-pedido',
+  selector: 'app-detalle-pedido',
 
-  standalone:true,
+  standalone: true,
 
-  imports:[
+  imports: [
     CommonModule
   ],
 
-  templateUrl:'./detalle-pedido.html',
+  templateUrl: './detalle-pedido.html',
 
-  styleUrl:'./detalle-pedido.css'
+  styleUrl: './detalle-pedido.css'
 
 })
 
@@ -30,290 +40,288 @@ import { environment } from '../../../environments/environment';
 export class DetallePedido implements OnInit {
 
 
+  // ==========================
+  // INYECCIÓN DE SERVICIOS
+  // ==========================
 
-private route = inject(ActivatedRoute);
+  private route = inject(
+    ActivatedRoute
+  );
 
-private router = inject(Router);
 
+  private router = inject(
+    Router
+  );
 
-private pedidoService = inject(PedidoService);
 
-private detalleService = inject(DetallePedidoService);
+  private pedidoService = inject(
+    PedidoService
+  );
 
 
-urlImagen = '';
+  private detalleService = inject(
+    DetallePedidoService
+  );
 
-idPedido!:number;
 
+  // ==========================
+  // VARIABLES
+  // ==========================
 
-pedido:any = null;
+  idPedido!: number;
 
 
-detalle:any[] = [];
+  pedido: any = null;
 
 
-cargando = true;
+  detalle: any[] = [];
 
 
+  cargando = true;
 
 
+  // ==========================
+  // INICIALIZACIÓN
+  // ==========================
 
+  ngOnInit(): void {
 
-ngOnInit():void{
 
+    this.idPedido = Number(
 
+      this.route
+        .snapshot
+        .paramMap
+        .get('id')
 
-this.idPedido = Number(
+    );
 
-this.route.snapshot.paramMap.get('id')
 
-);
+    // ==========================
+    // VALIDAR ID
+    // ==========================
 
+    if (!this.idPedido) {
 
 
+      Swal.fire({
 
-if(!this.idPedido){
+        icon: 'error',
 
+        title: 'Pedido inválido',
 
-Swal.fire({
+        text:
+          'No se encontró el pedido solicitado.',
 
-icon:'error',
+        confirmButtonColor:
+          '#D63384'
 
-title:'Pedido inválido',
+      });
 
-text:'No se encontró el pedido solicitado.',
 
-confirmButtonColor:'#D63384'
+      this.router.navigate([
+        '/pedidos'
+      ]);
 
-});
 
+      return;
 
-this.router.navigate(['/pedidos']);
+    }
 
 
-return;
+    // ==========================
+    // CARGAR INFORMACIÓN
+    // ==========================
 
+    this.obtenerPedido();
 
-}
+    this.obtenerDetalle();
 
+  }
 
 
-this.obtenerPedido();
+  // ==========================
+  // OBTENER PEDIDO
+  // ==========================
 
+  obtenerPedido() {
 
-this.obtenerDetalle();
 
+    this.pedidoService
+      .obtener(this.idPedido)
 
+      .subscribe({
 
-}
+        next: (respuesta) => {
 
 
+          console.log(
+            'Pedido:',
+            respuesta
+          );
 
 
+          this.pedido =
+            respuesta.data;
 
 
+        },
 
 
+        error: (error) => {
 
-// ==========================
-// OBTENER PEDIDO
-// ==========================
 
+          console.error(
+            'Error obteniendo pedido:',
+            error
+          );
 
-obtenerPedido(){
 
+          Swal.fire({
 
+            icon: 'error',
 
-this.pedidoService.obtener(this.idPedido)
+            title: 'Error',
 
-.subscribe({
+            text:
+              error.error?.message ??
+              'No se pudo cargar la información del pedido.',
 
+            confirmButtonColor:
+              '#D63384'
 
+          });
 
-next:(respuesta)=>{
 
+        }
 
-console.log(
+      });
 
-"Pedido:",
 
-respuesta
+  }
 
-);
 
+  // ==========================
+  // OBTENER DETALLE
+  // ==========================
 
+  obtenerDetalle() {
 
-this.pedido = respuesta.data;
 
+    this.detalleService
+      .obtenerDetalle(this.idPedido)
 
+      .subscribe({
 
-},
+        next: (respuesta) => {
 
 
+          console.log(
+            'Detalle:',
+            respuesta
+          );
 
 
+          this.detalle =
+            respuesta.data ?? [];
 
-error:(error)=>{
 
+          this.cargando = false;
 
-console.error(error);
 
+        },
 
 
-Swal.fire({
+        error: (error) => {
 
-icon:'error',
 
-title:'Error',
+          console.error(
+            'Error obteniendo detalle:',
+            error
+          );
 
-text:
 
-error.error?.message ??
+          this.cargando = false;
 
-'No se pudo cargar la información del pedido.',
 
+          Swal.fire({
 
-confirmButtonColor:'#D63384'
+            icon: 'error',
 
+            title: 'Error',
 
-});
+            text:
+              error.error?.message ??
+              'No se pudieron cargar los productos del pedido.',
 
+            confirmButtonColor:
+              '#D63384'
 
+          });
 
-}
 
+        }
 
+      });
 
 
+  }
 
-});
 
+  // ==========================
+  // OBTENER URL DE IMAGEN
+  // ==========================
 
+  getImagenUrl(imagen: string): string {
 
-}
 
+    // ==========================
+    // SIN IMAGEN
+    // ==========================
 
+    if (!imagen) {
 
+      return 'assets/img/producto-default.png';
 
+    }
 
 
+    // ==========================
+    // CLOUDINARY
+    // ==========================
 
+    if (
+      imagen.startsWith('http://') ||
+      imagen.startsWith('https://')
+    ) {
 
+      return imagen;
 
-// ==========================
-// OBTENER DETALLE
-// ==========================
+    }
 
 
-obtenerDetalle(){
+    // ==========================
+    // IMAGEN ANTIGUA
+    // ==========================
 
+    return `${environment.apiUrl.replace('/api', '')}/uploads/productos/${imagen}`;
 
+  }
 
-this.detalleService.obtenerDetalle(this.idPedido)
 
-.subscribe({
+  // ==========================
+  // VOLVER A PEDIDOS
+  // ==========================
 
+  volverPedidos() {
 
 
-next:(respuesta)=>{
+    this.router.navigate([
+      '/pedidos'
+    ]);
 
 
-
-console.log(
-
-"Detalle:",
-
-respuesta
-
-);
-
-
-
-this.detalle = respuesta.data ?? [];
-
-
-
-this.cargando=false;
-
-
-
-},
-
-
-
-
-
-error:(error)=>{
-
-
-
-console.error(error);
-
-
-
-this.cargando=false;
-
-
-
-
-Swal.fire({
-
-icon:'error',
-
-title:'Error',
-
-text:
-
-error.error?.message ??
-
-'No se pudieron cargar los productos del pedido.',
-
-
-confirmButtonColor:'#D63384'
-
-
-});
-
-
-
-}
-
-
-
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ==========================
-// VOLVER
-// ==========================
-
-
-volverPedidos(){
-
-
-this.router.navigate([
-
-'/pedidos'
-
-]);
-
-
-}
-
-
+  }
 
 
 }

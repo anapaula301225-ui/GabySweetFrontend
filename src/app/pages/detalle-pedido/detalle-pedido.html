@@ -1,52 +1,39 @@
 <div class="detalle-container">
 
 
-    <!-- HEADER -->
+    <!-- ==========================
+         HEADER
+    =========================== -->
 
     <div class="detalle-header">
 
 
         <div>
 
-
             <span>
-
                 PEDIDO
-
             </span>
 
 
             <h1>
-
                 Detalle del Pedido #{{idPedido}}
-
             </h1>
 
 
             <p>
-
                 Consulta los productos y estado actual de tu pedido.
-
             </p>
-
 
         </div>
 
 
-
-
         <button
-
-        class="btn-volver"
-
-        (click)="volverPedidos()">
-
+            class="btn-volver"
+            (click)="volverPedidos()">
 
             ← Volver pedidos
 
-
         </button>
-
 
 
     </div>
@@ -54,303 +41,219 @@
 
 
 
-
-
-
-    <!-- LOADING -->
+    <!-- ==========================
+         LOADING
+    =========================== -->
 
     @if(cargando){
 
-
         <div class="loading-card">
-
 
             <div class="loader"></div>
 
-
             <p>
-
                 Cargando información del pedido...
-
             </p>
-
 
         </div>
 
-
-
     }
-
-
-
 
 
     @else{
 
 
+        <!-- ==========================
+             INFORMACIÓN DEL PEDIDO
+        =========================== -->
 
-    <!-- INFORMACION PEDIDO -->
+        @if(pedido){
 
+            <div class="info-grid">
 
-    @if(pedido){
 
+                <!-- FECHA -->
 
+                <div class="info-card">
 
-    <div class="info-grid">
+                    <span>
+                        📅 Fecha
+                    </span>
 
-
-
-        <div class="info-card">
-
-
-            <span>
-
-                📅 Fecha
-
-            </span>
-
-
-            <strong>
-
-                {{pedido.fecha_pedido | date:'dd/MM/yyyy HH:mm'}}
-
-            </strong>
-
-
-        </div>
-
-
-
-
-
-
-        <div class="info-card">
-
-
-            <span>
-
-                📦 Estado
-
-            </span>
-
-
-            <strong
-
-            class="estado"
-
-            [ngClass]="pedido.estado.toLowerCase()">
-
-
-                {{pedido.estado}}
-
-
-            </strong>
-
-
-        </div>
-
-
-
-
-
-
-
-        <div class="info-card">
-
-
-            <span>
-
-                💰 Total
-
-            </span>
-
-
-            <strong class="total">
-
-
-                S/. {{pedido.total}}
-
-
-            </strong>
-
-
-        </div>
-
-
-
-
-    </div>
-
-
-
-    }
-
-
-
-
-    <!-- PRODUCTOS -->
-
-
-    <div class="productos-section">
-
-
-
-        <h2>
-
-            Productos del pedido 🧁
-
-        </h2>
-
-
-
-
-
-        @if(detalle.length > 0){
-
-
-
-        <div class="productos-grid">
-
-
-
-
-
-            @for(item of detalle; track item.id_detalle){
-
-
-
-            <div class="producto-card">
-
-
-
-                <img
-
-                [[src]="backendUrl + '/uploads/' + imagen"
-
-                [alt]="item.nombre">
-
-
-
-
-
-                <div class="producto-info">
-
-
-                    <h3>
-
-                        {{item.nombre}}
-
-                    </h3>
-
-
-
-
-                    <div class="dato">
-
-
-                        <span>
-
-                            Cantidad
-
-                        </span>
-
-
-                        <strong>
-
-                            {{item.cantidad}}
-
-                        </strong>
-
-
-                    </div>
-
-
-
-
-
-                    <div class="dato">
-
-
-                        <span>
-
-                            Precio
-
-                        </span>
-
-
-                        <strong>
-
-                            S/. {{item.precio_unitario}}
-
-                        </strong>
-
-
-                    </div>
-
-
-
-
-
-
-                    <div class="subtotal">
-
-
-                        Subtotal:
-
-                        S/. {{item.subtotal}}
-
-
-                    </div>
-
-
+                    <strong>
+                        {{pedido.fecha_pedido | date:'dd/MM/yyyy HH:mm'}}
+                    </strong>
 
                 </div>
 
 
 
+                <!-- ESTADO -->
+
+                <div class="info-card">
+
+                    <span>
+                        📦 Estado
+                    </span>
+
+                    <strong
+                        class="estado"
+                        [ngClass]="pedido.estado.toLowerCase()">
+
+                        {{pedido.estado}}
+
+                    </strong>
+
+                </div>
+
+
+
+                <!-- TOTAL -->
+
+                <div class="info-card">
+
+                    <span>
+                        💰 Total
+                    </span>
+
+                    <strong class="total">
+
+                        S/. {{pedido.total}}
+
+                    </strong>
+
+                </div>
+
+
             </div>
 
+        }
+
+
+
+
+        <!-- ==========================
+             PRODUCTOS DEL PEDIDO
+        =========================== -->
+
+        <div class="productos-section">
+
+
+            <h2>
+                Productos del pedido 🧁
+            </h2>
+
+
+
+            @if(detalle.length > 0){
+
+
+                <div class="productos-grid">
+
+
+                    @for(item of detalle; track item.id_detalle){
+
+
+                        <div class="producto-card">
+
+
+                            <!-- ==========================
+                                 IMAGEN DEL PRODUCTO
+                            =========================== -->
+
+                            <img
+                                [src]="getImagenUrl(item.imagen)"
+                                [alt]="item.nombre">
+
+
+                            <!-- ==========================
+                                 INFORMACIÓN DEL PRODUCTO
+                            =========================== -->
+
+                            <div class="producto-info">
+
+
+                                <h3>
+                                    {{item.nombre}}
+                                </h3>
+
+
+
+                                <!-- CANTIDAD -->
+
+                                <div class="dato">
+
+                                    <span>
+                                        Cantidad
+                                    </span>
+
+                                    <strong>
+                                        {{item.cantidad}}
+                                    </strong>
+
+                                </div>
+
+
+
+                                <!-- PRECIO -->
+
+                                <div class="dato">
+
+                                    <span>
+                                        Precio
+                                    </span>
+
+                                    <strong>
+                                        S/. {{item.precio_unitario}}
+                                    </strong>
+
+                                </div>
+
+
+
+                                <!-- SUBTOTAL -->
+
+                                <div class="subtotal">
+
+                                    Subtotal:
+
+                                    S/. {{item.subtotal}}
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    }
+
+
+                </div>
 
 
             }
 
 
+            @else{
+
+
+                <div class="sin-productos">
+
+                    No hay productos registrados en este pedido.
+
+                </div>
+
+
+            }
+
 
         </div>
 
 
-
-
-        }
-
-
-
-        @else{
-
-
-
-            <div class="sin-productos">
-
-
-                No hay productos registrados en este pedido.
-
-
-            </div>
-
-
-
-        }
-
-
-
-    </div>
-
-
-
-
-
     }
-
 
 
 </div>

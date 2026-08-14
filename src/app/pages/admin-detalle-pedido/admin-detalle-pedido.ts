@@ -15,27 +15,29 @@ import { FormsModule } from '@angular/forms';
 
 import { PedidoService } from '../../services/pedido';
 
-import { DetallePedidoService }
-from '../../services/detalle-pedido';
+import {
+  DetallePedidoService
+} from '../../services/detalle-pedido';
 
 import Swal from 'sweetalert2';
 
+import { environment } from '../../../environments/environment';
 
 
 @Component({
 
-  selector:'app-admin-detalle-pedido',
+  selector: 'app-admin-detalle-pedido',
 
-  standalone:true,
+  standalone: true,
 
-  imports:[
+  imports: [
     CommonModule,
     FormsModule
   ],
 
-  templateUrl:'./admin-detalle-pedido.html',
+  templateUrl: './admin-detalle-pedido.html',
 
-  styleUrl:'./admin-detalle-pedido.css'
+  styleUrl: './admin-detalle-pedido.css'
 
 })
 
@@ -43,274 +45,402 @@ import Swal from 'sweetalert2';
 export class AdminDetallePedido implements OnInit {
 
 
-private route = inject(ActivatedRoute);
+  // ==========================
+  // INYECCIÓN DE SERVICIOS
+  // ==========================
 
-private router = inject(Router);
+  private route = inject(
+    ActivatedRoute
+  );
 
 
-private pedidoService = inject(PedidoService);
+  private router = inject(
+    Router
+  );
 
-private detalleService = inject(DetallePedidoService);
 
+  private pedidoService = inject(
+    PedidoService
+  );
 
 
-idPedido!:number;
+  private detalleService = inject(
+    DetallePedidoService
+  );
 
 
-pedido:any = null;
+  // ==========================
+  // VARIABLES
+  // ==========================
 
+  idPedido!: number;
 
-detalle:any[]=[];
 
+  pedido: any = null;
 
-cargando=true;
 
+  detalle: any[] = [];
 
 
-estados=[
+  cargando = true;
 
-'PENDIENTE',
 
-'EN_PREPARACION',
+  // ==========================
+  // ESTADOS DEL PEDIDO
+  // ==========================
 
-'LISTO',
+  estados = [
 
-'ENTREGADO',
+    'PENDIENTE',
 
-'CANCELADO'
+    'EN_PREPARACION',
 
-];
+    'LISTO',
 
+    'ENTREGADO',
 
+    'CANCELADO'
 
+  ];
 
 
-ngOnInit():void{
+  // ==========================
+  // INICIALIZACIÓN
+  // ==========================
 
+  ngOnInit(): void {
 
-this.idPedido = Number(
 
-this.route.snapshot.paramMap.get('id')
+    this.idPedido = Number(
 
-);
+      this.route
+        .snapshot
+        .paramMap
+        .get('id')
 
+    );
 
 
-this.obtenerPedido();
+    // ==========================
+    // VALIDAR ID
+    // ==========================
 
+    if (!this.idPedido) {
 
-this.obtenerDetalle();
+      Swal.fire({
 
+        icon: 'error',
 
-}
+        title: 'Pedido inválido',
 
+        text:
+          'No se encontró el pedido solicitado.',
 
+        confirmButtonColor:
+          '#D63384'
 
+      });
 
 
+      this.router.navigate([
+        '/admin/pedidos'
+      ]);
 
 
-obtenerPedido(){
+      return;
 
+    }
 
-this.pedidoService.obtener(this.idPedido)
 
-.subscribe({
+    // ==========================
+    // CARGAR INFORMACIÓN
+    // ==========================
 
+    this.obtenerPedido();
 
-next:(respuesta)=>{
+    this.obtenerDetalle();
 
+  }
 
-this.pedido=respuesta.data;
 
+  // ==========================
+  // OBTENER PEDIDO
+  // ==========================
 
-},
+  obtenerPedido() {
 
 
-error:(error)=>{
+    this.pedidoService
+      .obtener(this.idPedido)
 
+      .subscribe({
 
-console.error(error);
+        next: (respuesta) => {
 
 
-Swal.fire({
+          console.log(
+            'Pedido:',
+            respuesta
+          );
 
-icon:'error',
 
-title:'Error',
+          this.pedido =
+            respuesta.data;
 
-text:'No se pudo cargar el pedido'
 
-});
+        },
 
 
-}
+        error: (error) => {
 
 
-});
+          console.error(
+            'Error obteniendo pedido:',
+            error
+          );
 
 
-}
+          Swal.fire({
 
+            icon: 'error',
 
+            title: 'Error',
 
+            text:
+              error.error?.message ??
+              'No se pudo cargar el pedido.',
 
+            confirmButtonColor:
+              '#D63384'
 
+          });
 
 
+        }
 
-obtenerDetalle(){
+      });
 
 
-this.detalleService.obtenerDetalle(this.idPedido)
+  }
 
-.subscribe({
 
+  // ==========================
+  // OBTENER DETALLE
+  // ==========================
 
-next:(respuesta)=>{
+  obtenerDetalle() {
 
 
-this.detalle=respuesta.data;
+    this.detalleService
+      .obtenerDetalle(this.idPedido)
 
+      .subscribe({
 
-this.cargando=false;
+        next: (respuesta) => {
 
 
-},
+          console.log(
+            'Detalle:',
+            respuesta
+          );
 
 
-error:(error)=>{
+          this.detalle =
+            respuesta.data ?? [];
 
 
-console.error(error);
+          this.cargando = false;
 
 
-this.cargando=false;
+        },
 
 
+        error: (error) => {
 
-Swal.fire({
 
-icon:'error',
+          console.error(
+            'Error obteniendo detalle:',
+            error
+          );
 
-title:'Error',
 
-text:'No se pudo cargar el detalle del pedido'
+          this.cargando = false;
 
-});
 
+          Swal.fire({
 
-}
+            icon: 'error',
 
+            title: 'Error',
 
-});
+            text:
+              error.error?.message ??
+              'No se pudo cargar el detalle del pedido.',
 
+            confirmButtonColor:
+              '#D63384'
 
-}
+          });
 
 
+        }
 
+      });
 
 
+  }
 
 
+  // ==========================
+  // OBTENER URL DE IMAGEN
+  // ==========================
 
+  getImagenUrl(imagen: string): string {
 
-cambiarEstado(){
 
+    // ==========================
+    // SIN IMAGEN
+    // ==========================
 
+    if (!imagen) {
 
-this.pedidoService.actualizar(
+      return 'assets/img/producto-default.png';
 
-this.idPedido,
+    }
 
-{
 
-estado:this.pedido.estado
+    // ==========================
+    // CLOUDINARY
+    // ==========================
 
-}
+    if (
 
-)
+      imagen.startsWith('http://') ||
 
+      imagen.startsWith('https://')
 
+    ) {
 
-.subscribe({
+      return imagen;
 
+    }
 
 
-next:()=>{
+    // ==========================
+    // IMAGEN ANTIGUA
+    // ==========================
 
+    return `${environment.apiUrl.replace('/api', '')}/uploads/productos/${imagen}`;
 
+  }
 
-Swal.fire({
 
-icon:'success',
+  // ==========================
+  // CAMBIAR ESTADO
+  // ==========================
 
-title:'Estado actualizado',
+  cambiarEstado() {
 
-text:`El pedido ahora está ${this.pedido.estado}`,
 
-timer:1800,
+    // ==========================
+    // VALIDAR PEDIDO
+    // ==========================
 
-showConfirmButton:false
+    if (!this.pedido) {
 
-});
+      return;
 
+    }
 
 
-},
+    // ==========================
+    // ACTUALIZAR ESTADO
+    // ==========================
 
+    this.pedidoService.actualizar(
 
+      this.idPedido,
 
+      {
 
-error:(error)=>{
+        estado: this.pedido.estado
 
+      }
 
+    )
 
-console.error(error);
+    .subscribe({
 
+      next: () => {
 
 
-Swal.fire({
+        Swal.fire({
 
-icon:'error',
+          icon: 'success',
 
-title:'Error',
+          title: 'Estado actualizado',
 
-text:'No se pudo actualizar el estado del pedido'
+          text:
+            `El pedido ahora está ${this.pedido.estado}`,
 
-});
+          timer: 1800,
 
+          showConfirmButton: false
 
+        });
 
-}
 
+      },
 
 
-});
+      error: (error) => {
 
 
+        console.error(
+          'Error actualizando estado:',
+          error
+        );
 
-}
 
+        Swal.fire({
 
+          icon: 'error',
 
+          title: 'Error',
 
+          text:
+            error.error?.message ??
+            'No se pudo actualizar el estado del pedido.',
 
+          confirmButtonColor:
+            '#D63384'
 
+        });
 
-volver(){
 
+      }
 
-this.router.navigate([
+    });
 
-'/admin/pedidos'
 
-]);
+  }
 
 
-}
+  // ==========================
+  // VOLVER
+  // ==========================
 
+  volver() {
+
+
+    this.router.navigate([
+
+      '/admin/pedidos'
+
+    ]);
+
+
+  }
 
 
 }
